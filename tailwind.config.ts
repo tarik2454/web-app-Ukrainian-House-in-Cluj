@@ -41,6 +41,10 @@ const config: Config = {
         xl: '1440px',
         '2xl': '-1px',
       },
+      borderRadius: {
+        sm: '8px',
+        md: '16px',
+      },
     },
   },
   plugins: [],

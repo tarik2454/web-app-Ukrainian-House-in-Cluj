@@ -1,3 +1,5 @@
+import { Container } from '../shared/components';
+
 export default function HomePage() {
-  return <div className="text-red-600">Root</div>;
+  return <Container>HomePage</Container>;
 }

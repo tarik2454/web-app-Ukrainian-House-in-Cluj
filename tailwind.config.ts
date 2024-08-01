@@ -5,16 +5,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        tahiti: {
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
+        black: {
+          100: '#667085',
+          200: '#1A1A1A',
+          300: '#090D1F',
+        },
+        green: {
+          100: '#ECFDF3',
+          200: '#027A48',
+        },
+        pink: {
+          100: '#FDF2FA',
+          200: '#C11574',
+        },
+        red: {
+          100: '#FFF1F3',
+          200: '#C01048',
+        },
+        violet: {
+          100: '#F9F5FF',
+          200: '#7F56D9',
+          300: '#6941C6',
+        },
+        gray: {
+          100: '#F8F9FC',
+          200: '#363F72',
+        },
+        orange: {
+          100: '#FFF6ED',
+          200: '#C4320A',
+        },
+        teel: {
+          100: '#F0F9FF',
+          200: '#026AA2',
         },
         white: '#FFFFFF',
         current: 'currentColor',
@@ -44,6 +67,7 @@ const config: Config = {
       borderRadius: {
         sm: '8px',
         md: '16px',
+        lg: '29px',
       },
     },
   },

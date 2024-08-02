@@ -1,5 +1,5 @@
 const routes = {
-  ROOT: '/web-app-Ukrainian-House-in-Cluj/',
+  ROOT: '/',
   NEWS: 'news',
   EVENTS: 'events',
   ABOUT_US: 'about-us',

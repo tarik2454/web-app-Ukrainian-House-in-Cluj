@@ -10,7 +10,7 @@ export function App() {
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path={routes.ROOT} element={<Layout />}>
-          <Route path={routes.HOME} element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path={routes.NEWS} element={<News />} />
           <Route path={routes.EVENTS} element={<Events />} />
           <Route path={routes.ABOUT_US} element={<AboutUs />} />

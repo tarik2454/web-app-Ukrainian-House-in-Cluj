@@ -13,7 +13,7 @@ export default function AllEvents() {
       <Container>
         <SectionTitle>Останні події</SectionTitle>
         <ul className="columns-2">
-          {eventsData.slice(0, 10).map((news, index) => {
+          {eventsData.slice(0, 2).map((news, index) => {
             const { title, img, description, tags } = news;
             return (
               <li key={index}>
@@ -27,7 +27,7 @@ export default function AllEvents() {
             );
           })}
 
-          {eventsData.slice(10, 20).map((news, index) => {
+          {eventsData.slice(2, 5).map((news, index) => {
             const { title, img, description, tags } = news;
             return (
               <li key={index}>

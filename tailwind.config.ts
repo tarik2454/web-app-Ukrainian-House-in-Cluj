@@ -9,6 +9,7 @@ const config: Config = {
           100: '#667085',
           200: '#1A1A1A',
           300: '#090D1F',
+          '100_34': 'rgba(0, 0, 0, 0.34)',
         },
         green: {
           100: '#ECFDF3',
@@ -42,6 +43,9 @@ const config: Config = {
         white: '#FFFFFF',
         current: 'currentColor',
         transparent: 'transparent',
+      },
+      opacity: {
+        34: '0.34',
       },
       fontFamily: {
         sans: ['Inter-400', 'sans-serif'],

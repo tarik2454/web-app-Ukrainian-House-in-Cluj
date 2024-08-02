@@ -1,5 +1,12 @@
-import { Container } from '../shared/components';
+import { AllEvents, AllNews, Hero, OurTeams } from '../modules';
 
 export default function HomePage() {
-  return <Container>HomePage</Container>;
+  return (
+    <>
+      <Hero />
+      <AllNews />
+      <AllEvents />
+      <OurTeams />
+    </>
+  );
 }

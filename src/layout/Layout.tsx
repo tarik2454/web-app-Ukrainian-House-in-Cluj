@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main className="h-screen">
+      <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>

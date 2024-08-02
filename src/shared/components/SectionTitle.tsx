@@ -2,20 +2,20 @@ import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export default function SectionTitle({
-  name,
-  className,
+  children,
+  styles,
 }: {
-  name?: ReactNode;
-  className?: string;
+  children?: ReactNode;
+  styles?: string;
 }) {
   return (
     <h2
       className={twMerge(
-        `mb-10 font-lato text-[24px] font-normal leading-[38.4px] md:font-lora md:text-[32px] md:leading-normal xl:text-[40px] xl:mb-[88px]`,
-        className
+        `mb-8 font-inter-600 text-2xl font-semibold text-black-200`,
+        styles
       )}
     >
-      {name}
+      {children}
     </h2>
   );
 }

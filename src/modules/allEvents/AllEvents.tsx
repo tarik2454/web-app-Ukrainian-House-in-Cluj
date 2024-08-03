@@ -1,46 +1,28 @@
-import {
-  CardEvents,
-  Container,
-  Section,
-  SectionTitle,
-} from '../../shared/components';
-
 import eventsData from '../../shared/data/events-data';
+
+import { Container, Section, SectionTitle } from '../../shared/components';
+import { EventsList } from './components';
 
 export default function AllEvents() {
   return (
     <Section>
       <Container>
         <SectionTitle>Останні події</SectionTitle>
-        <ul className="columns-2">
-          {eventsData.slice(0, 2).map((news, index) => {
-            const { title, img, description, tags } = news;
-            return (
-              <li key={index}>
-                <CardEvents
-                  title={title}
-                  img={img}
-                  description={description}
-                  tags={tags}
-                />
-              </li>
-            );
-          })}
+        <div className="grid grid-cols-2 gap-8">
+          <EventsList
+            eventsData={eventsData}
+            indexStart={0}
+            indexEnd={1}
+            singleEvent={true}
+          />
 
-          {eventsData.slice(2, 5).map((news, index) => {
-            const { title, img, description, tags } = news;
-            return (
-              <li key={index}>
-                <CardEvents
-                  title={title}
-                  img={img}
-                  description={description}
-                  tags={tags}
-                />
-              </li>
-            );
-          })}
-        </ul>
+          <EventsList
+            eventsData={eventsData}
+            indexStart={2}
+            indexEnd={5}
+            listEvents={true}
+          />
+        </div>
       </Container>
     </Section>
   );

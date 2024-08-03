@@ -23,6 +23,10 @@ const config: Config = {
           100: '#FFF1F3',
           200: '#C01048',
         },
+        blue: {
+          100: '#EEF4FF',
+          200: '#3538CD',
+        },
         violet: {
           100: '#F9F5FF',
           200: '#7F56D9',

@@ -1,35 +1,25 @@
-import { Container, Logo } from '../../shared/components';
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { Container, IconsBlock, Logo } from '../../shared/components';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="py-[30px] border-t-[1px] border-gray-300">
       <Container>
-        <div className="">
-          <div className="flex justify-between">
-            <Logo />
+        <>
+          <div className="flex justify-between justify-items-start">
+            <div className="flex flex-col gap-3">
+              <Logo />
+              <p>&copy;2024 Your Company Name. All rights reserved.</p>
+            </div>
 
-            <address className="flex flex-col">
+            <address className="flex flex-col gap-3">
               <span>Клуж-Напока вул. Напока, 25</span>
               <a href="tel:+40773702016">+40773702016</a>
               <span>пн-пт: 9:00 - 18:00</span>
             </address>
 
-            <div className="flex gap-4 px-4 py-2 bg-black-300">
-              <a href="#">
-                <SpriteSVG name="sun" />
-              </a>
-              <a href="#">
-                <SpriteSVG name="moon" />
-              </a>
-              <a href="#">
-                <SpriteSVG name="sun" />
-              </a>
-            </div>
+            <IconsBlock />
           </div>
-
-          <p className="">&copy;2024 Your Company Name. All rights reserved.</p>
-        </div>
+        </>
       </Container>
     </footer>
   );

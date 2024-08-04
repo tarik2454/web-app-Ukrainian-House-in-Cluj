@@ -35,6 +35,7 @@ const config: Config = {
         gray: {
           100: '#F8F9FC',
           200: '#363F72',
+          300: '#EAECF0',
         },
         orange: {
           100: '#FFF6ED',
@@ -48,6 +49,7 @@ const config: Config = {
         current: 'currentColor',
         transparent: 'transparent',
       },
+
       opacity: {
         34: '0.34',
       },

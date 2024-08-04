@@ -3,13 +3,13 @@ import { twMerge } from 'tailwind-merge';
 
 export default function Section({
   children,
-  stylesWrapper,
+  styles,
 }: {
   children: ReactNode;
-  stylesWrapper?: string;
+  styles?: string;
 }) {
   return (
-    <section className={twMerge(`py-[30px]`, stylesWrapper)}>
+    <section className={twMerge(`pt-[30px] pb-[30px]`, styles)}>
       {children}
     </section>
   );

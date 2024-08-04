@@ -6,17 +6,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
 import { CardTeam } from '../../modules/ourTeams/components';
+import { SpriteSVG } from '../../img/SpriteSVG';
 
-type DataTypeProps = {
+interface DataTypeProps {
   name: string;
   position: string;
   img: string;
   link_telegram: string;
-};
+}
 
 export default function Slider({ data }: { data: DataTypeProps[] }) {
   return (
-    <>
+    <div className="relative">
       <Swiper
         modules={[Navigation, Pagination, A11y, Autoplay]}
         navigation={{ nextEl: '.mySwiper-next', prevEl: '.mySwiper-prev' }}
@@ -27,17 +28,17 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
           // when window width is >= 320px
           320: {
             slidesPerView: 1,
-            spaceBetween: 24,
+            spaceBetween: 32,
           },
           // when window width is >= 768px
           768: {
             slidesPerView: 2,
-            spaceBetween: 16,
+            spaceBetween: 32,
           },
           // when window width is >= 1440px
           1440: {
             slidesPerView: 4,
-            spaceBetween: 24,
+            spaceBetween: 32,
           },
         }}
       >
@@ -58,18 +59,16 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
         </div>
       </Swiper>
 
-      <div>
-        {/* <ButtonAllAds pageLink={pageLink}>
-        <div className="hidden gap-3 md:flex"> */}
+      <div className="flex justify-between w-full absolute -bottom-[5px] z-10">
         <button className="mySwiper-prev">
-          {/* <SpriteSVG name="slider-prev" /> */}
+          <SpriteSVG name="arrow-left" />
+          Previous
         </button>
         <button className="mySwiper-next">
-          {/* <SpriteSVG name="slider-next" /> */}
+          Next
+          <SpriteSVG name="arrow-right" />
         </button>
-        {/* </div>
-      </ButtonAllAds> */}
       </div>
-    </>
+    </div>
   );
 }

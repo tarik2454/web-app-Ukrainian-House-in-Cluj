@@ -45,6 +45,7 @@ const config: Config = {
           100: '#F0F9FF',
           200: '#026AA2',
         },
+        'background-color': '#FFFFFF',
         white: '#FFFFFF',
         current: 'currentColor',
         transparent: 'transparent',

@@ -1,12 +1,21 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Autoplay,
+  HashNavigation,
+} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import 'swiper/css/hash-navigation';
 
-import { CardTeam } from '../../modules/ourTeams/components';
+import { TeamCard } from '../../modules/ourTeams/components';
 import { SpriteSVG } from '../../img/SpriteSVG';
+import { useRef, useEffect } from 'react';
+import type { Swiper as SwiperClass } from 'swiper/types';
 
 interface DataTypeProps {
   name: string;
@@ -16,38 +25,66 @@ interface DataTypeProps {
 }
 
 export default function Slider({ data }: { data: DataTypeProps[] }) {
+  const swiperRef = useRef<SwiperClass | null>(null);
+
+  useEffect(() => {
+    const swiperInstance = swiperRef.current;
+
+    const handleMouseEnter = () => {
+      swiperInstance?.autoplay.stop();
+    };
+
+    const handleMouseLeave = () => {
+      swiperInstance?.autoplay.start();
+    };
+
+    if (swiperInstance?.el) {
+      swiperInstance.el.addEventListener('mouseenter', handleMouseEnter);
+      swiperInstance.el.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    return () => {
+      if (swiperInstance?.el) {
+        swiperInstance.el.removeEventListener('mouseenter', handleMouseEnter);
+        swiperInstance.el.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
+
   return (
     <div className="relative">
       <Swiper
-        modules={[Navigation, Pagination, A11y, Autoplay]}
+        onSwiper={swiper => {
+          swiperRef.current = swiper;
+        }}
+        modules={[Navigation, Pagination, A11y, Autoplay, HashNavigation]}
         navigation={{ nextEl: '.mySwiper-next', prevEl: '.mySwiper-prev' }}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 2000 }}
+        loop={true}
         className="mySwiper"
         breakpoints={{
-          // when window width is >= 320px
           320: {
             slidesPerView: 1,
             spaceBetween: 32,
           },
-          // when window width is >= 768px
           768: {
             slidesPerView: 2,
             spaceBetween: 32,
           },
-          // when window width is >= 1440px
           1440: {
             slidesPerView: 4,
             spaceBetween: 32,
           },
         }}
+        grabCursor={true}
       >
         <div className="swiper-wrapper">
           {data.map((team, index) => {
             const { name, position, img, link_telegram } = team;
             return (
               <SwiperSlide key={index} className="swiper-slide">
-                <CardTeam
+                <TeamCard
                   name={name}
                   position={position}
                   img={img}

@@ -4,7 +4,7 @@ import Slider from '../../shared/components/Slider';
 
 export default function OurTeams() {
   return (
-    <Section styles={'pb-[60px]'}>
+    <Section>
       <Container>
         <SectionTitle>Наша командa</SectionTitle>
         <Slider data={teamData} />

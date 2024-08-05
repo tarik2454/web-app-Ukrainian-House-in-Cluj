@@ -1,2 +1,2 @@
-export { default as CardEvents } from './CardEvents';
+export { default as EventsCard } from './EventsCard';
 export { default as EventsList } from './EventsList';

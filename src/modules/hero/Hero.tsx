@@ -2,7 +2,7 @@ import { Container, Section } from '../../shared/components';
 
 export default function Hero() {
   return (
-    <div className="border-y-[1px] border-gray-300">
+    <div className="border-b-[1px] border-gray-300">
       <Section>
         <Container>
           <p
@@ -16,6 +16,3 @@ export default function Hero() {
     </div>
   );
 }
-
-// before:content-[''] before:block before:w-full before:h-1 before:bg-black-100_34
-//     after:content-[''] after:block after:w-full after:h-1 after:bg-black-100_34

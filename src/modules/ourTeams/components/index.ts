@@ -1,1 +1,1 @@
-export { default as CardTeam } from './CardTeam.tsx';
+export { default as TeamCard } from './TeamCard.tsx';

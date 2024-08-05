@@ -1,10 +1,4 @@
 const tagColors: { [key: string]: string } = {
-  література: 'bg-blue-500',
-  ярмарок: 'bg-green-500',
-  садівництво: 'bg-yellow-500',
-  фотографія: 'bg-purple-500',
-  технології: 'bg-purple-500',
-  конференція: 'bg-purple-500',
   виставка: 'bg-blue-100 !text-blue-200',
   мистецтво: 'bg-blue-100 !text-blue-200',
   'майстер-клас': 'bg-blue-100 !text-blue-200',

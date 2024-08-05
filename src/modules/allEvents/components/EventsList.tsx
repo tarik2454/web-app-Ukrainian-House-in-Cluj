@@ -1,7 +1,7 @@
-import { CardEvents } from './';
+import { EventsCard } from '.';
 import { EventsListProps } from '../types/types';
 
-export default function EventsList({
+export default function ListEvents({
   eventsData,
   indexStart = 0,
   indexEnd = 1,
@@ -13,7 +13,7 @@ export default function EventsList({
     <ul className={`${listEvents ? 'flex flex-col gap-8' : ''}`}>
       {eventsData.slice(indexStart, indexEnd).map((news, index) => (
         <li key={index}>
-          <CardEvents
+          <EventsCard
             title={news.title}
             img={news.img}
             description={news.description}

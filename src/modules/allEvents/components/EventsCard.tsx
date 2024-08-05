@@ -7,7 +7,7 @@ interface CommonCardProps extends EventsDataProps {
   pageEvents?: boolean;
 }
 
-export default function CardEvents({
+export default function EventsCard({
   title,
   img,
   description,
@@ -28,18 +28,30 @@ CommonCardProps) {
       />
 
       <div>
-        <div className={`${singleEvent ? 'mb-3' : 'mb-3'}`}>{date}</div>
-        <h3 className={`${singleEvent ? 'mb-3' : 'mb-2'}`}>{title}</h3>
+        <div
+          className={`font-inter-600 text-sm font-semibold text-violet-300 ${
+            singleEvent ? 'mb-3' : 'mb-3'
+          }`}
+        >
+          {date}
+        </div>
+        <h3
+          className={`font-inter-600 text-2xl font-semibold text-black-200 ${
+            singleEvent ? 'mb-3' : 'mb-2 text-lg'
+          }`}
+        >
+          {title}
+        </h3>
         <p className={`${singleEvent ? 'mb-6' : 'mb-6'}`}>{description}</p>
         <ul className="flex gap-2">
           {tags.map((tag, index) => (
             <li
               key={index}
-              className={`px-3 py-1 rounded-md text-white ${
+              className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
                 tagColors[tag] || 'bg-gray-500'
               }`}
             >
-              {tag}
+              <a href="#">{tag}</a>
             </li>
           ))}
         </ul>

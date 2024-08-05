@@ -7,7 +7,7 @@ interface NewsProps {
 export default function CardNews({ title, description, date }: NewsProps) {
   return (
     <div>
-      <h3 className="mb-3 font-inter-600 font-semibold text-2xl text-black-200">
+      <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200">
         {title}
       </h3>
       <p className="mb-3 ">{description}</p>

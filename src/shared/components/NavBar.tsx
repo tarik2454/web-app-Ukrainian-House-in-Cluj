@@ -3,6 +3,7 @@ import routes from '../../constants/routes';
 const navItems = [
   { path: routes.ROOT, label: 'Головна' },
   { path: routes.NEWS, label: 'Новини' },
+  { path: routes.WORK_SCHEDULE, label: 'Графік роботи' },
   { path: routes.EVENTS, label: 'Події' },
   { path: routes.ABOUT_US, label: 'Про нас' },
 ];

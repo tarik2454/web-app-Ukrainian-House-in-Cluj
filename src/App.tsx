@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 import routes from './constants/routes';
 import Layout from './layout/Layout';
-import { HomePage, News, Events, AboutUs } from './pages';
+import { HomePage, News, Events, AboutUs, WorkSchedule } from './pages';
 
 export function App() {
   return (
@@ -12,6 +12,7 @@ export function App() {
         <Route path={routes.ROOT} element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path={routes.NEWS} element={<News />} />
+          <Route path={routes.WORK_SCHEDULE} element={<WorkSchedule />} />
           <Route path={routes.EVENTS} element={<Events />} />
           <Route path={routes.ABOUT_US} element={<AboutUs />} />
         </Route>

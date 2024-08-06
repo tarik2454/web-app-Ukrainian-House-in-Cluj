@@ -53,6 +53,14 @@
   }
 }
 
+@layer components {
+  .text-ukraine-gradient {
+    @apply bg-clip-text text-transparent
+     bg-gradient-to-r from-yellow-500 from-30%
+   via-amber-500 via-40% to-blue-600 to-70%;
+  }
+}
+
 .mySwiper .swiper-wrapper {
   margin-bottom: 40px !important;
 
@@ -92,4 +100,32 @@
 
 .swiper-pagination-bullet-active {
   background-color: #667085 !important;
+}
+
+.day {
+  margin-bottom: 20px;
+}
+
+.day-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.event {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.event-time {
+  font-weight: bold;
+}
+
+.event-description {
+  margin-left: 10px;
+}
+
+.event-module {
+  margin-left: 10px;
+  font-style: italic;
 }

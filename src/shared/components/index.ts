@@ -6,3 +6,4 @@ export { default as NavBar } from './NavBar.tsx';
 export { default as CardNews } from './CardNews.tsx';
 export { default as IconsBlock } from './IconsBlock.tsx';
 export { default as PageWrapper } from './PageWrapper';
+export { default as Sponsors } from './Sponsors';

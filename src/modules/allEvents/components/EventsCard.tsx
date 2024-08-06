@@ -28,13 +28,13 @@ CommonCardProps) {
       />
 
       <div>
-        <div
+        <p
           className={`font-inter-600 text-sm font-semibold text-violet-300 ${
             singleEvent ? 'mb-3' : 'mb-3'
           }`}
         >
           {date}
-        </div>
+        </p>
         <h3
           className={`font-inter-600 text-2xl font-semibold text-black-200 ${
             singleEvent ? 'mb-3' : 'mb-2 text-lg'

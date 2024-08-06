@@ -69,11 +69,11 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
             spaceBetween: 32,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 32,
           },
           1440: {
-            slidesPerView: 4,
+            slidesPerView: 5,
             spaceBetween: 32,
           },
         }}
@@ -99,10 +99,10 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
       <div className="flex justify-between w-full absolute -bottom-[5px] z-10">
         <button className="mySwiper-prev">
           <SpriteSVG name="arrow-left" />
-          Previous
+          Сюди
         </button>
         <button className="mySwiper-next">
-          Next
+          Туди
           <SpriteSVG name="arrow-right" />
         </button>
       </div>

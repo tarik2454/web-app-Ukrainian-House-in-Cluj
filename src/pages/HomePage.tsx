@@ -3,7 +3,7 @@ import { PageWrapper } from '../shared/components';
 
 export default function HomePage() {
   return (
-    <PageWrapper>
+    <PageWrapper styles={'mb-[30px]'}>
       <Hero />
       <AllNews />
       <Schedule mainPage={true} />

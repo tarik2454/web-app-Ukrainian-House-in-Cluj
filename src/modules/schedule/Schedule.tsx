@@ -7,7 +7,7 @@ interface ScheduleProps {
 
 export default function Schedule({ mainPage }: ScheduleProps) {
   return (
-    <div className="bg-blue-100">
+    <div className="">
       <Section>
         <Container>
           <SectionTitle>Графік роботи</SectionTitle>

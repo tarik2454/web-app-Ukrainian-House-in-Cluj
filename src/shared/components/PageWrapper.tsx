@@ -7,7 +7,5 @@ interface PageWrapperProps {
 }
 
 export default function PageWrapper({ children, styles }: PageWrapperProps) {
-  return (
-    <div className={twMerge('pt-[110px] pb-[30px]', styles)}>{children}</div>
-  );
+  return <div className={twMerge('pt-[110px]', styles)}>{children}</div>;
 }

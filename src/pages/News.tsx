@@ -1,5 +1,10 @@
-import { Container } from '../shared/components';
+import { AllNews } from '../modules';
+import { PageWrapper } from '../shared/components';
 
 export default function News() {
-  return <Container>News</Container>;
+  return (
+    <PageWrapper>
+      <AllNews />
+    </PageWrapper>
+  );
 }

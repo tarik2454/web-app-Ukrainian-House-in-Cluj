@@ -1,5 +1,10 @@
-import { Container } from '../shared/components';
+import { AllEvents } from '../modules';
+import { PageWrapper } from '../shared/components';
 
 export default function Events() {
-  return <Container>Events</Container>;
+  return (
+    <PageWrapper>
+      <AllEvents />
+    </PageWrapper>
+  );
 }

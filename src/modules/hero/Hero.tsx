@@ -5,9 +5,9 @@ export default function Hero() {
     <div className="border-b-[1px] border-gray-300">
       <Section>
         <Container>
-          <p className="text-ukraine-gradient font-inter-700 text-[170px] font-bold text-center">
+          <h1 className="text-ukraine-gradient font-inter-700 text-[170px] font-bold text-center">
             Ukraine House
-          </p>
+          </h1>
         </Container>
       </Section>
     </div>

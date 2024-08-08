@@ -1,5 +1,6 @@
 const eventsData = [
   {
+    id: '1',
     title: 'Фестиваль сучасного мистецтва',
     img: 'https://via.placeholder.com/150x100?text=Art+Festival',
     description:
@@ -8,6 +9,7 @@ const eventsData = [
     date: '01.02.2024',
   },
   {
+    id: '2',
     title: 'Музичний концерт під відкритим небом',
     img: 'https://via.placeholder.com/150x100?text=Open+Air+Concert',
     description:
@@ -16,6 +18,7 @@ const eventsData = [
     date: '02.02.2024',
   },
   {
+    id: '3',
     title: 'Велопробіг містом',
     img: 'https://via.placeholder.com/150x100?text=City+Bike+Race',
     description:
@@ -24,6 +27,7 @@ const eventsData = [
     date: '03.02.2024',
   },
   {
+    id: '4',
     title: 'Кулінарний майстер-клас',
     img: 'https://via.placeholder.com/150x100?text=Cooking+Masterclass',
     description:
@@ -32,6 +36,7 @@ const eventsData = [
     date: '04.02.2024',
   },
   {
+    id: '5',
     title: 'Виставка ретро-автомобілів',
     img: 'https://via.placeholder.com/150x100?text=Retro+Car+Show',
     description:
@@ -40,6 +45,7 @@ const eventsData = [
     date: '05.02.2024',
   },
   {
+    id: '6',
     title: 'Театральна вистава',
     img: 'https://via.placeholder.com/150x100?text=Theater+Play',
     description:
@@ -48,6 +54,7 @@ const eventsData = [
     date: '06.02.2024',
   },
   {
+    id: '7',
     title: 'Майстер-клас з фотографії',
     img: 'https://via.placeholder.com/150x100?text=Photography+Workshop',
     description:
@@ -56,6 +63,7 @@ const eventsData = [
     date: '07.02.2024',
   },
   {
+    id: '8',
     title: 'Благодійний ярмарок',
     img: 'https://via.placeholder.com/150x100?text=Charity+Fair',
     description:
@@ -64,6 +72,7 @@ const eventsData = [
     date: '08.02.2024',
   },
   {
+    id: '9',
     title: 'Зустріч з письменником',
     img: 'https://via.placeholder.com/150x100?text=Author+Meeting',
     description:
@@ -72,6 +81,7 @@ const eventsData = [
     date: '09.02.2024',
   },
   {
+    id: '10',
     title: 'Майстер-клас з йоги',
     img: 'https://via.placeholder.com/150x100?text=Yoga+Workshop',
     description:
@@ -80,6 +90,7 @@ const eventsData = [
     date: '10.02.2024',
   },
   {
+    id: '11',
     title: 'Екскурсія містом',
     img: 'https://via.placeholder.com/150x100?text=City+Tour',
     description:
@@ -88,6 +99,7 @@ const eventsData = [
     date: '11.02.2024',
   },
   {
+    id: '12',
     title: 'Кіно під відкритим небом',
     img: 'https://via.placeholder.com/150x100?text=Open+Air+Cinema',
     description:
@@ -96,6 +108,7 @@ const eventsData = [
     date: '12.02.2024',
   },
   {
+    id: '13',
     title: 'Майстер-клас з малювання',
     img: 'https://via.placeholder.com/150x100?text=Painting+Workshop',
     description:
@@ -104,6 +117,7 @@ const eventsData = [
     date: '13.02.2024',
   },
   {
+    id: '14',
     title: 'Благодійний забіг',
     img: 'https://via.placeholder.com/150x100?text=Charity+Run',
     description:
@@ -112,6 +126,7 @@ const eventsData = [
     date: '14.02.2024',
   },
   {
+    id: '15',
     title: 'Конференція з технологій',
     img: 'https://via.placeholder.com/150x100?text=Tech+Conference',
     description:
@@ -120,6 +135,7 @@ const eventsData = [
     date: '15.02.2024',
   },
   {
+    id: '16',
     title: 'Майстер-клас з танців',
     img: 'https://via.placeholder.com/150x100?text=Dance+Workshop',
     description:
@@ -128,6 +144,7 @@ const eventsData = [
     date: '16.02.2024',
   },
   {
+    id: '17',
     title: 'Фестиваль їжі',
     img: 'https://via.placeholder.com/150x100?text=Food+Festival',
     description:
@@ -136,6 +153,7 @@ const eventsData = [
     date: '17.02.2024',
   },
   {
+    id: '18',
     title: 'Великий книжковий ярмарок',
     img: 'https://via.placeholder.com/150x100?text=Book+Fair',
     description:
@@ -144,20 +162,13 @@ const eventsData = [
     date: '18.02.2024',
   },
   {
+    id: '19',
     title: 'Садовий майстер-клас',
     img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
     description:
       'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
     tags: ['садівництво', 'майстер-клас'],
     date: '19.02.2024',
-  },
-  {
-    title: 'Фотовиставка',
-    img: 'https://via.placeholder.com/150x100?text=Photo+Exhibition',
-    description:
-      'Запрошуємо на фотовиставку, де будуть представлені роботи талановитих фотографів. Вхід вільний!',
-    tags: ['фотографія', 'виставка'],
-    date: '20.02.2024',
   },
 ];
 

@@ -1,4 +1,5 @@
 export interface EventsDataProps {
+  id: string;
   title: string;
   img: string;
   description: string;
@@ -7,10 +8,6 @@ export interface EventsDataProps {
 }
 
 export interface EventsListProps {
-  eventsData: EventsDataProps[];
-  indexStart?: number;
-  indexEnd?: number;
-  singleEvent?: boolean;
-  listEvents?: boolean;
-  pageEvents?: boolean;
+  eventsData?: EventsDataProps[];
+  mainPage?: boolean;
 }

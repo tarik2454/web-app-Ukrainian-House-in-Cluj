@@ -55,10 +55,28 @@
 
 @layer components {
   .text-ukraine-gradient {
-    @apply bg-clip-text text-transparent
-     bg-gradient-to-r from-yellow-500 from-30%
-   via-amber-500 via-40% to-blue-600 to-70%;
+    @apply bg-clip-text 
+    text-transparent
+    bg-gradient-to-r 
+  from-yellow-500 from-30%
+  via-amber-500 
+    via-40% 
+    to-blue-600 
+    to-70%;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
 .mySwiper .swiper-wrapper {

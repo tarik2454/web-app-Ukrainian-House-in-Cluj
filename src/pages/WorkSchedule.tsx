@@ -1,9 +1,10 @@
 import { Schedule } from '../modules';
-import { PageWrapper } from '../shared/components';
+import { PageTitle, PageWrapper } from '../shared/components';
 
 export default function WorkSchedule() {
   return (
     <PageWrapper>
+      <PageTitle styles={'visually-hidden'}>Графік роботи</PageTitle>
       <Schedule />
     </PageWrapper>
   );

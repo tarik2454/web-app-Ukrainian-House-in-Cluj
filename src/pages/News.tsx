@@ -1,9 +1,10 @@
 import { AllNews } from '../modules';
-import { PageWrapper } from '../shared/components';
+import { PageTitle, PageWrapper } from '../shared/components';
 
 export default function News() {
   return (
     <PageWrapper>
+      <PageTitle styles={'visually-hidden'}>Новини</PageTitle>
       <AllNews />
     </PageWrapper>
   );

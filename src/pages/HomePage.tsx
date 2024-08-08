@@ -1,13 +1,14 @@
 import { AllEvents, Schedule, AllNews, Hero, OurTeams } from '../modules';
-import { PageWrapper } from '../shared/components';
+import { PageTitle, PageWrapper } from '../shared/components';
 
 export default function HomePage() {
   return (
-    <PageWrapper styles={'mb-[30px]'}>
+    <PageWrapper>
+      <PageTitle styles={'visually-hidden'}>Домашня сторiнка</PageTitle>
       <Hero />
-      <AllNews />
+      <AllNews mainPage={true} />
       <Schedule mainPage={true} />
-      <AllEvents />
+      <AllEvents mainPage={true} />
       <OurTeams />
     </PageWrapper>
   );

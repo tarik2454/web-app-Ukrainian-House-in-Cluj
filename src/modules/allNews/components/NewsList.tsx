@@ -7,14 +7,13 @@ export default function NewsList({ mainPage }: { mainPage?: boolean }) {
   return (
     <ul className={`grid gap-8 ${mainPage ? 'grid-cols-2' : 'grid-cols-1'}`}>
       {displayedNews.map((news, index) => {
-        const { title, description, date, image } = news;
+        const { title, description, date } = news;
         return (
           <li key={index}>
             <NewsCard
               title={title}
               description={description}
               date={date}
-              image={image}
               mainPage={mainPage}
             />
           </li>

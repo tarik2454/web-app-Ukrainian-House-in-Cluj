@@ -2,26 +2,24 @@ import newsData from '../../../shared/data/news-data';
 import NewsCard from './NewsCard';
 
 export default function NewsList({ mainPage }: { mainPage?: boolean }) {
+  const displayedNews = mainPage ? newsData.slice(0, 6) : newsData;
+
   return (
     <ul className={`grid gap-8 ${mainPage ? 'grid-cols-2' : 'grid-cols-1'}`}>
-      {newsData.slice(0, mainPage ? 3 : newsData.length).map((news, index) => {
-        const { title, description, date } = news;
+      {displayedNews.map((news, index) => {
+        const { title, description, date, image } = news;
         return (
           <li key={index}>
-            <NewsCard title={title} description={description} date={date} />
+            <NewsCard
+              title={title}
+              description={description}
+              date={date}
+              image={image}
+              mainPage={mainPage}
+            />
           </li>
         );
       })}
-
-      {mainPage &&
-        newsData.slice(3, 6).map((news, index) => {
-          const { title, description, date } = news;
-          return (
-            <li key={index}>
-              <NewsCard title={title} description={description} date={date} />
-            </li>
-          );
-        })}
     </ul>
   );
 }

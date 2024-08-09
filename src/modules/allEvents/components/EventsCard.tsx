@@ -1,11 +1,10 @@
 import routes from '../../../constants/routes';
 import tagColors from '../helpers/tag-colors';
-import { EventsDataProps } from '../types/types';
+import { EventsDataProps } from '../types/event-types';
 
 interface CommonCardProps extends EventsDataProps {
   singleEvent?: boolean;
-  listEvents?: boolean;
-  pageEvents?: boolean;
+  detailsPage?: boolean;
   mainPage?: boolean;
 }
 
@@ -18,6 +17,7 @@ export default function EventsCard({
   date,
   singleEvent = false,
   mainPage = false,
+  detailsPage = false,
 }: CommonCardProps) {
   console.log(mainPage);
 
@@ -27,20 +27,21 @@ export default function EventsCard({
     <a href={eventUrl}>
       <div
         className={`${
-          singleEvent ? 'block' : 'grid grid-cols-[40%_1fr] gap-6'
+          singleEvent || detailsPage
+            ? 'block'
+            : 'grid grid-cols-[40%_1fr] gap-6'
         }`}
       >
         <img
-          className={`${singleEvent ? 'w-full h-full mb-8' : 'w-full h-full'}`}
+          className={`${
+            singleEvent || detailsPage ? 'w-full h-full mb-6' : 'w-full h-full'
+          }`}
           src={img}
           alt={title}
         />
+
         <div>
-          <p
-            className={`font-inter-600 text-sm font-semibold text-violet-300 ${
-              singleEvent ? 'mb-3' : 'mb-3'
-            }`}
-          >
+          <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300">
             {date}
           </p>
           <h3
@@ -50,7 +51,9 @@ export default function EventsCard({
           >
             {title}
           </h3>
-          <p className={`${singleEvent ? 'mb-6' : 'mb-6'}`}>{description}</p>
+
+          <p className="mb-6">{description}</p>
+
           <ul className="flex gap-2">
             {tags.map((tag, index) => (
               <li

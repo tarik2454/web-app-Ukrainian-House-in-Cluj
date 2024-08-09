@@ -2,7 +2,13 @@ import eventsData from '../../../shared/data/events-data';
 
 import { EventsCard } from '.';
 
-export default function ListEvents({ mainPage }: { mainPage?: boolean }) {
+export default function Events({
+  mainPage,
+  detailsPage,
+}: {
+  mainPage?: boolean;
+  detailsPage?: boolean;
+}) {
   return (
     <div className="flex flex-row gap-8">
       {mainPage ? (
@@ -26,7 +32,10 @@ export default function ListEvents({ mainPage }: { mainPage?: boolean }) {
 
       <ul className="flex flex-col gap-8">
         {eventsData
-          .slice(1, mainPage ? 4 : eventsData.length)
+          .slice(
+            detailsPage ? 0 : 1,
+            mainPage ? 4 : detailsPage ? 3 : eventsData.length
+          )
           .map((news, index) => (
             <li key={index}>
               <EventsCard
@@ -36,7 +45,7 @@ export default function ListEvents({ mainPage }: { mainPage?: boolean }) {
                 description={news.description}
                 tags={news.tags}
                 date={news.date}
-                mainPage={mainPage}
+                detailsPage={detailsPage}
               />
             </li>
           ))}

@@ -60,13 +60,13 @@ const config: Config = {
         'inter-600': ['Inter-600', 'sans-serif'],
         'inter-700': ['Inter-700', 'sans-serif'],
       },
-
       fontSize: {
         sm: ['14px', '1.4'],
         base: ['16px', '1.5'],
         lg: ['18px', '1.5'],
         xl: ['20px', '1.2'],
         '2xl': ['24px', '1.3'],
+        '4xl': ['36px', '1.1'],
       },
       screens: {
         sm: '375px',

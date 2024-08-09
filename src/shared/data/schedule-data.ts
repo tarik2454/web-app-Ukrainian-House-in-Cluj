@@ -78,19 +78,14 @@ const scheduleData = [
     date: '1 серпня',
     events: [
       {
-        time: '10:00 / 16:00',
+        time: '10:00 - 11:00',
         description: 'English',
         module: 'Headway',
       },
       {
-        time: '11:00 / 17:00',
+        time: '11:00 - 12:00',
         description: 'English',
         module: 'Progress',
-      },
-      {
-        time: '12:00 / 15:00',
-        description: 'English',
-        module: 'Advance',
       },
       {
         time: '14:00',

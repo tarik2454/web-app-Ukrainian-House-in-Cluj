@@ -22,18 +22,10 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
                     {event.time}
                   </div>
 
-                  {event.module && event.description === 'English' ? (
-                    <div className="flex">
-                      <div className="ml-2">{event.description}</div>
-                      <span>&nbsp;/</span>
-                      <div className="ml-2 italic">{event.module}</div>
-                    </div>
-                  ) : (
-                    <div className="">
-                      <div className="ml-2">{event.description}</div>
-                      <div className="ml-2 italic">{event.module}</div>
-                    </div>
-                  )}
+                  <div className="">
+                    <div className="ml-2">{event.description}</div>
+                    <div className="ml-2 italic">{event.module}</div>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -55,18 +47,10 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
                       {event.time}
                     </div>
 
-                    {event.module && event.description === 'English' ? (
-                      <div className="flex">
-                        <div className="ml-2">{event.description}</div>
-                        <span>&nbsp;/</span>
-                        <div className="ml-2 italic">{event.module}</div>
-                      </div>
-                    ) : (
-                      <div className="">
-                        <div className="ml-2">{event.description}</div>
-                        <div className="ml-2 italic">{event.module}</div>
-                      </div>
-                    )}
+                    <div className="">
+                      <div className="ml-2">{event.description}</div>
+                      <div className="ml-2 italic">{event.module}</div>
+                    </div>
                   </li>
                 ))}
               </ul>

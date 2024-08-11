@@ -55,15 +55,25 @@
 
 @layer components {
   .text-ukraine-gradient {
-    @apply bg-clip-text 
-    text-transparent
-    bg-gradient-to-r 
-  from-yellow-500 from-30%
-  via-amber-500 
-    via-40% 
-    to-blue-600 
-    to-70%;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-amber-500 to-blue-600;
   }
+}
+
+@keyframes waving-flag {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-waving-flag {
+  background-size: 200% 200%;
+  animation: waving-flag 3s ease-in-out infinite;
 }
 
 .visually-hidden {

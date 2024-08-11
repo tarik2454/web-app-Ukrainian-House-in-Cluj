@@ -1,6 +1,7 @@
-import routes from '../../../constants/routes';
+import { Link } from 'react-router-dom';
 import tagColors from '../helpers/tag-colors';
 import { EventsDataProps } from '../types/event-types';
+import routes from '../../../constants/routes';
 
 interface CommonCardProps extends EventsDataProps {
   singleEvent?: boolean;
@@ -16,15 +17,12 @@ export default function EventsCard({
   tags,
   date,
   singleEvent = false,
-  mainPage = false,
   detailsPage = false,
 }: CommonCardProps) {
-  console.log(mainPage);
-
   const eventUrl = routes.EVENT_ID.replace(':eventId', id);
 
   return (
-    <a href={eventUrl}>
+    <Link to={eventUrl}>
       <div
         className={`${
           singleEvent || detailsPage
@@ -68,6 +66,6 @@ export default function EventsCard({
           </ul>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

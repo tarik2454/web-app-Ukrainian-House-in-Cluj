@@ -24,7 +24,7 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
 
                   <div className="">
                     <div className="ml-2">{event.description}</div>
-                    <div className="ml-2 italic">{event.module}</div>
+                    <div className="ml-2 italic">{event.level}</div>
                   </div>
                 </li>
               ))}
@@ -49,7 +49,7 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
 
                     <div className="">
                       <div className="ml-2">{event.description}</div>
-                      <div className="ml-2 italic">{event.module}</div>
+                      <div className="ml-2 italic">{event.level}</div>
                     </div>
                   </li>
                 ))}

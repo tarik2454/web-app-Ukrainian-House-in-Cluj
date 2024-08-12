@@ -22,7 +22,7 @@ export default function EventsCard({
   const eventUrl = routes.EVENT_ID.replace(':eventId', id);
 
   return (
-    <Link to={eventUrl}>
+    <>
       <div
         className={`${
           singleEvent || detailsPage
@@ -30,27 +30,42 @@ export default function EventsCard({
             : 'grid grid-cols-[40%_1fr] gap-6'
         }`}
       >
-        <img
-          className={`${
-            singleEvent || detailsPage ? 'w-full h-full mb-6' : 'w-full h-full'
-          }`}
-          src={img}
-          alt={title}
-        />
+        <Link to={eventUrl}>
+          <img
+            className={`${
+              singleEvent || detailsPage
+                ? 'w-full h-full mb-6'
+                : 'w-full h-full'
+            }`}
+            src={img}
+            alt={title}
+          />
+        </Link>
 
         <div>
           <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300">
             {date}
           </p>
-          <h3
-            className={`font-inter-600 text-2xl font-semibold text-black-200 ${
-              singleEvent ? 'mb-3' : 'mb-2 text-lg'
-            }`}
-          >
-            {title}
-          </h3>
 
-          <p className="mb-6">{description}</p>
+          <Link
+            className="hover:underline hover:underline-offset-4"
+            to={eventUrl}
+          >
+            <h3
+              className={`font-inter-600 text-2xl font-semibold text-black-200 ${
+                singleEvent ? 'mb-3' : 'mb-2 text-lg'
+              }`}
+            >
+              {title}
+            </h3>
+          </Link>
+
+          <Link
+            className="hover:underline hover:underline-offset-[3px]"
+            to={eventUrl}
+          >
+            <p className="mb-6">{description}</p>
+          </Link>
 
           <ul className="flex gap-2">
             {tags.map((tag, index) => (
@@ -60,12 +75,12 @@ export default function EventsCard({
                   tagColors[tag] || 'bg-gray-500'
                 }`}
               >
-                <a href="#">{tag}</a>
+                {tag}
               </li>
             ))}
           </ul>
         </div>
       </div>
-    </Link>
+    </>
   );
 }

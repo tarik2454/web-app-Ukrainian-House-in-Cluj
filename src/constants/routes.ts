@@ -4,7 +4,7 @@ const routes = {
   WORK_SCHEDULE: '/work-schedule',
   EVENTS: '/events',
   ABOUT_US: '/about-us',
-  EVENT_ID: '/event/:eventId',
+  EVENT_ID: '/events/:eventId',
 
   SIGNIN: '/signin',
   SIGNUP: '/signup',

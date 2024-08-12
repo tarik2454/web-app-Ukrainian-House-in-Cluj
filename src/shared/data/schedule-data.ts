@@ -6,12 +6,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 3',
+        level: 'Модуль 3',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 3',
+        level: 'Модуль 3',
       },
       {
         time: '17:00',
@@ -25,14 +25,24 @@ const scheduleData = [
     date: '30 липня',
     events: [
       {
+        time: '10:00 - 11:00',
+        description: 'English',
+        level: 'Headway',
+      },
+      {
+        time: '11:00 - 12:00',
+        description: 'English',
+        level: 'Progress',
+      },
+      {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 2',
+        level: 'Модуль 2',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 4',
+        level: 'Модуль 4',
       },
     ],
   },
@@ -48,12 +58,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 3',
+        level: 'Модуль 3',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 3',
+        level: 'Модуль 3',
       },
       {
         time: '16:00',
@@ -80,12 +90,12 @@ const scheduleData = [
       {
         time: '10:00 - 11:00',
         description: 'English',
-        module: 'Headway',
+        level: 'Headway',
       },
       {
         time: '11:00 - 12:00',
         description: 'English',
-        module: 'Progress',
+        level: 'Progress',
       },
       {
         time: '14:00',
@@ -94,12 +104,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 2',
+        level: 'Модуль 2',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        module: 'Модуль 4',
+        level: 'Модуль 4',
       },
       {
         time: '17:00',

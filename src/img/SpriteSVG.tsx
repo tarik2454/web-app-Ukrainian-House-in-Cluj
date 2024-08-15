@@ -78,6 +78,18 @@ export const SpriteSVG = ({ name }: { name: string }) => {
         </svg>
       );
 
+    case 'close':
+      return (
+        <svg width="40" height="40" fill="none" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="m10.94 12-3.97 3.97 1.06 1.06L12 13.06l3.97 3.97 1.06-1.06L13.06 12l3.97-3.97-1.06-1.06L12 10.94 8.03 6.97 6.97 8.03 10.94 12Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      );
+
     default:
       return 'SVG not found';
   }

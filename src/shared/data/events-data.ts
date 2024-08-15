@@ -5,7 +5,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Art+Festival',
     description:
       'Запрошуємо всіх на фестиваль сучасного мистецтва, де ви зможете побачити роботи найкращих художників країни.',
-    tags: ['мистецтво', 'фестиваль'],
+    tags: ['мистецтво'],
     date: '01.02.2024',
   },
   {
@@ -14,7 +14,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Open+Air+Concert',
     description:
       'Концерт відомих музикантів просто неба. Приходьте насолоджуватися музикою і свіжим повітрям!',
-    tags: ['музика', 'концерт'],
+    tags: ['майстер-клас'],
     date: '02.02.2024',
   },
   {
@@ -23,7 +23,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=City+Bike+Race',
     description:
       'Приєднуйтесь до нашого велопробігу містом! Проведіть активний день у компанії однодумців.',
-    tags: ['спорт', 'велопробіг'],
+    tags: ['малювання'],
     date: '03.02.2024',
   },
   {
@@ -32,7 +32,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Cooking+Masterclass',
     description:
       'Навчіться готувати смачні страви від професійного шеф-кухаря. Не пропустіть шанс покращити свої кулінарні навички!',
-    tags: ['кулінарія', 'майстер-клас', 'їжа'],
+    tags: ['освіта'],
     date: '04.02.2024',
   },
   {
@@ -41,7 +41,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Retro+Car+Show',
     description:
       'Виставка ретро-автомобілів для всіх шанувальників старовинних машин. Відчуйте дух минулих епох!',
-    tags: ['автомобілі', 'виставка'],
+    tags: ['спорт'],
     date: '05.02.2024',
   },
   {
@@ -50,7 +50,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Theater+Play',
     description:
       'Нова постановка відомої п’єси у виконанні провідних акторів театру. Не пропустіть!',
-    tags: ['театр', 'вистава'],
+    tags: ['їжа'],
     date: '06.02.2024',
   },
   {
@@ -59,7 +59,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Photography+Workshop',
     description:
       'Дізнайтеся секрети професійної фотографії на нашому майстер-класі. З собою мати камеру!',
-    tags: ['фотографія', 'майстер-клас'],
+    tags: ['юрист'],
     date: '07.02.2024',
   },
   {
@@ -68,7 +68,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Charity+Fair',
     description:
       'Благодійний ярмарок, де ви зможете придбати цікаві товари і допомогти тим, хто потребує.',
-    tags: ['благодійність', 'ярмарок'],
+    tags: ['мова'],
     date: '08.02.2024',
   },
   {
@@ -77,7 +77,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Author+Meeting',
     description:
       'Зустріч з відомим письменником, який розкаже про свою нову книгу та підпише ваші екземпляри.',
-    tags: ['література', 'зустріч'],
+    tags: ['психологія'],
     date: '09.02.2024',
   },
   {
@@ -86,7 +86,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Yoga+Workshop',
     description:
       'Заспокойте свій розум і тіло на нашому майстер-класі з йоги. Підходить для всіх рівнів підготовки.',
-    tags: ['йога', 'майстер-клас', 'здоров’я'],
+    tags: ['інше'],
     date: '10.02.2024',
   },
   {
@@ -95,7 +95,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=City+Tour',
     description:
       'Дізнайтеся більше про історію нашого міста на захоплюючій екскурсії з професійним гідом.',
-    tags: ['історія', 'екскурсія'],
+    tags: ['виставка'],
     date: '11.02.2024',
   },
   {
@@ -104,7 +104,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Open+Air+Cinema',
     description:
       'Насолоджуйтесь переглядом фільмів під зоряним небом. Приносьте ковдри та друзів!',
-    tags: ['кіно', 'відпочинок'],
+    tags: ['мистецтво'],
     date: '12.02.2024',
   },
   {
@@ -113,7 +113,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Painting+Workshop',
     description:
       'Розкрийте свій художній потенціал на нашому майстер-класі з малювання для всіх рівнів підготовки.',
-    tags: ['мистецтво', 'малювання', 'майстер-клас'],
+    tags: ['майстер-клас'],
     date: '13.02.2024',
   },
   {
@@ -122,7 +122,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Charity+Run',
     description:
       'Прийміть участь у благодійному забігу та підтримайте добру справу. Здоров’я та благодійність у одному заході!',
-    tags: ['спорт', 'благодійність'],
+    tags: ['малювання'],
     date: '14.02.2024',
   },
   {
@@ -131,7 +131,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Tech+Conference',
     description:
       'Відвідайте конференцію з найновітніших технологій. Дізнайтесь про останні тренди від провідних експертів.',
-    tags: ['технології', 'конференція'],
+    tags: ['освіта'],
     date: '15.02.2024',
   },
   {
@@ -140,7 +140,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Dance+Workshop',
     description:
       'Запрошуємо на майстер-клас з танців. Навчіться новим рухам та весело проведіть час!',
-    tags: ['танці', 'майстер-клас'],
+    tags: ['спорт'],
     date: '16.02.2024',
   },
   {
@@ -149,7 +149,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Food+Festival',
     description:
       'Насолоджуйтеся різноманітними стравами на нашому фестивалі їжі. Відкрийте для себе нові смаки!',
-    tags: ['їжа', 'фестиваль'],
+    tags: ['їжа'],
     date: '17.02.2024',
   },
   {
@@ -158,7 +158,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Book+Fair',
     description:
       'Відвідайте книжковий ярмарок і знайдіть свою наступну улюблену книгу. Знижки та акції для всіх відвідувачів!',
-    tags: ['література', 'ярмарок'],
+    tags: ['юрист'],
     date: '18.02.2024',
   },
   {
@@ -167,7 +167,7 @@ const eventsData = [
     img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
     description:
       'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
-    tags: ['садівництво', 'майстер-клас'],
+    tags: ['мова'],
     date: '19.02.2024',
   },
 ];

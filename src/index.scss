@@ -55,7 +55,15 @@
 
 @layer components {
   .text-ukraine-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-amber-500 to-blue-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 from-40% via-amber-500 via-60% to-blue-600 to-90%;
+  }
+}
+
+@layer components {
+  .input {
+    @apply block w-full py-2 px-2 border-2 border-gray-100 outline-none
+    placeholder:text-gray-100
+    focus:border-blue-600;
   }
 }
 

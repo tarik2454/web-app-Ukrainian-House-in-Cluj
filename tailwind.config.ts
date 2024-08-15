@@ -66,7 +66,7 @@ const config: Config = {
         lg: ['18px', '1.5'],
         xl: ['20px', '1.2'],
         '2xl': ['24px', '1.3'],
-        '4xl': ['36px', '1.1'],
+        '4xl': ['36px', '0.9'],
       },
       screens: {
         sm: '375px',

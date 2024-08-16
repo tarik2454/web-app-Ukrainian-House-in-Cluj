@@ -50,33 +50,33 @@ export default function Modal({
   return modalRoot ? (
     createPortal(
       <>
-        {isOpen && (
+        <div
+          className={twMerge(
+            'flex items-center justify-center bg-black-100 bg-opacity-50 fixed inset-0 z-50 invisible opacity-0 pointer-events-none transition-all duration-250',
+            isOpen ? 'opacity-100 visible pointer-events-auto' : '',
+            stylesBackdrop
+          )}
+          onClick={handleBackdropClick}
+        >
           <div
             className={twMerge(
-              'flex items-center justify-center bg-black-100 bg-opacity-50 fixed inset-0 z-50',
-              stylesBackdrop
+              'w-[96%] max-w-[500px] px-8 py-10 bg-white absolute top-1 left-1/2 z-40 -translate-x-1/2 -translate-y-1/3 opacity-0  scale-y-0 transition-all duration-250',
+              isOpen ? 'scale-y-100 opacity-100 translate-y-1/3' : '',
+              stylesContent
             )}
-            onClick={handleBackdropClick}
           >
-            <div
+            <button
               className={twMerge(
-                'w-full max-w-[500px] px-8 py-10 bg-white absolute top-1/2 left-1/2 z-40 transform -translate-x-1/2 -translate-y-1/2 ',
-                stylesContent
+                'p-1 absolute top-0 right-0 z-30',
+                stylesButtonClose
               )}
+              onClick={onClose}
             >
-              <button
-                className={twMerge(
-                  'p-1 absolute top-0 right-0 z-30',
-                  stylesButtonClose
-                )}
-                onClick={onClose}
-              >
-                <SpriteSVG name="close" />
-              </button>
-              {children}
-            </div>
+              <SpriteSVG name="close" />
+            </button>
+            {children}
           </div>
-        )}
+        </div>
       </>,
       modalRoot
     )

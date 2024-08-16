@@ -3,12 +3,8 @@
 import useModal from '../../shared/hooks/useModal';
 import eventPostId from '../../shared/data/event-post-id';
 
-import {
-  FormItem,
-  Modal,
-  Section,
-  SectionTitle,
-} from '../../shared/components';
+import { Modal, Section, SectionTitle } from '../../shared/components';
+import { EventRegisterModal } from './components';
 
 export default function EventId() {
   // const { eventId } = useParams();
@@ -17,11 +13,6 @@ export default function EventId() {
   const { start, base, end, eventDate, registration } = description;
 
   const { isOpenModal, handleOpenModal, handleCloseModal } = useModal();
-
-  const handleSubmit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
-    console.log('handleSubmit');
-  };
 
   return (
     <div>
@@ -59,43 +50,13 @@ export default function EventId() {
         </div>
       </Section>
 
-      {isOpenModal && (
-        <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
-          <div>
-            <h2 className="mb-6 font-inter-700 text-2xl text-center">
-              Форма реєстрації
-            </h2>
+      <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
+        <p className="mb-6 font-inter-600 text-2xl font-semibold text-black-200 text-center">
+          Форма реєстрації
+        </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <FormItem
-                labelText={`Ваше ім'я`}
-                type={'text'}
-                id={'firstName'}
-                name={'firstName'}
-              />
-              <FormItem
-                labelText={'Ваш email'}
-                type={'email'}
-                id={'email'}
-                name={'email'}
-              />
-              <FormItem
-                labelText={'Ваш email'}
-                type={'email'}
-                id={'email'}
-                name={'email'}
-              />
-
-              <button
-                type="submit"
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-              >
-                Відправити
-              </button>
-            </form>
-          </div>
-        </Modal>
-      )}
+        <EventRegisterModal />
+      </Modal>
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function EventsCard({
         className={`${
           singleEvent || detailsPage
             ? 'block'
-            : 'grid grid-cols-[40%_1fr] gap-6'
+            : 'grid grid-cols-[38%_1fr] gap-6'
         }`}
       >
         <Link to={eventUrl}>

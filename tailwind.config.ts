@@ -53,6 +53,8 @@ const config: Config = {
 
       opacity: {
         34: '0.34',
+        50: '0.50',
+        100: '100',
       },
       fontFamily: {
         sans: ['Inter-400', 'sans-serif'],
@@ -79,6 +81,9 @@ const config: Config = {
         sm: '8px',
         md: '16px',
         lg: '29px',
+      },
+      transitionDuration: {
+        '250': '250ms',
       },
     },
   },

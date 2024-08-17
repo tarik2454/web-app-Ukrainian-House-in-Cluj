@@ -1,8 +1,17 @@
+import { useEffect, useRef } from 'react';
 import { Container, Section } from '../../shared/components';
 
 export default function Hero() {
+  const headerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      console.log(headerRef.current.offsetHeight);
+    }
+  }, []);
+
   return (
-    <div className="border-b-[1px] border-gray-300">
+    <div ref={headerRef} className="border-b-[1px] border-gray-300">
       <Section>
         <Container>
           <h1 className="text-ukraine-gradient animate-waving-flag font-inter-700 text-[170px] font-bold text-center">

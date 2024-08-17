@@ -1,4 +1,5 @@
 // import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { EventId } from '../modules';
 import { EventsList } from '../modules/allEvents/components';
 import {
@@ -11,6 +12,10 @@ import {
 
 export default function EventDetails() {
   // const { eventId } = useParams();
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
     <PageWrapper>

@@ -3,7 +3,6 @@ import { FormItem } from '../../../shared/components';
 export default function EventRegisterModal() {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log('handleSubmit');
   };
 
   return (

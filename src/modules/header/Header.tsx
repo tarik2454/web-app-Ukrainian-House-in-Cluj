@@ -1,20 +1,40 @@
-// import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { Container, Logo, NavBar } from '../../shared/components';
 import { ThemeToggle } from './components';
+import routes from '../../constants/routes';
 
 export default function Header() {
-  // const headerRef = useRef<HTMLDivElement | null>(null);
+  const [position, setPosition] = useState('absolute');
 
-  // useEffect(() => {
-  //   if (headerRef.current) {
-  //     console.log(headerRef.current.clientHeight);
-  //   }
-  // }, []);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        location.pathname === routes.ROOT
+          ? window.scrollY > 428
+          : window.scrollY > 112
+      ) {
+        setPosition('fixed');
+      } else {
+        setPosition('absolute');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location.pathname]);
 
   return (
     <header
-      // ref={headerRef}
-      className="w-full py-[30px] border-b-[1px] border-gray-300 bg-background-color fixed top-0 left-0 z-50"
+      ref={headerRef}
+      className={`w-full py-[30px] border-b-[1px] border-gray-300 bg-background-color ${position} top-0 left-0 z-50 transition-all`}
     >
       <Container>
         <div className="flex justify-between items-center">

@@ -1,12 +1,29 @@
+import { useEffect, useState } from 'react';
 import { SpriteSVG } from '../../../img/SpriteSVG';
 
 export default function ThemeToggle() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <div className="flex gap-4 px-4 py-2 bg-black-300 rounded-lg">
-      <button>
+      <button onClick={toggleTheme}>
         <SpriteSVG name="sun" />
       </button>
-      <button>
+      <button onClick={toggleTheme}>
         <SpriteSVG name="moon" />
       </button>
     </div>

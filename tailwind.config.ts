@@ -2,9 +2,18 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        light: {
+          background: '#FFFFFF',
+          text: '#667085',
+        },
+        dark: {
+          background: '#090D1F',
+          text: '#C0C5D0',
+        },
         black: {
           100: '#667085',
           200: '#1A1A1A',
@@ -45,12 +54,10 @@ const config: Config = {
           100: '#F0F9FF',
           200: '#026AA2',
         },
-        'background-color': '#FFFFFF',
         white: '#FFFFFF',
         current: 'currentColor',
         transparent: 'transparent',
       },
-
       opacity: {
         34: '0.34',
         50: '0.50',

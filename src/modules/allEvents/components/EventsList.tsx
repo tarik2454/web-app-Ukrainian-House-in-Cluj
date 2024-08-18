@@ -30,14 +30,21 @@ export default function Events({
         </ul>
       ) : null}
 
-      <ul className="flex flex-col gap-8">
+      <ul
+        className={`flex flex-col gap-8 ${
+          !detailsPage && !mainPage ? 'grid grid-cols-3' : ''
+        }`}
+      >
         {eventsData
           .slice(
             detailsPage ? 0 : 1,
             mainPage ? 4 : detailsPage ? 3 : eventsData.length
           )
           .map((news, index) => (
-            <li key={index}>
+            <li
+              key={index}
+              className={`${!mainPage && !detailsPage ? 'flex' : ''}`}
+            >
               <EventsCard
                 id={news.id}
                 title={news.title}
@@ -45,6 +52,7 @@ export default function Events({
                 description={news.description}
                 tags={news.tags}
                 date={news.date}
+                mainPage={mainPage}
                 detailsPage={detailsPage}
               />
             </li>

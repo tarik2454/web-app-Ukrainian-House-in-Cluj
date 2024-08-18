@@ -60,8 +60,8 @@ export default function Modal({
         >
           <div
             className={twMerge(
-              'w-[96%] max-w-[500px] px-8 py-10 bg-white absolute top-1 left-1/2 z-40 -translate-x-1/2 -translate-y-1/3 opacity-0  scale-y-0 transition-all duration-250',
-              isOpen ? 'scale-y-100 opacity-100 translate-y-1/3' : '',
+              'w-[96%] max-w-[500px] px-8 py-10 bg-white absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 opacity-0  scale-y-0 transition-all duration-250',
+              isOpen ? 'scale-y-100 opacity-100' : '',
               stylesContent
             )}
           >

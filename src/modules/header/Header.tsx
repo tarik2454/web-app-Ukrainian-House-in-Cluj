@@ -12,11 +12,17 @@ export default function Header() {
   const location = useLocation();
 
   useEffect(() => {
+    if (headerRef.current) {
+      console.log(headerRef.current.offsetHeight);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (
         location.pathname === routes.ROOT
-          ? window.scrollY > 428
-          : window.scrollY > 112
+          ? window.scrollY > 427
+          : window.scrollY > 111
       ) {
         setPosition('fixed');
       } else {

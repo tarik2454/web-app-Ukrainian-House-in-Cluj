@@ -1,29 +1,79 @@
-import { FormItem } from '../../../shared/components';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import validationSchema from '../helpers/validation-schema';
+import FormItem from '../../../shared/components/FormItem';
+import { useEffect } from 'react';
+
+interface FormData {
+  fullName: string;
+  email: string;
+  birthDate: string;
+  telegram: string;
+  textarea?: string;
+}
 
 export default function EventRegisterModal() {
-  const handleSubmit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitSuccessful, errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit: SubmitHandler<FormData> = data => {
+    console.log(data);
   };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <FormItem
-        labelText={`Ваше ім'я`}
-        type={'text'}
-        id={'firstName'}
-        name={'firstName'}
+        labelText={`Призвище та ім'я`}
+        type="text"
+        id="fullName"
+        name="fullName"
+        register={register}
+        error={errors.fullName}
       />
       <FormItem
-        labelText={'Ваш email'}
-        type={'email'}
-        id={'email'}
-        name={'email'}
+        labelText="Email"
+        type="email"
+        id="email"
+        name="email"
+        register={register}
+        error={errors.email}
       />
       <FormItem
-        labelText={'Ваш email'}
-        type={'email'}
-        id={'email'}
-        name={'email'}
+        labelText="Дата народження"
+        type="date"
+        id="birthDate"
+        name="birthDate"
+        register={register}
+        error={errors.birthDate}
+      />
+      <FormItem
+        labelText="Нікнейм в Telegram"
+        type="text"
+        id="telegram"
+        name="telegram"
+        placeholder="@username"
+        register={register}
+        error={errors.telegram}
+      />
+      <FormItem
+        labelText="Коментар"
+        type="textarea"
+        id="textarea"
+        name="textarea"
+        register={register}
+        error={errors.textarea}
       />
 
       <div className="flex justify-center mt-4">

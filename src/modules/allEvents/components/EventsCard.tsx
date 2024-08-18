@@ -18,17 +18,21 @@ export default function EventsCard({
   date,
   singleEvent = false,
   detailsPage = false,
+  mainPage = false,
 }: CommonCardProps) {
   const eventUrl = routes.EVENT_ID.replace(':eventId', id);
 
   return (
     <>
       <div
-        className={`${
-          singleEvent || detailsPage
-            ? 'block'
-            : 'grid grid-cols-[38%_1fr] gap-6'
-        }`}
+        className={`
+          ${
+            singleEvent || detailsPage
+              ? 'block'
+              : 'grid grid-cols-[38%_1fr] gap-6'
+          } 
+          ${!mainPage && !detailsPage ? '!flex !flex-col' : ''}
+        `}
       >
         <Link to={eventUrl}>
           <img
@@ -42,7 +46,7 @@ export default function EventsCard({
           />
         </Link>
 
-        <div>
+        <div className="flex flex-col grow">
           <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300">
             {date}
           </p>
@@ -60,25 +64,27 @@ export default function EventsCard({
             </h3>
           </Link>
 
-          <Link
-            className="hover:underline hover:underline-offset-[3px]"
-            to={eventUrl}
-          >
-            <p className="mb-6">{description}</p>
-          </Link>
+          <div className="flex flex-col justify-between h-full">
+            <Link
+              className="hover:underline hover:underline-offset-[3px]"
+              to={eventUrl}
+            >
+              <p className="mb-6">{description}</p>
+            </Link>
 
-          <ul className="flex gap-2">
-            {tags.map((tag, index) => (
-              <li
-                key={index}
-                className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
-                  tagColors[tag] || 'bg-gray-500'
-                }`}
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
+            <ul className="flex gap-2">
+              {tags.map((tag, index) => (
+                <li
+                  key={index}
+                  className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
+                    tagColors[tag] || 'bg-gray-500'
+                  }`}
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>

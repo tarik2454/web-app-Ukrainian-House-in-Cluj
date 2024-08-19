@@ -3,8 +3,15 @@ import { Suspense } from 'react';
 
 import routes from './constants/routes';
 import Layout from './layout/Layout';
-import { HomePage, News, Events, AboutUs, WorkSchedule } from './pages';
-import EventDetails from './pages/EventDetails';
+import {
+  HomePage,
+  News,
+  Events,
+  AboutUs,
+  WorkSchedule,
+  AdminPage,
+  EventDetails,
+} from './pages';
 
 export function App() {
   return (
@@ -18,6 +25,7 @@ export function App() {
           <Route path={routes.EVENT_ID} element={<EventDetails />} />
           <Route path={routes.ABOUT_US} element={<AboutUs />} />
         </Route>
+        <Route path={routes.ADMIN} element={<AdminPage />} />
       </Routes>
     </Suspense>
   );

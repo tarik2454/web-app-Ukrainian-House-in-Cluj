@@ -1,7 +1,7 @@
 import { Container, Section, SectionTitle } from '../../shared/components';
 import { NewsList } from './components';
 
-export default function AllNews({ mainPage }: { mainPage?: true }) {
+export default function AllNews({ mainPage }: { mainPage?: boolean }) {
   return (
     <Section>
       <Container>

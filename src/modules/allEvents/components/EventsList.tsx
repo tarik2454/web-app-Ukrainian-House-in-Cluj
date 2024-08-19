@@ -1,6 +1,8 @@
 import eventsData from '../../../shared/data/events-data';
 
 import { EventsCard } from '.';
+import { EventsDataProps } from '../types/eventProps';
+import { Pagination } from '../../../shared/components';
 
 export default function Events({
   mainPage,
@@ -9,19 +11,30 @@ export default function Events({
   mainPage?: boolean;
   detailsPage?: boolean;
 }) {
+  const sliceEventsData = eventsData.slice(
+    detailsPage ? 0 : 1,
+    mainPage ? 4 : detailsPage ? 3 : eventsData.length
+  );
+  const itemsPerPage = 12;
+
+  const renderItemLi = (item: EventsDataProps) => (
+    <li key={item.id} className="flex">
+      <EventsCard
+        product={item}
+        mainPage={mainPage ?? false}
+        detailsPage={detailsPage ?? false}
+      />
+    </li>
+  );
+
   return (
     <div className="flex flex-row gap-8">
       {mainPage ? (
-        <ul className="">
-          {eventsData.slice(0, 1).map((news, index) => (
+        <ul>
+          {eventsData.slice(0, 1).map((product, index) => (
             <li key={index}>
               <EventsCard
-                id={news.id}
-                title={news.title}
-                img={news.img}
-                description={news.description}
-                tags={news.tags}
-                date={news.date}
+                product={product}
                 mainPage={mainPage}
                 singleEvent={true}
               />
@@ -30,34 +43,28 @@ export default function Events({
         </ul>
       ) : null}
 
-      <ul
-        className={`flex flex-col gap-8 ${
-          !detailsPage && !mainPage ? 'grid grid-cols-3' : ''
-        }`}
-      >
-        {eventsData
-          .slice(
-            detailsPage ? 0 : 1,
-            mainPage ? 4 : detailsPage ? 3 : eventsData.length
-          )
-          .map((news, index) => (
-            <li
-              key={index}
-              className={`${!mainPage && !detailsPage ? 'flex' : ''}`}
-            >
+      {mainPage || detailsPage ? (
+        <ul className="flex flex-col gap-8">
+          {eventsData.slice(1, 4).map((product, index) => (
+            <li key={index}>
               <EventsCard
-                id={news.id}
-                title={news.title}
-                img={news.img}
-                description={news.description}
-                tags={news.tags}
-                date={news.date}
+                product={product}
                 mainPage={mainPage}
                 detailsPage={detailsPage}
               />
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : null}
+
+      {!mainPage && !detailsPage ? (
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          array={sliceEventsData}
+          stylesUl={'flex flex-col gap-8 mb-[50px] grid grid-cols-3'}
+          renderItemLi={renderItemLi}
+        />
+      ) : null}
     </div>
   );
 }

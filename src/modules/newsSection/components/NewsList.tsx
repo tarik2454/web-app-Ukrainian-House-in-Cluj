@@ -1,4 +1,5 @@
 import { Pagination } from '../../../shared/components';
+
 import newsData from '../../../shared/data/news-data';
 import NewsCard from './NewsCard';
 import NewsProps from '../types/newsProps';

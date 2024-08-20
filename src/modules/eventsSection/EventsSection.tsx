@@ -1,7 +1,7 @@
 import { Container, Section, SectionTitle } from '../../shared/components';
 import { EventsList, EventsTagsFilter } from './components';
 
-export default function AllEvents({ mainPage }: { mainPage?: boolean }) {
+export default function EventsSection({ mainPage }: { mainPage?: boolean }) {
   return (
     <Section>
       <Container>

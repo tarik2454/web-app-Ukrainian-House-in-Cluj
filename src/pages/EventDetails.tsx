@@ -1,7 +1,7 @@
 // import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { EventId } from '../modules';
-import { EventsList } from '../modules/allEvents/components';
+import { EventsList } from '../modules/eventsSection/components';
 import {
   Container,
   PageTitle,

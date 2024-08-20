@@ -13,9 +13,12 @@ export default function NavBar() {
     <nav>
       <ul className="flex gap-[30px]">
         {navItems.map((item, index) => (
-          <li key={index}>
+          <li key={index} className="relative">
             <a
-              className="text-black-200 text-xl dark:text-dark-title"
+              className="text-black-200 text-xl 
+              after:block after:content-[''] after:w-full after:h-[1.5px] after:bg-black-200 after:scale-0 after:absolute after:-bottom-[5px] after:transition-all
+              hover:after:scale-100 focus:after:scale-100
+              dark:text-dark-title dark:after:bg-dark-title"
               href={item.path}
             >
               {item.label}

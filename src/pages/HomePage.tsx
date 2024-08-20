@@ -1,4 +1,10 @@
-import { AllEvents, Schedule, AllNews, Hero, OurTeams } from '../modules';
+import {
+  Schedule,
+  Hero,
+  OurTeams,
+  NewsSection,
+  EventsSection,
+} from '../modules';
 import { PageTitle, PageWrapper } from '../shared/components';
 
 export default function HomePage() {
@@ -6,9 +12,9 @@ export default function HomePage() {
     <PageWrapper>
       <PageTitle styles={'visually-hidden'}>Домашня сторiнка</PageTitle>
       <Hero />
-      <AllNews mainPage={true} />
+      <NewsSection mainPage={true} />
       <Schedule mainPage={true} />
-      <AllEvents mainPage={true} />
+      <EventsSection mainPage={true} />
       <OurTeams />
     </PageWrapper>
   );

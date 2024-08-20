@@ -7,13 +7,11 @@ interface ScheduleProps {
 
 export default function Schedule({ mainPage }: ScheduleProps) {
   return (
-    <div className="">
-      <Section>
-        <Container>
-          <SectionTitle>Графік роботи</SectionTitle>
-          <ScheduleList mainPage={mainPage} />
-        </Container>
-      </Section>
-    </div>
+    <Section>
+      <Container>
+        <SectionTitle>Графік роботи</SectionTitle>
+        <ScheduleList mainPage={mainPage} />
+      </Container>
+    </Section>
   );
 }

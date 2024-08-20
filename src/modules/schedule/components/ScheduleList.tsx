@@ -11,8 +11,11 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
         className={`${mainPage ? 'grid grid-cols-2' : 'flex flex-col'} gap-8`}
       >
         {(mainPage ? startWeekDays : firstColumnDays).map((day, index) => (
-          <li key={index} className="p-6 bg-blue-100">
-            <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 ">
+          <li
+            key={index}
+            className="p-6 bg-blue-100 dark:bg-dark-schedule-background"
+          >
+            <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
               {day.day} ({day.date})
             </h3>
             <ul className="flex flex-col gap-3">
@@ -36,8 +39,11 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
       {!mainPage && (
         <ul className="flex flex-col gap-8">
           {secondColumnDays.map((day, index) => (
-            <li key={index} className="p-6 bg-blue-100">
-              <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 ">
+            <li
+              key={index}
+              className="p-6 bg-blue-100 dark:bg-dark-schedule-background"
+            >
+              <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
                 {day.day} ({day.date})
               </h3>
               <ul className="flex flex-col gap-3">

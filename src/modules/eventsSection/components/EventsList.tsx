@@ -1,8 +1,9 @@
 import eventsData from '../../../shared/data/events-data';
 
 import { EventsCard } from '.';
-import { EventsDataProps } from '../types/eventProps';
 import { Pagination } from '../../../shared/components';
+
+import { EventsDataProps } from '../types/eventProps';
 
 export default function Events({
   mainPage,

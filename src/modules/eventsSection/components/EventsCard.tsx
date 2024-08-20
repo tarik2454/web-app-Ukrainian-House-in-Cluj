@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+
 import tagColors from '../helpers/tag-colors';
-// import { EventsDataProps } from '../types/eventProps';
 import routes from '../../../constants/routes';
 
 export interface CommonCardProps {

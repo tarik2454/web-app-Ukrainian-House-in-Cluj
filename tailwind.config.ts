@@ -50,11 +50,13 @@ const config: Config = {
         white: '#FFFFFF',
         current: 'currentColor',
         transparent: 'transparent',
+        ukraniane: { start: '#eab308', via: '#f59e0b', end: '#2563eb' },
         dark: {
           background: '#090D1F',
           title: '#FFFFFF',
           text: '#C0C5D0',
           border: '#667085',
+          'schedule-background': '#0F142E',
         },
       },
       opacity: {

@@ -68,7 +68,13 @@
 
 @layer components {
   .text-ukraine-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 from-40% via-amber-500 via-60% to-blue-600 to-90%;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to right,
+      theme('colors.ukraniane.start') 40%,
+      theme('colors.ukraniane.via') 60%,
+      theme('colors.ukraniane.end') 90%
+    );
   }
 }
 

@@ -6,14 +6,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        light: {
-          background: '#FFFFFF',
-          text: '#667085',
-        },
-        dark: {
-          background: '#090D1F',
-          text: '#C0C5D0',
-        },
         black: {
           100: '#667085',
           200: '#1A1A1A',
@@ -54,9 +46,16 @@ const config: Config = {
           100: '#F0F9FF',
           200: '#026AA2',
         },
+        background: '#FFFFFF',
         white: '#FFFFFF',
         current: 'currentColor',
         transparent: 'transparent',
+        dark: {
+          background: '#090D1F',
+          title: '#FFFFFF',
+          text: '#C0C5D0',
+          border: '#667085',
+        },
       },
       opacity: {
         34: '0.34',

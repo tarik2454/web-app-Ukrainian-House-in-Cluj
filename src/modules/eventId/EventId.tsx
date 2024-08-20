@@ -51,7 +51,7 @@ export default function EventId() {
       </Section>
 
       <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
-        <p className="mb-6 font-inter-600 text-2xl font-semibold text-black-200 text-center">
+        <p className="mb-6 font-inter-600 text-2xl font-semibold text-black-200 text-center dark:text-dark-title">
           Форма реєстрації
         </p>
 

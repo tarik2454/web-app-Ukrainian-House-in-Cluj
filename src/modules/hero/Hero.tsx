@@ -11,7 +11,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <div ref={headerRef} className="border-b-[1px] border-gray-300">
+    <div
+      ref={headerRef}
+      className="border-b-[1px] border-gray-300 dark:border-dark-border"
+    >
       <Section>
         <Container>
           <h1 className="text-ukraine-gradient animate-waving-flag font-inter-700 text-[170px] font-bold text-center">

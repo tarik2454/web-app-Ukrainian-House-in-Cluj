@@ -58,7 +58,7 @@ export default function EventsCard({
           to={eventUrl}
         >
           <h3
-            className={`font-inter-600 text-2xl font-semibold text-black-200 ${
+            className={`font-inter-600 text-2xl font-semibold text-black-200 dark:text-dark-title ${
               singleEvent ? 'mb-3' : 'mb-2 text-lg'
             }`}
           >

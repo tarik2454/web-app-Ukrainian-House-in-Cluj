@@ -2,7 +2,7 @@ import { Container, IconsBlock, Logo } from '../../shared/components';
 
 export default function Footer() {
   return (
-    <footer className="py-[30px] border-t-[1px] border-gray-300">
+    <footer className="py-[30px] border-t-[1px] border-gray-300 dark:border-dark-border">
       <Container>
         <>
           <div className="flex justify-between justify-items-start">

@@ -2,8 +2,8 @@ import tagColors from '../helpers/tag-colors';
 
 export default function EventsTagsFilter() {
   return (
-    <div className="flex items-center gap-4 mb-10 sticky top-[111px] bg-white">
-      <p className="font-inter-600 font-semibold text-lg text-black-200 ">
+    <div className="flex items-center gap-4 mb-10 sticky top-[111px] bg-white dark:bg-dark-background">
+      <p className="font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
         Сортувати за тегом:{' '}
       </p>
 

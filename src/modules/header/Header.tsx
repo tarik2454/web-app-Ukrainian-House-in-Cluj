@@ -40,8 +40,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`w-full py-[30px] border-b-[1px] border-gray-300 bg-light-background ${position} top-0 left-0 z-50 transition-all
-      dark:bg-dark-background`}
+      className={`w-full py-[30px] border-b-[1px] border-gray-300 bg-background ${position} top-0 left-0 z-50 transition-all dark:border-dark-border dark:bg-dark-background`}
     >
       <Container>
         <div className="flex justify-between items-center">

@@ -23,7 +23,7 @@ export default function EventId() {
         <SectionTitle styles={'font-inter-700 font-bold text-4xl'}>
           {title}
         </SectionTitle>
-        <img className="w-full h-full mb-6" src={imageUrl} alt={title} />
+        <img className="w-full h-full mb-5" src={imageUrl} alt={title} />
 
         <div className="text-lg">
           <p className="mb-3">{start.trim()}</p>

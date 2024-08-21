@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import routes from '../../constants/routes';
 
 const navItems = [
@@ -14,15 +15,15 @@ export default function NavBar() {
       <ul className="flex gap-[30px]">
         {navItems.map((item, index) => (
           <li key={index} className="relative">
-            <a
+            <NavLink
               className="text-black-200 text-xl 
-              after:block after:content-[''] after:w-full after:h-[1.5px] after:bg-black-200 after:scale-0 after:absolute after:-bottom-[5px] after:transition-all
+              after:block after:content-[''] after:w-full after:h-[1.5px] after:bg-black-200 after:scale-0 after:absolute after:-bottom-[4px] after:transition-all
               hover:after:scale-100 focus:after:scale-100
               dark:text-dark-title dark:after:bg-dark-title"
-              href={item.path}
+              to={item.path}
             >
               {item.label}
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>

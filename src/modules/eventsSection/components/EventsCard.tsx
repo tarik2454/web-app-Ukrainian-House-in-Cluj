@@ -33,7 +33,7 @@ export default function EventsCard({
           ${
             singleEvent || detailsPage
               ? 'block'
-              : 'grid grid-cols-[38%_1fr] gap-6'
+              : 'grid grid-cols-[38%_1fr] gap-5'
           } 
           ${!mainPage && !detailsPage ? '!flex !flex-col' : ''}
         `}
@@ -41,7 +41,7 @@ export default function EventsCard({
       <Link to={eventUrl}>
         <img
           className={`${
-            singleEvent || detailsPage ? 'w-full h-full mb-6' : 'w-full h-full'
+            singleEvent || detailsPage ? 'w-full h-full mb-5' : 'w-full h-full'
           }`}
           src={img}
           alt={title}
@@ -68,7 +68,7 @@ export default function EventsCard({
 
         <div className="flex flex-col justify-between h-full">
           <Link
-            className="hover:underline hover:underline-offset-[3px]"
+            className="hover:underline hover:underline-offset-4"
             to={eventUrl}
           >
             <p className="mb-6">{description}</p>

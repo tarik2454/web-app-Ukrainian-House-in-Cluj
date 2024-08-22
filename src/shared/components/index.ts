@@ -10,3 +10,4 @@ export { default as PageTitle } from './PageTitle';
 export { default as Modal } from './Modal';
 export { default as FormItem } from './FormItem';
 export { default as Pagination } from './Pagination';
+export { default as Breadcrumbs } from './Breadcrumbs';

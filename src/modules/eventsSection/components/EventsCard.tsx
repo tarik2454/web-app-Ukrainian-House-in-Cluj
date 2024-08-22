@@ -25,7 +25,7 @@ export default function EventsCard({
 }: CommonCardProps) {
   const { id, title, img, description, tags, date } = product;
 
-  const eventUrl = routes.EVENT_ID.replace(':eventId', id);
+  const eventUrl = routes.EVENT_ID.path.replace(':eventId', id);
 
   return (
     <div

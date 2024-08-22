@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom';
 import routes from '../../constants/routes';
 
 const navItems = [
-  { path: routes.ROOT, label: 'Головна' },
-  { path: routes.NEWS, label: 'Новини' },
-  { path: routes.WORK_SCHEDULE, label: 'Графік роботи' },
-  { path: routes.EVENTS, label: 'Події' },
-  { path: routes.ABOUT_US, label: 'Про нас' },
+  { path: routes.ROOT.path, label: 'Головна' },
+  { path: routes.NEWS.path, label: 'Новини' },
+  { path: routes.WORK_SCHEDULE.path, label: 'Графік роботи' },
+  { path: routes.EVENTS.path, label: 'Події' },
+  { path: routes.ABOUT_US.path, label: 'Про нас' },
 ];
 
 export default function NavBar() {

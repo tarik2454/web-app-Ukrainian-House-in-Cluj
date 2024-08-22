@@ -20,7 +20,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       if (
-        location.pathname === routes.ROOT
+        location.pathname === routes.ROOT.path
           ? window.scrollY > 427
           : window.scrollY > 111
       ) {

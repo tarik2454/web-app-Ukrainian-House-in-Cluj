@@ -17,15 +17,15 @@ export function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path={routes.ROOT} element={<Layout />}>
+        <Route path={routes.ROOT.path} element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path={routes.NEWS} element={<News />} />
-          <Route path={routes.WORK_SCHEDULE} element={<WorkSchedule />} />
-          <Route path={routes.EVENTS} element={<Events />} />
-          <Route path={routes.EVENT_ID} element={<EventDetails />} />
-          <Route path={routes.ABOUT_US} element={<AboutUs />} />
+          <Route path={routes.NEWS.path} element={<News />} />
+          <Route path={routes.WORK_SCHEDULE.path} element={<WorkSchedule />} />
+          <Route path={routes.EVENTS.path} element={<Events />} />
+          <Route path={routes.EVENT_ID.path} element={<EventDetails />} />
+          <Route path={routes.ABOUT_US.path} element={<AboutUs />} />
         </Route>
-        <Route path={routes.ADMIN} element={<AdminPage />} />
+        <Route path={routes.ADMIN.path} element={<AdminPage />} />
       </Routes>
     </Suspense>
   );

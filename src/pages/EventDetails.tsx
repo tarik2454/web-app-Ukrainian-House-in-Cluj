@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { EventId } from '../modules';
 import { EventsList } from '../modules/eventsSection/components';
 import {
+  Breadcrumbs,
   Container,
   PageTitle,
   PageWrapper,
@@ -19,6 +20,7 @@ export default function EventDetails() {
 
   return (
     <PageWrapper>
+      <Breadcrumbs />
       <PageTitle styles={'visually-hidden'}>Подія</PageTitle>
       <Container>
         <div className="grid grid-cols-[_1fr,_3fr] gap-8">

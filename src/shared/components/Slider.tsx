@@ -52,14 +52,14 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
   }, []);
 
   return (
-    <div className="relative">
+    <>
       <Swiper
         onSwiper={swiper => {
           swiperRef.current = swiper;
         }}
         modules={[Navigation, Pagination, A11y, Autoplay, HashNavigation]}
         navigation={{ nextEl: '.mySwiper-next', prevEl: '.mySwiper-prev' }}
-        pagination={{ clickable: true }}
+        pagination={{ clickable: true, el: '.swiper-pagination' }}
         autoplay={{ delay: 2000 }}
         loop={true}
         className="mySwiper"
@@ -96,16 +96,19 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
         </div>
       </Swiper>
 
-      <div className="flex justify-between w-full absolute -bottom-[5px] z-10">
+      <div className="flex justify-between w-full">
         <button className="mySwiper-prev">
           <SpriteSVG name="arrow-left" />
           Сюди
         </button>
+
+        <div className="swiper-pagination"></div>
+
         <button className="mySwiper-next">
           Туди
           <SpriteSVG name="arrow-right" />
         </button>
       </div>
-    </div>
+    </>
   );
 }

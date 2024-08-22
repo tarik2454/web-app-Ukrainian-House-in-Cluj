@@ -15,7 +15,7 @@ export default function ThemeToggle() {
   }, [theme]);
 
   const handleThemeLight = () => {
-    setTheme('light');
+    setTheme(' light');
   };
 
   const handleThemeBlack = () => {
@@ -23,7 +23,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="flex gap-4 px-4 py-2 text-white bg-black-300 rounded-lg dark:bg-white dark:text-black-300">
+    <div className="flex gap-3 px-3 py-2 text-white bg-black-300 rounded-lg dark:bg-white dark:text-black-300">
       <button onClick={handleThemeLight}>
         <SpriteSVG name="sun" />
       </button>

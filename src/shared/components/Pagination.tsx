@@ -39,15 +39,28 @@ export default function Pagination<T extends PaginationItemProps>({
       <ul className={stylesUl}>{currentItems.map(renderItemLi)}</ul>
 
       <ReactPaginate
-        className="flex justify-center items-center gap-5"
+        className="flex justify-center items-center gap-[2px] relative"
+        pageClassName="flex justify-center items-center w-[40px] h-[40px]"
+        pageLinkClassName="flex justify-center items-center w-[40px] h-[40px] font-inter-500 font-medium text-sm rounded-sm cursor-pointer"
+        activeLinkClassName="text-violet-200 bg-violet-100"
         breakLabel="..."
-        nextLabel={<SpriteSVG name="arrow-right" />}
+        previousLabel={
+          <div className="flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2">
+            <SpriteSVG name="arrow-left" />
+            <span>Сюди</span>
+          </div>
+        }
+        nextLabel={
+          <div className="flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2">
+            <span>Туди</span>
+            <SpriteSVG name="arrow-right" />
+          </div>
+        }
         onPageChange={handlePageClick}
         activeClassName="text-blue-900"
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         pageCount={Math.ceil(array.length / itemsPerPage)}
-        previousLabel={<SpriteSVG name="arrow-left" />}
         forcePage={currentPage}
       />
     </div>

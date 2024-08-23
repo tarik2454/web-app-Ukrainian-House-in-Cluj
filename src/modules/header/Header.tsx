@@ -11,11 +11,11 @@ export default function Header() {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
-  useEffect(() => {
-    if (headerRef.current) {
-      console.log(headerRef.current.offsetHeight);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (headerRef.current) {
+  //     console.log(headerRef.current.offsetHeight);
+  //   }
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {

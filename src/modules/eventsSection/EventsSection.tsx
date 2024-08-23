@@ -1,7 +1,15 @@
 import { Container, Section, SectionTitle } from '../../shared/components';
 import { EventsList, EventsTagsFilter } from './components';
 
-export default function EventsSection({ mainPage }: { mainPage?: boolean }) {
+interface EventsSectionProps {
+  mainPage?: boolean;
+}
+
+export default function EventsSection({ mainPage }: EventsSectionProps) {
+  const handleFilterTags = (tagName: string): void => {
+    console.log('Filtering by tag:', tagName);
+  };
+
   return (
     <Section>
       <Container>
@@ -11,8 +19,8 @@ export default function EventsSection({ mainPage }: { mainPage?: boolean }) {
           <EventsList mainPage={mainPage} />
         ) : (
           <>
-            <EventsTagsFilter />
-            <EventsList />
+            <EventsTagsFilter handleFilterTags={handleFilterTags} />
+            <EventsList handleFilterTags={handleFilterTags} />
           </>
         )}
       </Container>

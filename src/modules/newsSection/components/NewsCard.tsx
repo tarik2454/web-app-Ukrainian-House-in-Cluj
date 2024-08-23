@@ -1,3 +1,6 @@
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import NewsProps from '../types/newsProps';
 
 export default function NewsCard({
@@ -9,17 +12,20 @@ export default function NewsCard({
 }) {
   const { image, title, description, date } = product;
 
+  if (!product) {
+    return <Skeleton height={200} />;
+  }
+
   return (
     <div>
       {!mainPage && (
         <p className="mb-2 font-inter-600 text-sm font-semibold text-violet-300">
-          {date}
+          {date || <Skeleton width={100} />}
         </p>
       )}
       <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
-        {title}
+        {title || <Skeleton />}
       </h3>
-
       <div>
         {image && (
           <img
@@ -34,10 +40,10 @@ export default function NewsCard({
         <div>
           {mainPage && (
             <p className="mb-2 font-inter-600 text-sm font-semibold text-violet-300">
-              {date}
+              {date || <Skeleton width={100} />}
             </p>
           )}
-          <p>{description}</p>
+          <p>{description || <Skeleton count={3} />}</p>
         </div>
       </div>
     </div>

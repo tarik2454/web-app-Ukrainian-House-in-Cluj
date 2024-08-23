@@ -11,6 +11,7 @@ interface PaginationProps<T> {
   array: T[];
   renderItemLi: (item: T, index: number) => ReactNode;
   stylesUl: string;
+  handleFilterTags?: (tag: string) => void;
 }
 
 export default function Pagination<T extends PaginationItemProps>({
@@ -18,8 +19,11 @@ export default function Pagination<T extends PaginationItemProps>({
   array,
   renderItemLi,
   stylesUl,
+  handleFilterTags,
 }: PaginationProps<T>) {
   const [currentPage, setCurrentPage] = useState(0);
+
+  console.log(handleFilterTags);
 
   useEffect(() => {
     setCurrentPage(0);

@@ -1,17 +1,19 @@
 import eventsData from '../../../shared/data/events-data';
-
 import { EventsCard } from '.';
 import { Pagination } from '../../../shared/components';
-
 import { EventsDataProps } from '../types/eventProps';
+
+interface EventsProps {
+  mainPage?: boolean;
+  detailsPage?: boolean;
+  handleFilterTags?: (tag: string) => void;
+}
 
 export default function Events({
   mainPage,
   detailsPage,
-}: {
-  mainPage?: boolean;
-  detailsPage?: boolean;
-}) {
+  handleFilterTags,
+}: EventsProps) {
   const sliceEventsData = eventsData.slice(
     detailsPage ? 0 : 1,
     mainPage ? 4 : detailsPage ? 3 : eventsData.length
@@ -30,7 +32,7 @@ export default function Events({
 
   return (
     <div className="flex flex-row gap-8">
-      {mainPage ? (
+      {mainPage && (
         <ul>
           {eventsData.slice(0, 1).map((product, index) => (
             <li key={index}>
@@ -42,9 +44,9 @@ export default function Events({
             </li>
           ))}
         </ul>
-      ) : null}
+      )}
 
-      {mainPage || detailsPage ? (
+      {(mainPage || detailsPage) && (
         <ul className="flex flex-col gap-8">
           {eventsData.slice(1, 4).map((product, index) => (
             <li key={index}>
@@ -56,16 +58,17 @@ export default function Events({
             </li>
           ))}
         </ul>
-      ) : null}
+      )}
 
-      {!mainPage && !detailsPage ? (
+      {!mainPage && !detailsPage && (
         <Pagination
           itemsPerPage={itemsPerPage}
           array={sliceEventsData}
           stylesUl={'flex flex-col gap-8 mb-[50px] grid grid-cols-3'}
           renderItemLi={renderItemLi}
+          handleFilterTags={handleFilterTags}
         />
-      ) : null}
+      )}
     </div>
   );
 }

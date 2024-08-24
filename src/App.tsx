@@ -12,10 +12,11 @@ import {
   AdminPage,
   EventDetails,
 } from './pages';
+import Loader from './shared/components/Loader';
 
 export function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path={routes.ROOT.path} element={<Layout />}>
           <Route index element={<HomePage />} />

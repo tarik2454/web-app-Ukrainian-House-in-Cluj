@@ -1,8 +1,10 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useEffect } from 'react';
+
 import validationSchema from '../helpers/validation-schema';
 import FormItem from '../../../shared/components/FormItem';
-import { useEffect } from 'react';
+import Button from '../../../shared/components/Button';
 
 interface FormData {
   fullName: string;
@@ -77,12 +79,7 @@ export default function EventRegisterModal() {
       />
 
       <div className="flex justify-center mt-4">
-        <button
-          type="submit"
-          className="w-fit bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-250"
-        >
-          Відправити
-        </button>
+        <Button type="submit">Відправити</Button>
       </div>
     </form>
   );

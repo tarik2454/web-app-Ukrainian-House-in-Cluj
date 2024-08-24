@@ -1,9 +1,0 @@
-export { default as Header } from './header/Header';
-export { default as Footer } from './footer/Footer';
-export { default as Hero } from './hero/Hero';
-export { default as NewsSection } from './newsSection/NewsSection';
-export { default as EventsSection } from './eventsSection/EventsSection';
-export { default as OurTeams } from './ourTeams/OurTeams';
-export { default as Schedule } from './schedule/Schedule';
-export { default as EventId } from './eventId/EventId';
-export { default as About } from './about/About';

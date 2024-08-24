@@ -1,5 +1,7 @@
-import { Container, Section, SectionTitle } from '../../shared/components';
-import { NewsList } from './components';
+import Container from '../../shared/components/Container';
+import Section from '../../shared/components/Section';
+import SectionTitle from '../../shared/components/SectionTitle';
+import NewsList from './components/NewsList';
 
 export default function NewsSection({ mainPage }: { mainPage?: boolean }) {
   return (

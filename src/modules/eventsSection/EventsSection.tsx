@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { Container, Section, SectionTitle } from '../../shared/components';
-import { EventsList, EventsTagsFilter } from './components';
+import Section from '../../shared/components/Section';
+import Container from '../../shared/components/Container';
+import SectionTitle from '../../shared/components/SectionTitle';
+import EventsTagsFilter from './components/EventsTagsFilter';
+import EventsList from './components/EventsList';
 
 interface EventsSectionProps {
   mainPage?: boolean;

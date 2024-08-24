@@ -1,5 +1,7 @@
-import { EventsSection } from '../modules';
-import { Breadcrumbs, PageTitle, PageWrapper } from '../shared/components';
+import EventsSection from '../modules/eventsSection/EventsSection';
+import Breadcrumbs from '../shared/components/Breadcrumbs';
+import PageTitle from '../shared/components/PageTitle';
+import PageWrapper from '../shared/components/PageWrapper';
 
 export default function Events() {
   return (

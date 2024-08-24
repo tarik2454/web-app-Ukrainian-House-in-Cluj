@@ -1,15 +1,14 @@
 // import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { EventId } from '../modules';
-import { EventsList } from '../modules/eventsSection/components';
-import {
-  Breadcrumbs,
-  Container,
-  PageTitle,
-  PageWrapper,
-  Section,
-  SectionTitle,
-} from '../shared/components';
+
+import EventId from '../modules/eventId/EventId';
+import PageWrapper from '../shared/components/PageWrapper';
+import Breadcrumbs from '../shared/components/Breadcrumbs';
+import PageTitle from '../shared/components/PageTitle';
+import Container from '../shared/components/Container';
+import Section from '../shared/components/Section';
+import SectionTitle from '../shared/components/SectionTitle';
+import EventsList from '../modules/eventsSection/components/EventsList';
 
 export default function EventDetails() {
   // const { eventId } = useParams();

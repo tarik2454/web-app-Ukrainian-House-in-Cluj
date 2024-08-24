@@ -7,6 +7,7 @@ import { SpriteSVG } from '../../img/SpriteSVG';
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
+  modalTitle?: string;
   children?: ReactNode;
   stylesContent?: string;
   stylesBackdrop?: string;
@@ -16,6 +17,7 @@ type ModalProps = {
 export default function Modal({
   isOpen,
   onClose,
+  modalTitle,
   children,
   stylesContent,
   stylesBackdrop,
@@ -74,6 +76,9 @@ export default function Modal({
             >
               <SpriteSVG name="close" />
             </button>
+            <p className="mb-6 font-inter-600 text-2xl font-semibold text-black-200 text-center dark:text-dark-title">
+              {modalTitle}
+            </p>
             {children}
           </div>
         </div>

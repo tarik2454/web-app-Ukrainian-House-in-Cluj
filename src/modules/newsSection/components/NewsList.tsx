@@ -1,8 +1,7 @@
-import { Pagination } from '../../../shared/components';
-
 import newsData from '../../../shared/data/news-data';
 import NewsCard from './NewsCard';
 import NewsProps from '../types/newsProps';
+import Pagination from '../../../shared/components/Pagination';
 
 export default function NewsList({ mainPage }: { mainPage?: boolean }) {
   const displayedNews = mainPage ? newsData.slice(0, 6) : newsData;

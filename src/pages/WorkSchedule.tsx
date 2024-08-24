@@ -1,5 +1,7 @@
-import { Schedule } from '../modules';
-import { Breadcrumbs, PageTitle, PageWrapper } from '../shared/components';
+import Schedule from '../modules/schedule/Schedule';
+import Breadcrumbs from '../shared/components/Breadcrumbs';
+import PageTitle from '../shared/components/PageTitle';
+import PageWrapper from '../shared/components/PageWrapper';
 
 export default function WorkSchedule() {
   return (

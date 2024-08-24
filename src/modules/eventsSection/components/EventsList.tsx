@@ -1,6 +1,7 @@
+import Pagination from '../../../shared/components/Pagination';
 import eventsData from '../../../shared/data/events-data';
-import { EventsCard } from '.';
-import { Pagination } from '../../../shared/components';
+import EventsCard from './EventsCard';
+
 import { EventsDataProps } from '../types/eventProps';
 
 interface EventsProps {
@@ -9,7 +10,7 @@ interface EventsProps {
   selectedTag?: string; // Пропс для выбранного тега
 }
 
-export default function Events({
+export default function EventsList({
   mainPage,
   detailsPage,
   selectedTag,

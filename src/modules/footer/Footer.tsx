@@ -1,8 +1,23 @@
-import { Container, IconsBlock, Logo } from '../../shared/components';
+import { useEffect, useRef } from 'react';
+
+import Container from '../../shared/components/Container';
+import IconsBlock from '../../shared/components/IconsBlock';
+import Logo from '../../shared/components/Logo';
 
 export default function Footer() {
+  const footerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (footerRef.current) {
+      console.log(footerRef.current.offsetHeight);
+    }
+  }, []);
+
   return (
-    <footer className="py-[30px] border-t-[1px] border-gray-300 dark:border-dark-border">
+    <footer
+      ref={footerRef}
+      className="py-[30px] border-t-[1px] border-gray-300 dark:border-dark-border"
+    >
       <Container>
         <>
           <div className="flex justify-between justify-items-start">

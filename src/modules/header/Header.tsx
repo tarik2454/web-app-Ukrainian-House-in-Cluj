@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Container, Logo, NavBar } from '../../shared/components';
-import { ThemeToggle } from './components';
 import routes from '../../constants/routes';
+import Container from '../../shared/components/Container';
+import Logo from '../../shared/components/Logo';
+import NavBar from '../../shared/components/NavBar';
+import ThemeToggle from './components/ThemeToggle';
 
 export default function Header() {
   const [position, setPosition] = useState('absolute');
@@ -11,11 +13,11 @@ export default function Header() {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
-  // useEffect(() => {
-  //   if (headerRef.current) {
-  //     console.log(headerRef.current.offsetHeight);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (headerRef.current) {
+      console.log(headerRef.current.offsetHeight);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

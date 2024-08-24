@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { Container, Section } from '../../shared/components';
+import Section from '../../shared/components/Section';
+import Container from '../../shared/components/Container';
 
 export default function Hero() {
   const headerRef = useRef<HTMLDivElement | null>(null);

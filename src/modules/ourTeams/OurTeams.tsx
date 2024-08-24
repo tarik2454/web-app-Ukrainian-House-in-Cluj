@@ -1,6 +1,8 @@
-import { Container, Section, SectionTitle } from '../../shared/components';
 import teamData from '../../shared/data/team-data';
 import Slider from '../../shared/components/Slider';
+import Section from '../../shared/components/Section';
+import Container from '../../shared/components/Container';
+import SectionTitle from '../../shared/components/SectionTitle';
 
 export default function OurTeams() {
   return (

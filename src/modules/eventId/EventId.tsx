@@ -3,9 +3,11 @@
 import useModal from '../../shared/hooks/useModal';
 import eventPostId from '../../shared/data/event-post-id';
 
-import { Modal, Section, SectionTitle } from '../../shared/components';
-import { EventRegisterModal } from './components';
 import { SpriteSVG } from '../../img/SpriteSVG';
+import Section from '../../shared/components/Section';
+import SectionTitle from '../../shared/components/SectionTitle';
+import Modal from '../../shared/components/Modal';
+import EventRegisterModal from './components/EventRegisterModal';
 
 export default function EventId() {
   // const { eventId } = useParams();
@@ -29,18 +31,18 @@ export default function EventId() {
         <div className="text-lg">
           <p className="mb-3">{start.trim()}</p>
           <p className="mb-3">{base.trim()}</p>
-          <p className="mb-3">{end.trim()}</p>
+          <p className="mb-6">{end.trim()}</p>
 
-          <div className="mb-3">
-            <div className="flex items-center gap-[5px]">
+          <div className="mb-6">
+            <div className="flex items-center gap-[7px]">
               <SpriteSVG name={'alarm'} width={'22'} height={'22'} />
               <p>{eventDate.date}</p>
             </div>
-            <div className="flex items-center gap-[6px]">
+            <div className="flex items-center gap-[9px]">
               <SpriteSVG name={'clock'} width={'20'} height={'20'} />
               <p>{eventDate.time}</p>
             </div>
-            <div className="flex items-center gap-[5px]">
+            <div className="flex items-center gap-[6px]">
               <SpriteSVG name={'location'} width={'23'} height={'22'} />
               <p>{eventDate.location}</p>
             </div>
@@ -60,11 +62,11 @@ export default function EventId() {
         </div>
       </Section>
 
-      <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
-        <p className="mb-6 font-inter-600 text-2xl font-semibold text-black-200 text-center dark:text-dark-title">
-          Форма реєстрації
-        </p>
-
+      <Modal
+        isOpen={isOpenModal}
+        onClose={handleCloseModal}
+        modalTitle={'Форма реєстрації'}
+      >
         <EventRegisterModal />
       </Modal>
     </div>

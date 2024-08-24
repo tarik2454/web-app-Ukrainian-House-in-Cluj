@@ -1,5 +1,7 @@
-import { NewsSection } from '../modules';
-import { Breadcrumbs, PageTitle, PageWrapper } from '../shared/components';
+import NewsSection from '../modules/newsSection/NewsSection';
+import Breadcrumbs from '../shared/components/Breadcrumbs';
+import PageTitle from '../shared/components/PageTitle';
+import PageWrapper from '../shared/components/PageWrapper';
 
 export default function News() {
   return (

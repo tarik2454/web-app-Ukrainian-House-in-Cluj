@@ -7,7 +7,7 @@ export default function About() {
     <Section>
       <Container>
         <SectionTitle>Про нас</SectionTitle>
-        {/* <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
             numquam, repudiandae odio exercitationem autem consectetur cumque a
@@ -55,7 +55,7 @@ export default function About() {
               </li>
             </ul>
           </div>
-        </div> */}
+        </div>
       </Container>
     </Section>
   );

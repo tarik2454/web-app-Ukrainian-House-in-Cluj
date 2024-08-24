@@ -170,6 +170,42 @@ const eventsData = [
     tags: ['мова'],
     date: '19.02.2024',
   },
+  {
+    id: '20',
+    title: 'Садовий майстер-клас',
+    img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
+    description:
+      'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
+    tags: ['інше'],
+    date: '19.02.2024',
+  },
+  {
+    id: '21',
+    title: 'Садовий майстер-клас',
+    img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
+    description:
+      'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
+    tags: ['психологія'],
+    date: '19.02.2024',
+  },
+  {
+    id: '22',
+    title: 'Садовий майстер-клас',
+    img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
+    description:
+      'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
+    tags: ['психологія'],
+    date: '19.02.2024',
+  },
+  {
+    id: '23',
+    title: 'Садовий майстер-клас',
+    img: 'https://via.placeholder.com/150x100?text=Gardening+Workshop',
+    description:
+      'Навчіться основам садівництва на нашому майстер-класі. Отримайте поради від досвідчених садівників.',
+    tags: ['психологія'],
+    date: '19.02.2024',
+  },
 ];
 
 export default eventsData;

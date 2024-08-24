@@ -1,7 +1,7 @@
 import tagColors from '../helpers/tag-colors';
 
 interface EventsTagsFilterProps {
-  handleFilterTags: (tag: string) => void;
+  handleFilterTags: (filterTagName?: string, tag?: string) => void;
 }
 
 export default function EventsTagsFilter({

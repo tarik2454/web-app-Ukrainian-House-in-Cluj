@@ -6,19 +6,26 @@ import { EventsDataProps } from '../types/eventProps';
 interface EventsProps {
   mainPage?: boolean;
   detailsPage?: boolean;
-  handleFilterTags?: (tag: string) => void;
+  selectedTag?: string; // Пропс для выбранного тега
 }
 
 export default function Events({
   mainPage,
   detailsPage,
-  handleFilterTags,
+  selectedTag,
 }: EventsProps) {
-  const sliceEventsData = eventsData.slice(
-    detailsPage ? 0 : 1,
-    mainPage ? 4 : detailsPage ? 3 : eventsData.length
-  );
+  // Фильтруем события по выбранному тегу, если тег выбран
+  const filteredEventsData = selectedTag
+    ? eventsData.filter(event => event.tags.includes(selectedTag))
+    : eventsData;
+
+  // Устанавливаем элементы, которые будут отображены в зависимости от страницы
   const itemsPerPage = 12;
+  const startIndex = detailsPage ? 0 : 1;
+  const endIndex = mainPage ? 4 : detailsPage ? 3 : filteredEventsData.length;
+
+  // Вырезаем данные после фильтрации
+  const sliceEventsData = filteredEventsData.slice(startIndex, endIndex);
 
   const renderItemLi = (item: EventsDataProps) => (
     <li key={item.id} className="flex">
@@ -34,7 +41,7 @@ export default function Events({
     <div className="flex flex-row gap-8">
       {mainPage && (
         <ul>
-          {eventsData.slice(0, 1).map((product, index) => (
+          {sliceEventsData.slice(0, 1).map((product, index) => (
             <li key={index}>
               <EventsCard
                 product={product}
@@ -48,7 +55,7 @@ export default function Events({
 
       {(mainPage || detailsPage) && (
         <ul className="flex flex-col gap-8">
-          {eventsData.slice(1, 4).map((product, index) => (
+          {sliceEventsData.map((product, index) => (
             <li key={index}>
               <EventsCard
                 product={product}
@@ -63,10 +70,9 @@ export default function Events({
       {!mainPage && !detailsPage && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          array={sliceEventsData}
+          array={filteredEventsData} // Передаём отфильтрованные данные
           stylesUl={'flex flex-col gap-8 mb-[50px] grid grid-cols-3'}
           renderItemLi={renderItemLi}
-          handleFilterTags={handleFilterTags}
         />
       )}
     </div>

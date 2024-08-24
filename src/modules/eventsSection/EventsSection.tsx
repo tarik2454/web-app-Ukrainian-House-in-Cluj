@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Section, SectionTitle } from '../../shared/components';
 import { EventsList, EventsTagsFilter } from './components';
 
@@ -6,8 +7,11 @@ interface EventsSectionProps {
 }
 
 export default function EventsSection({ mainPage }: EventsSectionProps) {
-  const handleFilterTags = (tagName: string): void => {
+  const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined);
+
+  const handleFilterTags = (tagName?: string): void => {
     console.log('Filtering by tag:', tagName);
+    setSelectedTag(tagName); // Сохраняем выбранный тег
   };
 
   return (
@@ -20,7 +24,7 @@ export default function EventsSection({ mainPage }: EventsSectionProps) {
         ) : (
           <>
             <EventsTagsFilter handleFilterTags={handleFilterTags} />
-            <EventsList handleFilterTags={handleFilterTags} />
+            <EventsList selectedTag={selectedTag} />
           </>
         )}
       </Container>

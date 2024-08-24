@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import tagColors from '../helpers/tag-colors';
 import routes from '../../../constants/routes';
 
@@ -75,16 +74,20 @@ export default function EventsCard({
           </Link>
 
           <ul className="flex gap-2">
-            {tags.map((tag, index) => (
-              <li
-                key={index}
-                className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
-                  tagColors[tag] || 'bg-gray-500'
-                }`}
-              >
-                {tag}
-              </li>
-            ))}
+            {tags.map((tag, index) => {
+              // console.log(tag);
+
+              return (
+                <li
+                  key={index}
+                  className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
+                    tagColors[tag] || 'bg-gray-500'
+                  }`}
+                >
+                  {tag}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

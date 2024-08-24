@@ -5,6 +5,7 @@ import eventPostId from '../../shared/data/event-post-id';
 
 import { Modal, Section, SectionTitle } from '../../shared/components';
 import { EventRegisterModal } from './components';
+import { SpriteSVG } from '../../img/SpriteSVG';
 
 export default function EventId() {
   // const { eventId } = useParams();
@@ -31,9 +32,18 @@ export default function EventId() {
           <p className="mb-3">{end.trim()}</p>
 
           <div className="mb-3">
-            <p>{eventDate.date}</p>
-            <p>{eventDate.time}</p>
-            <p>{eventDate.location}</p>
+            <div className="flex items-center gap-[5px]">
+              <SpriteSVG name={'alarm'} width={'22'} height={'22'} />
+              <p>{eventDate.date}</p>
+            </div>
+            <div className="flex items-center gap-[6px]">
+              <SpriteSVG name={'clock'} width={'20'} height={'20'} />
+              <p>{eventDate.time}</p>
+            </div>
+            <div className="flex items-center gap-[5px]">
+              <SpriteSVG name={'location'} width={'23'} height={'22'} />
+              <p>{eventDate.location}</p>
+            </div>
           </div>
 
           <div className="flex gap-2 mb-3">

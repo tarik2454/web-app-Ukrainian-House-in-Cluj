@@ -9,10 +9,13 @@ import {
   Events,
   AboutUs,
   WorkSchedule,
-  AdminPage,
   EventDetails,
 } from './pages';
 import Loader from './shared/components/Loader';
+
+import CreateNews from './admin/pages/CreateNews';
+import AdminLayout from './admin/layout/AdminLayout';
+import MainPage from './admin/pages/MainPage';
 
 export function App() {
   return (
@@ -26,7 +29,11 @@ export function App() {
           <Route path={routes.EVENT_ID.path} element={<EventDetails />} />
           <Route path={routes.ABOUT_US.path} element={<AboutUs />} />
         </Route>
-        <Route path={routes.ADMIN.path} element={<AdminPage />} />
+
+        <Route path={routes.ADMIN.path} element={<AdminLayout />}>
+          <Route index element={<MainPage />} />
+          <Route path={routes.CREATE_NEWS.path} element={<CreateNews />} />
+        </Route>
       </Routes>
     </Suspense>
   );

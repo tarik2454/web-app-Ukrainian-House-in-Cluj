@@ -15,6 +15,7 @@ const routes: Record<string, Route> = {
   SIGNUP: { path: '/signup', name: 'Реєстрація' },
 
   ADMIN: { path: '/admin', name: 'Адмін' },
+  CREATE_NEWS: { path: 'create-news', name: 'Створити новину' },
 };
 
 export default routes;

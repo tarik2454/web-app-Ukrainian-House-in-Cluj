@@ -1,5 +1,5 @@
-import Admin from '../admin/Admin';
+import MainPage from '../admin/pages/MainPage';
 
 export default function AdminPage() {
-  return <Admin />;
+  return <MainPage />;
 }

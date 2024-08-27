@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/header/Header';
+import Header from '../modules/header/Header';
 import Loader from '../../shared/components/Loader';
 
 export default function AdminLayout() {

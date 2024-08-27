@@ -16,6 +16,7 @@ import Loader from './shared/components/Loader';
 import CreateNews from './admin/pages/CreateNews';
 import AdminLayout from './admin/layout/AdminLayout';
 import MainPage from './admin/pages/MainPage';
+import CreateEvent from './admin/pages/CreateEvent';
 
 export function App() {
   return (
@@ -30,9 +31,10 @@ export function App() {
           <Route path={routes.ABOUT_US.path} element={<AboutUs />} />
         </Route>
 
-        <Route path={routes.ADMIN.path} element={<AdminLayout />}>
+        <Route path={routes.ADMIN_MAIN.path} element={<AdminLayout />}>
           <Route index element={<MainPage />} />
           <Route path={routes.CREATE_NEWS.path} element={<CreateNews />} />
+          <Route path={routes.CREATE_EVENT.path} element={<CreateEvent />} />
         </Route>
       </Routes>
     </Suspense>

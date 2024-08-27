@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import MobileNavBar from '../mobileMenu/MobileNavBar';
+import MobileNavBar from './mobileMenu/MobileNavBar';
 import Notifications from './Notifications';
 import ProfileDropdown from './Profile';
 import NavBar from './NavBar';
-import MobileMenuButton from '../mobileMenu/MobileMenuButton';
+import MobileMenuButton from './mobileMenu/MobileMenuButton';
 import Logo from '../../../shared/components/Logo';
 
 export default function Header() {

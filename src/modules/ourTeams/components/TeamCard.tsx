@@ -14,7 +14,7 @@ export default function TeamCard({
   return (
     <div>
       <img
-        className="mb-8"
+        className="mb-5"
         src={img}
         width={'100%'}
         height={'100%'}

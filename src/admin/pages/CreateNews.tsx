@@ -1,3 +1,9 @@
+import PageTitle from '../../shared/components/PageTitle';
+
 export default function CreateNews() {
-  return <div>Rsadsadasdasdasdoot</div>;
+  return (
+    <>
+      <PageTitle admin={true}>Створити новину</PageTitle>
+    </>
+  );
 }

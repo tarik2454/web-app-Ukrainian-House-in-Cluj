@@ -42,7 +42,7 @@ export default function EventId() {
               <SpriteSVG name={'clock'} width={'20'} height={'20'} />
               <p>{eventDate.time}</p>
             </div>
-            <div className="flex items-center gap-[6px]">
+            <div className="flex items-center gap-[8px] -ml-[1px]">
               <SpriteSVG name={'location'} width={'23'} height={'22'} />
               <p>{eventDate.location}</p>
             </div>

@@ -165,6 +165,7 @@ export const SpriteSVG = ({
     case 'location':
       return (
         <svg
+          className={className}
           xmlSpace="preserve"
           // style="enable-background:new 0 0 512 512"
           width={width}

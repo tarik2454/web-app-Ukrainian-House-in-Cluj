@@ -17,7 +17,7 @@ export default function IconsBlock() {
           after:hover:bg-ukraniane-via after:focus:bg-ukraniane-via`}
         >
           <a href={icon.link}>
-            <SpriteSVG name={icon.name} className={''} />
+            <SpriteSVG name={icon.name} />
           </a>
         </li>
       ))}

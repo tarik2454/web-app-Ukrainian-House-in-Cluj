@@ -1,19 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import routes from '../../constants/routes';
 
-const navItems = [
-  { path: routes.ROOT.path, label: 'Головна' },
-  { path: routes.NEWS.path, label: 'Новини' },
-  { path: routes.WORK_SCHEDULE.path, label: 'Графік роботи' },
-  { path: routes.EVENTS.path, label: 'Події' },
-  { path: routes.ABOUT_US.path, label: 'Про нас' },
-];
+import useRoutesByKey from '../hooks/useRoutesByKey';
 
 export default function NavBar() {
+  const routes = useRoutesByKey([
+    'ROOT',
+    'NEWS',
+    'WORK_SCHEDULE',
+    'EVENTS',
+    'ABOUT_US',
+  ]);
+
   return (
     <nav>
       <ul className="flex gap-[30px]">
-        {navItems.map((item, index) => (
+        {routes.map((item, index) => (
           <li key={index} className="relative">
             <NavLink
               className="text-black-200 text-xl 
@@ -22,7 +23,7 @@ export default function NavBar() {
               dark:text-dark-title dark:after:bg-dark-title"
               to={item.path}
             >
-              {item.label}
+              {item.name}
             </NavLink>
           </li>
         ))}

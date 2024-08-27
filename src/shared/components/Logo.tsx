@@ -1,12 +1,14 @@
 import logo from '@/img/logo.png';
-import routes from '../../constants/routes';
+import { routes } from '../../constants/routes';
 
-export default function Logo() {
+export default function Logo({ admin = false }: { admin?: boolean }) {
   return (
-    <a href={routes.ROOT.path}>
+    <a href={admin ? `${routes.ADMIN_MAIN.path}` : `${routes.ROOT.path}`}>
       <div className="flex gap-2 items-center">
         <img src={logo} width="50px" height="50px" alt="Logo" />
-        <p className="text-ukraine-gradient text-base">Ukraine House</p>
+        {!admin ? (
+          <p className="text-ukraine-gradient text-base">Ukraine House</p>
+        ) : null}
       </div>
     </a>
   );

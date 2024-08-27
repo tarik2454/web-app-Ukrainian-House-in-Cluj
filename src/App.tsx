@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 
-import routes from './constants/routes';
+import { routes } from './constants/routes';
 import Layout from './layout/Layout';
 import {
   HomePage,

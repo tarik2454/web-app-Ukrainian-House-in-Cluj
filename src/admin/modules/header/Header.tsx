@@ -18,7 +18,10 @@ export default function Header() {
     <header className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Logo />
+          <div className="w-[39px]">
+            <Logo admin={true} />
+          </div>
+
           <NavBar />
 
           <div className="hidden md:block">
@@ -28,7 +31,7 @@ export default function Header() {
             </div>
           </div>
 
-          <MobileMenuButton handleToggleMenu={handleToggleMenu} />
+          <MobileMenuButton onClick={handleToggleMenu} />
         </div>
       </div>
 

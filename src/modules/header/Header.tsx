@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import routes from '../../constants/routes';
+import { routes } from '../../constants/routes';
 import Container from '../../shared/components/Container';
 import Logo from '../../shared/components/Logo';
 import NavBar from '../../shared/components/NavBar';

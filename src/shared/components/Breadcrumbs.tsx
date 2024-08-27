@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import routes from '../../constants/routes';
+import { routes } from '../../constants/routes';
 import Container from './Container';
 
 export default function Breadcrumbs() {

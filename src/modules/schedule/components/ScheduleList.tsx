@@ -23,7 +23,7 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
                 <li key={idx} className="ml-5">
                   <div
                     className="font-inter-600 text-sm font-semibold text-violet-300 
-                  dark:font-inter-500 dark:text-dark-date"
+                  dark:text-dark-date"
                   >
                     {event.time}
                   </div>
@@ -54,7 +54,7 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
                   <li key={idx} className="ml-5">
                     <div
                       className="font-inter-600 text-sm font-semibold text-violet-300 
-                    dark:font-inter-500 dark:text-dark-date"
+                    dark:text-dark-date"
                     >
                       {event.time}
                     </div>

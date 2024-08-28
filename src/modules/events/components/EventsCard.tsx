@@ -50,7 +50,7 @@ export default function EventsCard({
       <div className="flex flex-col grow">
         <p
           className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 
-        dark:font-inter-500 dark:text-dark-date"
+        dark:text-dark-date"
         >
           {date}
         </p>
@@ -78,8 +78,6 @@ export default function EventsCard({
 
           <ul className="flex gap-2">
             {tags.map((tag, index) => {
-              // console.log(tag);
-
               return (
                 <li
                   key={index}

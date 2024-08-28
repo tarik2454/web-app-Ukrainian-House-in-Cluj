@@ -21,7 +21,7 @@ export default function NewsCard({
       {!mainPage && (
         <p
           className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
-        dark:font-inter-500 dark:text-dark-date"
+         dark:text-dark-date"
         >
           {date || <Skeleton width={100} />}
         </p>
@@ -44,7 +44,7 @@ export default function NewsCard({
           {mainPage && (
             <p
               className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
-            dark:font-inter-500 dark:text-dark-date"
+             dark:text-dark-date"
             >
               {date || <Skeleton width={100} />}
             </p>

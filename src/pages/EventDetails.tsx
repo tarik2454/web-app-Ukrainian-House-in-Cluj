@@ -8,7 +8,7 @@ import PageTitle from '../shared/components/PageTitle';
 import Container from '../shared/components/Container';
 import Section from '../shared/components/Section';
 import SectionTitle from '../shared/components/SectionTitle';
-import EventsList from '../modules/eventsSection/components/EventsList';
+import EventsList from '../modules/events/components/EventsList';
 
 export default function EventDetails() {
   // const { eventId } = useParams();

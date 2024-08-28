@@ -3,7 +3,7 @@
 import useModal from '../../shared/hooks/useModal';
 import eventPostId from '../../shared/data/event-post-id';
 
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 import Section from '../../shared/components/Section';
 import SectionTitle from '../../shared/components/SectionTitle';
 import Modal from '../../shared/components/Modal';

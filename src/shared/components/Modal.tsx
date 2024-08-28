@@ -2,7 +2,7 @@ import React, { useEffect, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 
 type ModalProps = {
   isOpen: boolean;

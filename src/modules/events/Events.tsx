@@ -9,7 +9,7 @@ interface EventsSectionProps {
   mainPage?: boolean;
 }
 
-export default function EventsSection({ mainPage }: EventsSectionProps) {
+export default function Events({ mainPage }: EventsSectionProps) {
   const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined);
 
   const handleFilterTags = (tagName?: string): void => {

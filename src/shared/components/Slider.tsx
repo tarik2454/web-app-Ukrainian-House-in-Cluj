@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import 'swiper/css/hash-navigation';
 
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 import { useRef, useEffect } from 'react';
 import type { Swiper as SwiperClass } from 'swiper/types';
 import TeamCard from '../../modules/ourTeams/components/TeamCard';

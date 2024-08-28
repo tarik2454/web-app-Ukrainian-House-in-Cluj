@@ -1,6 +1,6 @@
-import EventsSection from '../modules/eventsSection/EventsSection';
+import Events from '../modules/events/Events';
 import Hero from '../modules/hero/Hero';
-import NewsSection from '../modules/newsSection/NewsSection';
+import News from '../modules/news/News';
 import OurTeams from '../modules/ourTeams/OurTeams';
 import Schedule from '../modules/schedule/Schedule';
 import PageTitle from '../shared/components/PageTitle';
@@ -11,9 +11,9 @@ export default function HomePage() {
     <PageWrapper>
       <PageTitle styles={'visually-hidden'}>Домашня сторiнка</PageTitle>
       <Hero />
-      <NewsSection mainPage={true} />
+      <News mainPage={true} />
       <Schedule mainPage={true} />
-      <EventsSection mainPage={true} />
+      <Events mainPage={true} />
       <OurTeams />
     </PageWrapper>
   );

@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { routes } from './constants/routes';
 import Layout from './layout/Layout';
 import {
-  HomePage,
+  Home,
   News,
   Events,
   AboutUs,
@@ -15,7 +15,7 @@ import Loader from './shared/components/Loader';
 
 import CreateNews from './admin/pages/CreateNews';
 import AdminLayout from './admin/layout/AdminLayout';
-import MainPage from './admin/pages/MainPage';
+import MainAdmin from './admin/pages/MainAdminPage';
 import CreateEvent from './admin/pages/CreateEvent';
 
 export function App() {
@@ -23,7 +23,7 @@ export function App() {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path={routes.ROOT.path} element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<Home />} />
           <Route path={routes.NEWS.path} element={<News />} />
           <Route path={routes.WORK_SCHEDULE.path} element={<WorkSchedule />} />
           <Route path={routes.EVENTS.path} element={<Events />} />
@@ -32,7 +32,7 @@ export function App() {
         </Route>
 
         <Route path={routes.ADMIN_MAIN.path} element={<AdminLayout />}>
-          <Route index element={<MainPage />} />
+          <Route index element={<MainAdmin />} />
           <Route path={routes.CREATE_NEWS.path} element={<CreateNews />} />
           <Route path={routes.CREATE_EVENT.path} element={<CreateEvent />} />
         </Route>

@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 
 interface PaginationItemProps {
   id: string;

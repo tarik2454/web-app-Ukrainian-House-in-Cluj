@@ -3,7 +3,7 @@ import Section from '../../shared/components/Section';
 import SectionTitle from '../../shared/components/SectionTitle';
 import NewsList from './components/NewsList';
 
-export default function NewsSection({ mainPage }: { mainPage?: boolean }) {
+export default function News({ mainPage }: { mainPage?: boolean }) {
   return (
     <Section>
       <Container>

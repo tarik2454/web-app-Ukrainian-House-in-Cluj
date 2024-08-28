@@ -1,6 +1,6 @@
 import PageTitle from '../../shared/components/PageTitle';
 
-export default function MainPage() {
+export default function MainAdminPage() {
   return (
     <>
       <PageTitle

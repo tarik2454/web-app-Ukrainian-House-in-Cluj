@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SpriteSVG } from '../../../img/SpriteSVG';
+import { SpriteSVG } from '../../../assets/images/SpriteSVG';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');

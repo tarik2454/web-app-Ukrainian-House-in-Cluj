@@ -1,4 +1,4 @@
-import { SpriteSVG } from '../../img/SpriteSVG';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 
 const icons = [
   { name: 'telegram', link: '#', paddingTop: 'pt-[2px]' },

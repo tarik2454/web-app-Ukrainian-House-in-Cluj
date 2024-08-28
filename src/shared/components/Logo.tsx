@@ -1,4 +1,4 @@
-import logo from '@/img/logo.png';
+import logo from '../../assets/images/logo.png';
 import { routes } from '../../constants/routes';
 
 export default function Logo({ admin = false }: { admin?: boolean }) {

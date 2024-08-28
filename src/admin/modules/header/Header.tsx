@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import MobileNavBar from './mobileMenu/MobileNavBar';
+import MobileNavBar from './MobileNavBar';
 import Notifications from './Notifications';
 import ProfileDropdown from './Profile';
 import NavBar from './NavBar';
-import MobileMenuButton from './mobileMenu/MobileMenuButton';
+import MobileMenuButton from './MobileMenuButton';
 import Logo from '../../../shared/components/Logo';
 
 export default function Header() {
@@ -18,7 +18,7 @@ export default function Header() {
     <header className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="w-[30px]">
+          <div className="w-[32px]">
             <Logo admin={true} />
           </div>
 

@@ -1,5 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import useRoutesByKey from '../../../shared/hooks/useRoutesByKey';
 import MobileProfile from './MobileProfile';
@@ -9,13 +8,11 @@ export default function MobileNavBar({
 }: {
   navBarDisplay: string;
 }) {
-  const routes = useRoutesByKey(['ADMIN_MAIN', 'CREATE_NEWS', 'CREATE_EVENT']);
-  const location = useLocation();
-  const [activePath, setActivePath] = useState(location.pathname);
-
-  const handleClickLink = (path: string) => {
-    setActivePath(path);
-  };
+  const { routes, activePath, handleClickLink } = useRoutesByKey([
+    'ADMIN_MAIN',
+    'CREATE_NEWS',
+    'CREATE_EVENT',
+  ]);
 
   return (
     <nav className={`${navBarDisplay} md:hidden`}>

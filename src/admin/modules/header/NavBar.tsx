@@ -1,15 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useRoutesByKey from '../../../shared/hooks/useRoutesByKey';
-import { useState } from 'react';
 
 export default function NavBar() {
-  const routes = useRoutesByKey(['ADMIN_MAIN', 'CREATE_NEWS', 'CREATE_EVENT']);
-  const location = useLocation();
-  const [activePath, setActivePath] = useState(location.pathname);
-
-  const handleClickLink = (path: string) => {
-    setActivePath(path);
-  };
+  const { routes, activePath, handleClickLink } = useRoutesByKey([
+    'ADMIN_MAIN',
+    'CREATE_NEWS',
+    'CREATE_EVENT',
+  ]);
 
   return (
     <nav className="hidden md:block">

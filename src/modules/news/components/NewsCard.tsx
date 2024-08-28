@@ -19,7 +19,10 @@ export default function NewsCard({
   return (
     <div>
       {!mainPage && (
-        <p className="mb-2 font-inter-600 text-sm font-semibold text-violet-300">
+        <p
+          className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
+        dark:font-inter-500 dark:text-dark-date"
+        >
           {date || <Skeleton width={100} />}
         </p>
       )}
@@ -39,7 +42,10 @@ export default function NewsCard({
 
         <div>
           {mainPage && (
-            <p className="mb-2 font-inter-600 text-sm font-semibold text-violet-300">
+            <p
+              className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
+            dark:font-inter-500 dark:text-dark-date"
+            >
               {date || <Skeleton width={100} />}
             </p>
           )}

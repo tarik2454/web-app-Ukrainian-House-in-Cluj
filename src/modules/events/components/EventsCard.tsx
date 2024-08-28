@@ -48,7 +48,10 @@ export default function EventsCard({
       </Link>
 
       <div className="flex flex-col grow">
-        <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300">
+        <p
+          className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 
+        dark:font-inter-500 dark:text-dark-date"
+        >
           {date}
         </p>
 

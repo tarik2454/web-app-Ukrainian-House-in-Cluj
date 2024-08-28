@@ -1,22 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import useRoutesByKey from '../hooks/useRoutesByKey';
-import { useState } from 'react';
 
 export default function NavBar() {
-  const routes = useRoutesByKey([
+  const { routes, activePath, handleClickLink } = useRoutesByKey([
     'ROOT',
     'NEWS',
     'WORK_SCHEDULE',
     'EVENTS',
     'ABOUT_US',
   ]);
-  const location = useLocation();
-  const [activePath, setActivePath] = useState(location.pathname);
-
-  const handleClickLink = (path: string) => {
-    setActivePath(path);
-  };
 
   return (
     <nav>

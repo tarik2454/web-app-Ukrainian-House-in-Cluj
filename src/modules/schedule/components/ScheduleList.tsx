@@ -21,7 +21,10 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
             <ul className="flex flex-col gap-3">
               {day.events.map((event, idx) => (
                 <li key={idx} className="ml-5">
-                  <div className="font-inter-600 text-sm font-semibold text-violet-300">
+                  <div
+                    className="font-inter-600 text-sm font-semibold text-violet-300 
+                  dark:font-inter-500 dark:text-dark-date"
+                  >
                     {event.time}
                   </div>
 
@@ -49,7 +52,10 @@ export default function ScheduleList({ mainPage }: { mainPage?: boolean }) {
               <ul className="flex flex-col gap-3">
                 {day.events.map((event, idx) => (
                   <li key={idx} className="ml-5">
-                    <div className="font-inter-600 text-sm font-semibold text-violet-300">
+                    <div
+                      className="font-inter-600 text-sm font-semibold text-violet-300 
+                    dark:font-inter-500 dark:text-dark-date"
+                    >
                       {event.time}
                     </div>
 

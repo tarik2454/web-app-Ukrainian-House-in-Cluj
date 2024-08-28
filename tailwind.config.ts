@@ -58,6 +58,7 @@ const config: Config = {
           text: '#C0C5D0',
           border: '#667085',
           'schedule-background': '#0F142E',
+          date: '#A17FEB',
         },
       },
       opacity: {

@@ -14,7 +14,7 @@ export default function Events({ mainPage }: EventsSectionProps) {
 
   const handleFilterTags = (tagName?: string): void => {
     console.log('Filtering by tag:', tagName);
-    setSelectedTag(tagName); // Сохраняем выбранный тег
+    setSelectedTag(tagName);
   };
 
   return (

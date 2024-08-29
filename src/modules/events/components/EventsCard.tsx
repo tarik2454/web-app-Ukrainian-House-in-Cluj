@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import tagColors from '../helpers/tag-colors';
 import { routes } from '../../../constants/routes';
 
 export interface CommonCardProps {
-  product: {
+  product?: {
     id: string;
     title: string;
     img: string;
@@ -22,9 +25,9 @@ export default function EventsCard({
   detailsPage = false,
   mainPage = false,
 }: CommonCardProps) {
-  const { id, title, img, description, tags, date } = product;
+  const { id, title, img, description, tags, date } = product || {};
 
-  const eventUrl = routes.EVENT_ID.path.replace(':eventId', id);
+  const eventUrl = id ? routes.EVENT_ID.path.replace(':eventId', id) : '#';
 
   return (
     <div
@@ -38,13 +41,26 @@ export default function EventsCard({
         `}
     >
       <Link to={eventUrl}>
-        <img
-          className={`${
-            singleEvent || detailsPage ? 'w-full h-full mb-5' : 'w-full h-full'
-          }`}
-          src={img}
-          alt={title}
-        />
+        {img ? (
+          <img
+            className={`${
+              singleEvent || detailsPage
+                ? 'w-full h-full mb-5'
+                : 'w-full h-full'
+            }`}
+            src={img}
+            alt={title}
+          />
+        ) : (
+          <Skeleton
+            className={`${
+              singleEvent || detailsPage
+                ? 'w-full h-full mb-5'
+                : 'w-full h-full'
+            }`}
+            height={singleEvent || detailsPage ? 300 : 150}
+          />
+        )}
       </Link>
 
       <div className="flex flex-col grow">
@@ -52,7 +68,7 @@ export default function EventsCard({
           className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 
         dark:text-dark-date"
         >
-          {date}
+          {date || <Skeleton width={100} />}
         </p>
 
         <Link
@@ -64,7 +80,7 @@ export default function EventsCard({
               singleEvent ? 'mb-3' : 'mb-2 text-lg'
             }`}
           >
-            {title}
+            {title || <Skeleton width={200} />}
           </h3>
         </Link>
 
@@ -73,12 +89,12 @@ export default function EventsCard({
             className="hover:underline hover:underline-offset-4"
             to={eventUrl}
           >
-            <p className="mb-6">{description}</p>
+            <p className="mb-6">{description || <Skeleton count={3} />}</p>
           </Link>
 
           <ul className="flex gap-2">
-            {tags.map((tag, index) => {
-              return (
+            {tags && tags.length > 0 ? (
+              tags.map((tag, index) => (
                 <li
                   key={index}
                   className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
@@ -87,8 +103,10 @@ export default function EventsCard({
                 >
                   {tag}
                 </li>
-              );
-            })}
+              ))
+            ) : (
+              <Skeleton width={80} height={30} count={3} />
+            )}
           </ul>
         </div>
       </div>

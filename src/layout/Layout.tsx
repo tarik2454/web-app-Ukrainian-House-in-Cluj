@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main className="100vh">
+      <main className="h-full">
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

@@ -59,7 +59,7 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
         }}
         modules={[Navigation, Pagination, A11y, Autoplay, HashNavigation]}
         navigation={{ nextEl: '.mySwiper-next', prevEl: '.mySwiper-prev' }}
-        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        pagination={{ el: '.swiper-pagination' }}
         autoplay={{ delay: 2000 }}
         loop={true}
         className="mySwiper"

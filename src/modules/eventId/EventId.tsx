@@ -20,7 +20,10 @@ export default function EventId() {
   return (
     <div>
       <Section>
-        <p className="mb-8 font-inter-600 font-semibold text-sm text-violet-300">
+        <p
+          className="mb-8 font-inter-600 font-semibold text-sm text-violet-300
+          dark:text-dark-date"
+        >
           {date}
         </p>
         <SectionTitle styles={'font-inter-700 font-bold text-4xl'}>
@@ -51,7 +54,8 @@ export default function EventId() {
           <div className="flex gap-2 mb-3">
             <p>{registration.trim()} </p>
             <button
-              className="font-inter-600 font-semibold text-violet-300"
+              className="font-inter-600 font-semibold text-violet-300
+              dark:text-dark-date"
               onClick={handleOpenModal}
             >
               Реєстрація
@@ -63,9 +67,9 @@ export default function EventId() {
       </Section>
 
       <Modal
+        modalTitle={'Форма реєстрації'}
         isOpen={isOpenModal}
         onClose={handleCloseModal}
-        modalTitle={'Форма реєстрації'}
       >
         <EventRegisterModal />
       </Modal>

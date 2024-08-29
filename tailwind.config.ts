@@ -56,7 +56,7 @@ const config: Config = {
           background: '#090D1F',
           title: '#FFFFFF',
           text: '#C0C5D0',
-          border: '#667085',
+          border: '#333740',
           'schedule-background': '#0F142E',
           date: '#A17FEB',
         },

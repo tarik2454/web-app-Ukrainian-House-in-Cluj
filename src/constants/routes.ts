@@ -16,5 +16,9 @@ export const routes = {
 
   ADMIN_MAIN: { path: '/admin', name: 'Головна' },
   CREATE_NEWS: { path: 'create-news', name: 'Створити новину' },
+  CREATE_SCHEDULE: {
+    path: 'create-schedule',
+    name: 'Створити графік роботи',
+  },
   CREATE_EVENT: { path: 'create-event', name: 'Створити подію' },
 };

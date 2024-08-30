@@ -17,6 +17,7 @@ import CreateNews from './admin/pages/CreateNews';
 import AdminLayout from './admin/layout/AdminLayout';
 import MainAdmin from './admin/pages/MainAdminPage';
 import CreateEvent from './admin/pages/CreateEvent';
+import CreateWorkSchedule from './admin/pages/CreateWorkSchedule';
 
 export function App() {
   return (
@@ -34,6 +35,10 @@ export function App() {
         <Route path={routes.ADMIN_MAIN.path} element={<AdminLayout />}>
           <Route index element={<MainAdmin />} />
           <Route path={routes.CREATE_NEWS.path} element={<CreateNews />} />
+          <Route
+            path={routes.CREATE_SCHEDULE.path}
+            element={<CreateWorkSchedule />}
+          />
           <Route path={routes.CREATE_EVENT.path} element={<CreateEvent />} />
         </Route>
       </Routes>

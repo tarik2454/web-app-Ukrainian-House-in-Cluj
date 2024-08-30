@@ -35,7 +35,7 @@ export default function FormItem<T extends FieldValues>({
           id={id}
           className="input"
           placeholder={placeholder}
-          autoComplete="off"
+          // autoComplete="off"
           {...register(name)}
         />
       )}
@@ -45,7 +45,7 @@ export default function FormItem<T extends FieldValues>({
           id={id}
           className="input"
           placeholder={placeholder}
-          autoComplete="off"
+          // autoComplete="off"
           {...register(name)}
         />
       )}
@@ -54,7 +54,7 @@ export default function FormItem<T extends FieldValues>({
           type="date"
           id={id}
           className="input"
-          autoComplete="off"
+          // autoComplete="off"
           {...register(name)}
         />
       )}
@@ -63,13 +63,13 @@ export default function FormItem<T extends FieldValues>({
           id={id}
           className="textarea"
           placeholder={placeholder}
-          autoComplete="off"
+          // autoComplete="off"
           {...register(name)}
         />
       )}
 
       {error && (
-        <p className="mt-[2px] text-red-700 text-sm">{error.message}</p>
+        <span className="mt-[2px] text-red-700 text-sm">{error.message}</span>
       )}
     </div>
   );

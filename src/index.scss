@@ -95,6 +95,16 @@
   animation: waving-flag 3s ease-in-out infinite;
 }
 
+@layer components {
+  .strong {
+    @apply font-inter-500 font-semibold text-black-200 dark:text-dark-title;
+  }
+}
+
+.space {
+  margin-bottom: 12px;
+}
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;

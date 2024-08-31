@@ -12,8 +12,8 @@ import EventRegisterModal from './components/EventRegisterModal';
 export default function EventId() {
   // const { eventId } = useParams();
 
-  const { title, description, imageUrl, date } = eventPostId;
-  const { start, base, end, eventDate, registration } = description;
+  const { date, title, description, imageUrl, eventDate, registration } =
+    eventPostId;
 
   const { isOpenModal, handleOpenModal, handleCloseModal } = useModal();
 
@@ -32,9 +32,10 @@ export default function EventId() {
         <img className="w-full h-full mb-5" src={imageUrl} alt={title} />
 
         <div className="text-lg">
-          <p className="mb-3">{start.trim()}</p>
-          <p className="mb-3">{base.trim()}</p>
-          <p className="mb-6">{end.trim()}</p>
+          <p
+            className="mb-6"
+            dangerouslySetInnerHTML={{ __html: description.trim() }}
+          />
 
           <div className="mb-6">
             <div className="flex items-center gap-[7px]">
@@ -51,18 +52,21 @@ export default function EventId() {
             </div>
           </div>
 
-          <div className="flex gap-2 mb-3">
-            <p>{registration.trim()} </p>
-            <button
-              className="font-inter-600 font-semibold text-violet-300
-              dark:text-dark-date"
-              onClick={handleOpenModal}
-            >
-              Реєстрація
-            </button>
-          </div>
-
-          <p>Зареєструвані учасники:</p>
+          {registration ? (
+            <>
+              <div className="flex gap-2 mb-3">
+                <p>Для запису необхідно зареєструватись: </p>
+                <button
+                  className="font-inter-600 font-semibold text-violet-300
+                  dark:text-dark-date"
+                  onClick={handleOpenModal}
+                >
+                  Реєстрація
+                </button>
+              </div>
+              <p>Зареєструвані учасники:</p>
+            </>
+          ) : null}
         </div>
       </Section>
 

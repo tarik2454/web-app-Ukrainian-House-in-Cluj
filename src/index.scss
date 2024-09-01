@@ -55,6 +55,10 @@
     color: theme('colors.dark.text');
     background-color: theme('colors.dark.background');
   }
+
+  img {
+    object-fit: cover;
+  }
 }
 
 @layer components {
@@ -63,6 +67,24 @@
     @apply block w-full py-2 px-2 text-black-200 border-[1px] border-violet-200 border-opacity-40 outline-none transition-all duration-250
     placeholder:text-black-100
     focus:border-opacity-100;
+  }
+}
+
+@layer components {
+  .strong {
+    @apply font-inter-500 font-semibold text-black-200 dark:text-dark-title;
+  }
+}
+
+@layer components {
+  .space {
+    @apply mb-3;
+  }
+}
+
+@layer components {
+  .error {
+    @apply mt-[2px] text-red-700 text-sm dark:text-red-500;
   }
 }
 
@@ -93,16 +115,6 @@
 .animate-waving-flag {
   background-size: 200% 200%;
   animation: waving-flag 3s ease-in-out infinite;
-}
-
-@layer components {
-  .strong {
-    @apply font-inter-500 font-semibold text-black-200 dark:text-dark-title;
-  }
-}
-
-.space {
-  margin-bottom: 12px;
 }
 
 .visually-hidden {

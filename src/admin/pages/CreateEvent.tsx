@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import PageTitle from '../../shared/components/PageTitle';
+import Button from '../../shared/components/Button';
+import AdminFormItem from '../components/AdminFormItem';
 
 interface EventFormData {
   title: string;
-  description: { start: string; base: string; end: string };
+  description: string;
   eventDate: {
     date: string;
     time: string;
@@ -28,7 +30,7 @@ export default function CreateEvent() {
   } = useForm<EventFormData>({
     defaultValues: {
       title: '',
-      description: { start: '', base: '', end: '' },
+      description: '',
       eventDate: {
         date: '',
         time: '',
@@ -93,220 +95,107 @@ export default function CreateEvent() {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
-          <label htmlFor="title" className="block mb-1 font-semibold">
-            Назва події
-          </label>
-          <textarea
-            id="title"
-            className="w-full border border-gray-300 rounded px-2 py-1"
-            {...register('title', {
-              required: 'Поле обов’язкове для заповнення',
-            })}
+          <AdminFormItem
+            labelText={'Назва події'}
+            type={'text'}
+            id={'title'}
+            name={'title'}
+            register={register}
+            error={errors.title}
+            validation={{ required: 'Поле обов’язкове для заповнення' }}
           />
-          {errors.title && (
-            <span className="text-red-700">{errors.title.message}</span>
-          )}
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
-          <div className="mb-3">
-            <label htmlFor="file" className="block mb-1 font-semibold">
-              Виберіть зображення
-            </label>
-            <div className="relative w-full h-[300px] bg-gray-200 border border-gray-300 rounded-md overflow-hidden">
+        <div className="grid grid-cols-2 gap-8 mb-8">
+          <div>
+            <div className="flex justify-center items-center w-full h-[380px] bg-black-100 bg-cover bg-center overflow-hidden relative">
               <input
                 type="file"
                 id="file"
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                className="w-full h-full opacity-0 cursor-pointer absolute inset-0 z-20"
                 accept="image/png, image/jpeg, image/jpg"
                 {...register('file', {
                   required: 'Файл обов’язковий',
                   onChange: handleChangeImg,
                 })}
               />
-              {previewImg && (
-                <img
-                  src={previewImg}
-                  alt="Preview"
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <span className="text-white absolute z-10">
+                Виберіть зображення
+              </span>
+              {previewImg && <img src={previewImg} alt="Preview" />}
             </div>
             {errors.file && !fileError && (
-              <span className="text-red-700">{errors.file.message}</span>
+              <span className="error">{errors.file.message}</span>
             )}
-            {fileError && <span className="text-red-700">{fileError}</span>}
+            {fileError && <span className="error">{fileError}</span>}
           </div>
 
-          <div>
-            <div className="mb-3">
-              <label htmlFor="date" className="block mb-1 font-semibold">
-                Дата проведення
-              </label>
-              <input
-                id="date"
-                type="date"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('date', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.date && (
-                <span className="text-red-700">{errors.date.message}</span>
-              )}
-            </div>
+          <div className="flex flex-col gap-3">
+            <AdminFormItem
+              labelText={'Дата проведення'}
+              type={'date'}
+              id={'date'}
+              name={'date'}
+              register={register}
+              error={errors.date}
+              validation={{ required: 'Поле обов’язкове для заповнення' }}
+            />
 
-            <div className="mb-3">
-              <label
-                htmlFor="descriptionStart"
-                className="block mb-1 font-semibold"
-              >
-                Початок опису
-              </label>
-              <textarea
-                id="descriptionStart"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('description.start', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.description?.start && (
-                <span className="text-red-700">
-                  {errors.description.start.message}
-                </span>
-              )}
-            </div>
+            <AdminFormItem
+              labelText={'Опис події'}
+              type={'textarea'}
+              id={'description'}
+              name={'description'}
+              register={register}
+              error={errors.description}
+              validation={{ required: 'Поле обов’язкове для заповнення' }}
+            />
 
-            <div className="mb-3">
-              <label
-                htmlFor="descriptionBase"
-                className="block mb-1 font-semibold"
-              >
-                Основний опис
-              </label>
-              <textarea
-                id="descriptionBase"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('description.base', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.description?.base && (
-                <span className="text-red-700">
-                  {errors.description.base.message}
-                </span>
-              )}
-            </div>
+            <AdminFormItem
+              labelText={'Дата події'}
+              type={'text'}
+              id={'eventDateDate'}
+              name={'eventDate.date'}
+              register={register}
+            />
 
-            <div className="mb-3">
-              <label
-                htmlFor="descriptionEnd"
-                className="block mb-1 font-semibold"
-              >
-                Заключний опис
-              </label>
-              <textarea
-                id="descriptionEnd"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('description.end', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.description?.end && (
-                <span className="text-red-700">
-                  {errors.description.end.message}
-                </span>
-              )}
-            </div>
+            <AdminFormItem
+              labelText={'Час події'}
+              type={'text'}
+              id={'eventDateTime'}
+              name={'eventDate.time'}
+              register={register}
+            />
 
-            <div className="mb-3">
-              <label
-                htmlFor="eventDateDate"
-                className="block mb-1 font-semibold"
-              >
-                Дата події
-              </label>
-              <input
-                id="eventDateDate"
-                type="text"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('eventDate.date', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.eventDate?.date && (
-                <span className="text-red-700">
-                  {errors.eventDate.date.message}
-                </span>
-              )}
-            </div>
+            <AdminFormItem
+              labelText={'Локація події'}
+              type={'text'}
+              id={'eventDateLocation'}
+              name={'eventDate.location'}
+              register={register}
+            />
 
-            <div className="mb-3">
-              <label
-                htmlFor="eventDateTime"
-                className="block mb-1 font-semibold"
-              >
-                Час події
-              </label>
-              <input
-                id="eventDateTime"
-                type="text"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('eventDate.time', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.eventDate?.time && (
-                <span className="text-red-700">
-                  {errors.eventDate.time.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mb-3">
-              <label
-                htmlFor="eventDateLocation"
-                className="block mb-1 font-semibold"
-              >
-                Локація події
-              </label>
-              <input
-                id="eventLocation"
-                type="text"
-                className="w-full border border-gray-300 rounded px-2 py-1"
-                {...register('eventDate.location', {
-                  required: 'Поле обов’язкове для заповнення',
-                })}
-              />
-              {errors.eventDate?.location && (
-                <span className="text-red-700">
-                  {errors.eventDate.location.message}
-                </span>
-              )}
-            </div>
-
-            <div className="flex gap-3 mb-3">
-              <label htmlFor="registration" className="block font-semibold">
-                Потрібна реєстрація
-              </label>
-              <input
-                type="checkbox"
-                id="registration"
-                {...register('registration')}
-                defaultChecked={true}
-                className="mt-[2px]"
-              />
-            </div>
+            <AdminFormItem
+              labelText={'Потрібна реєстрація'}
+              type={'checkbox'}
+              id={'registration'}
+              name={'registration'}
+              register={register}
+              defaultChecked={true}
+              stylesField={'mb-[2px]'}
+            />
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        <div className="flex justify-end">
+          <Button
+            type={'submit'}
+            styles={
+              'px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white'
+            }
           >
-            Відправити
-          </button>
+            Опублікувати
+          </Button>
         </div>
       </form>
     </>

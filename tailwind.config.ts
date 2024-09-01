@@ -23,6 +23,8 @@ const config: Config = {
         red: {
           100: '#FFF1F3',
           200: '#C01048',
+          500: '#ef4444',
+          700: '#b91c1c',
         },
         blue: {
           100: '#EEF4FF',

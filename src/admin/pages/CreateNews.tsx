@@ -44,10 +44,12 @@ export default function CreateNews() {
     setFileError(null);
 
     const reader = new FileReader();
-    reader.readAsDataURL(file);
     reader.onloadend = () => {
       setPreviewImg(reader.result as string);
     };
+    reader.readAsDataURL(file);
+
+    console.log(file);
   };
 
   const handleChangeImg = (
@@ -119,7 +121,7 @@ export default function CreateNews() {
 
           <div className="flex flex-col gap-3">
             <AdminFormItem
-              labelText={'Дата проведення'}
+              labelText={'Дата створення'}
               type={'date'}
               id={'date'}
               name={'date'}

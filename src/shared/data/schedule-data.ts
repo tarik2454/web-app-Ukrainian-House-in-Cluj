@@ -1,4 +1,6 @@
-const scheduleData = [
+import { WorkScheduleFormData } from '../../admin/pages/CreateWorkSchedule';
+
+const scheduleData: WorkScheduleFormData[] = [
   {
     day: 'Понеділок',
     date: '29 липня',
@@ -6,12 +8,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 3',
+        moreInfo: 'Модуль 3',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 3',
+        moreInfo: 'Модуль 3',
       },
       {
         time: '17:00',
@@ -27,22 +29,22 @@ const scheduleData = [
       {
         time: '10:00 - 11:00',
         description: 'English',
-        level: 'Headway',
+        moreInfo: 'Headway',
       },
       {
         time: '11:00 - 12:00',
         description: 'English',
-        level: 'Progress',
+        moreInfo: 'Progress',
       },
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 2',
+        moreInfo: 'Модуль 2',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 4',
+        moreInfo: 'Модуль 4',
       },
     ],
   },
@@ -58,12 +60,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 3',
+        moreInfo: 'Модуль 3',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 3',
+        moreInfo: 'Модуль 3',
       },
       {
         time: '16:00',
@@ -75,7 +77,7 @@ const scheduleData = [
       },
       {
         time: '17:45',
-        description: 'B1-B2 Level Online Course',
+        description: 'B1-B2 moreInfo Online Course',
       },
       {
         time: '17:00',
@@ -90,12 +92,12 @@ const scheduleData = [
       {
         time: '10:00 - 11:00',
         description: 'English',
-        level: 'Headway',
+        moreInfo: 'Headway',
       },
       {
         time: '11:00 - 12:00',
         description: 'English',
-        level: 'Progress',
+        moreInfo: 'Progress',
       },
       {
         time: '14:00',
@@ -104,12 +106,12 @@ const scheduleData = [
       {
         time: '16:00 - 17:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 2',
+        moreInfo: 'Модуль 2',
       },
       {
         time: '18:00 - 19:30',
         description: 'Румунська мова (за реєстрацією)',
-        level: 'Модуль 4',
+        moreInfo: 'Модуль 4',
       },
       {
         time: '17:00',
@@ -136,7 +138,7 @@ const scheduleData = [
       },
       {
         time: '17:45',
-        description: 'B1-B2 Level Online Course',
+        description: 'B1-B2 moreInfo Online Course',
       },
       {
         time: '17:00',

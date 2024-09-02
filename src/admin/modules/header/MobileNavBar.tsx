@@ -11,6 +11,7 @@ export default function MobileNavBar({
   const { routes, activePath, handleClickLink } = useRoutesByKey([
     'ADMIN_MAIN',
     'CREATE_NEWS',
+    'CREATE_SCHEDULE',
     'CREATE_EVENT',
   ]);
 

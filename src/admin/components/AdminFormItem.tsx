@@ -16,6 +16,7 @@ interface FormItemProps<T extends FieldValues> {
   error?: FieldError;
   validation?: any;
   defaultChecked?: boolean;
+  stylesLabel?: string;
   stylesField?: string;
 }
 
@@ -29,12 +30,13 @@ export default function AdminFormItem<T extends FieldValues>({
   error,
   validation,
   defaultChecked = true,
+  stylesLabel,
   stylesField,
 }: FormItemProps<T>) {
   return (
     <div className={`${type === 'checkbox' ? 'flex items-center gap-3' : ''}`}>
       {labelText && (
-        <label htmlFor={id} className="block mb-1">
+        <label htmlFor={id} className={twMerge('block mb-1', stylesLabel)}>
           {labelText}
         </label>
       )}
@@ -70,6 +72,7 @@ export default function AdminFormItem<T extends FieldValues>({
           placeholder={placeholder}
           {...register(name, validation)}
           className={twMerge('textarea', stylesField)}
+          rows={1}
         />
       )}
       {type === 'checkbox' && (

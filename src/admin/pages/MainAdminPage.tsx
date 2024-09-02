@@ -10,6 +10,17 @@ export default function MainAdminPage() {
       >
         Головна
       </PageTitle>
+
+      <ul className="">
+        <li>
+          Якщо ви хочете додати пробіл між рядками або абзацами використовуйте
+          {' <p class="space"></p>'}
+        </li>
+        <li>
+          Якщо ви хочете виділити текс жирним шрифтом обгорніть його в
+          {' <span class="strong">Тут буже жирний шрифт</span>'}
+        </li>
+      </ul>
     </>
   );
 }

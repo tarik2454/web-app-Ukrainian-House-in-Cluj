@@ -4,6 +4,7 @@ import Container from '../../shared/components/Container';
 import SectionTitle from '../../shared/components/SectionTitle';
 import EventsTagsFilter from './components/EventsTagsFilter';
 import EventsList from './components/EventsList';
+import useScrollToTop from '../../shared/hooks/useScrollToTop';
 
 interface EventsSectionProps {
   mainPage?: boolean;
@@ -12,9 +13,11 @@ interface EventsSectionProps {
 export default function Events({ mainPage }: EventsSectionProps) {
   const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined);
 
+  const { scrollSmooth } = useScrollToTop();
+
   const handleFilterTags = (tagName?: string): void => {
-    console.log('Filtering by tag:', tagName);
     setSelectedTag(tagName);
+    scrollSmooth();
   };
 
   return (

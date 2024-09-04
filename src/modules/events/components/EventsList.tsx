@@ -72,7 +72,7 @@ export default function EventsList({
         <Pagination
           itemsPerPage={itemsPerPage}
           array={filteredEventsData} // Передаём отфильтрованные данные
-          stylesUl={'flex flex-col gap-8 mb-[50px] grid grid-cols-3'}
+          stylesUl={'flex flex-col gap-8 grid grid-cols-3'}
           renderItemLi={renderItemLi}
         />
       )}

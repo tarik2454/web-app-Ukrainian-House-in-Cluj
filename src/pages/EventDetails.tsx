@@ -1,6 +1,8 @@
 // import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
+import useScrollToTop from '../shared/hooks/useScrollToTop';
+
 import EventId from '../modules/eventId/EventId';
 import PageWrapper from '../shared/components/PageWrapper';
 import Breadcrumbs from '../shared/components/Breadcrumbs';
@@ -13,9 +15,11 @@ import EventsList from '../modules/events/components/EventsList';
 export default function EventDetails() {
   // const { eventId } = useParams();
 
+  const { scrollRough } = useScrollToTop();
+
   useEffect(() => {
-    scrollTo(0, 0);
-  }, []);
+    scrollRough();
+  }, [scrollRough]);
 
   return (
     <PageWrapper>

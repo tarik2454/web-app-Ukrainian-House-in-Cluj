@@ -3,16 +3,23 @@ import {
   FieldValues,
   Path,
   FieldError,
+  Controller,
+  Control,
 } from 'react-hook-form';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import flags from 'react-phone-number-input/flags';
+import ua from 'react-phone-number-input/locale/ua';
 
 interface FormItemProps<T extends FieldValues> {
   id?: string;
-  type?: 'text' | 'email' | 'textarea' | 'date';
+  type?: 'text' | 'email' | 'textarea' | 'tel' | 'date';
   labelText?: string;
   name: Path<T>;
   placeholder?: string;
   register: UseFormRegister<T>;
   error?: FieldError;
+  control: Control<T>;
 }
 
 export default function FormItem<T extends FieldValues>({
@@ -23,6 +30,7 @@ export default function FormItem<T extends FieldValues>({
   placeholder,
   register,
   error,
+  control,
 }: FormItemProps<T>) {
   return (
     <div>
@@ -45,6 +53,27 @@ export default function FormItem<T extends FieldValues>({
           className="input"
           placeholder={placeholder}
           {...register(name)}
+        />
+      )}
+      {type === 'tel' && (
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => (
+            <PhoneInput
+              aria-label="Ваш номер телефону"
+              international
+              countryCallingCodeEditable={false}
+              maxLength="50"
+              defaultCountry="UA"
+              flags={flags}
+              labels={ua}
+              value={field.value}
+              onChange={value => field.onChange(value)}
+              // className="input"
+              placeholder={placeholder}
+            />
+          )}
         />
       )}
       {type === 'date' && (

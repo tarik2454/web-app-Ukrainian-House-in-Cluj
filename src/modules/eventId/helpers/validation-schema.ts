@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
 const validationSchema = yup.object({
   fullName: yup
@@ -8,6 +9,15 @@ const validationSchema = yup.object({
     .string()
     .email('Введіть коректний email.')
     .required("Email обов'язковий для заповнення."),
+  number: yup
+    .string()
+    .required("Номер телефону обов'язковий для заповнення.")
+    .test('isValidPhoneNumber', 'Введіть коректний номер телефону.', value => {
+      if (!value) return false;
+
+      const phoneNumber = parsePhoneNumberFromString(value);
+      return phoneNumber ? phoneNumber.isValid() : false;
+    }),
   birthDate: yup
     .string()
     .required("Дата народження обов'язкова для заповнення."),

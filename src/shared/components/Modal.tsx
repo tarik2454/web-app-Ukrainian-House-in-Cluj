@@ -54,7 +54,7 @@ export default function Modal({
       <>
         <div
           className={twMerge(
-            'flex items-center justify-center bg-black-100 bg-opacity-50 fixed inset-0 z-50 invisible opacity-0 pointer-events-none transition-all duration-250',
+            'flex items-center justify-center bg-black-100 bg-opacity-50 fixed inset-0 z-50 invisible opacity-0 pointer-events-none transition-all duration-250 overflow-y-auto',
             isOpen ? 'opacity-100 visible pointer-events-auto' : '',
             stylesBackdrop
           )}
@@ -62,7 +62,7 @@ export default function Modal({
         >
           <div
             className={twMerge(
-              'w-[96%] max-w-[500px] px-8 py-10 bg-white absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 opacity-0  scale-y-0 transition-all duration-250 dark:bg-dark-background',
+              'w-[96%] max-w-[500px] my-[50px] px-8 py-10 bg-white absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 opacity-0  scale-y-0 transition-all duration-250 dark:bg-dark-background ',
               isOpen ? 'scale-y-100 opacity-100' : '',
               stylesContent
             )}

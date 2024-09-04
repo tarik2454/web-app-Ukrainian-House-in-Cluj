@@ -2,7 +2,6 @@
 import { useEffect } from 'react';
 
 import useScrollToTop from '../shared/hooks/useScrollToTop';
-
 import EventId from '../modules/eventId/EventId';
 import PageWrapper from '../shared/components/PageWrapper';
 import Breadcrumbs from '../shared/components/Breadcrumbs';

@@ -1,4 +1,4 @@
-import tagColors from '../helpers/tag-colors';
+import tagColors from '../../../shared/helpers/tag-colors';
 
 interface EventsTagsFilterProps {
   handleFilterTags: (filterTagName?: string, tag?: string) => void;

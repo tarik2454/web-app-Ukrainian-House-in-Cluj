@@ -70,7 +70,6 @@ export default function FormItem<T extends FieldValues>({
               labels={ua}
               value={field.value}
               onChange={value => field.onChange(value)}
-              // className="input"
               placeholder={placeholder}
             />
           )}

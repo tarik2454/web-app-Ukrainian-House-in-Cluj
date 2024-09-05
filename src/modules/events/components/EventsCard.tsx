@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import tagColors from '../helpers/tag-colors';
+import tagColors from '../../../shared/helpers/tag-colors';
 import { routes } from '../../../constants/routes';
 
 export interface CommonCardProps {

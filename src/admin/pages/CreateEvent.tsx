@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import PageTitle from '../../shared/components/PageTitle';
 import Button from '../../shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
+import Dropdown from '../components/Dropdown';
 
 interface EventFormData {
   title: string;
@@ -16,6 +17,7 @@ interface EventFormData {
   date: string;
   imageUrl?: string;
   file?: FileList;
+  dropdownValue?: string; // Добавьте это поле
 }
 
 export default function CreateEvent() {
@@ -26,6 +28,7 @@ export default function CreateEvent() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { isSubmitSuccessful, errors },
   } = useForm<EventFormData>({
     defaultValues: {
@@ -38,6 +41,7 @@ export default function CreateEvent() {
       },
       registration: true,
       date: '',
+      dropdownValue: '', // Изначально пустое значение
     },
   });
 
@@ -140,7 +144,6 @@ export default function CreateEvent() {
               error={errors.date}
               validation={{ required: 'Поле обов’язкове для заповнення' }}
             />
-
             <AdminFormItem
               labelText={'Опис події'}
               type={'textarea'}
@@ -150,7 +153,6 @@ export default function CreateEvent() {
               error={errors.description}
               validation={{ required: 'Поле обов’язкове для заповнення' }}
             />
-
             <AdminFormItem
               labelText={'Дата події'}
               type={'text'}
@@ -158,7 +160,6 @@ export default function CreateEvent() {
               name={'eventDate.date'}
               register={register}
             />
-
             <AdminFormItem
               labelText={'Час події'}
               type={'text'}
@@ -166,7 +167,6 @@ export default function CreateEvent() {
               name={'eventDate.time'}
               register={register}
             />
-
             <AdminFormItem
               labelText={'Локація події'}
               type={'text'}
@@ -174,16 +174,22 @@ export default function CreateEvent() {
               name={'eventDate.location'}
               register={register}
             />
-
-            <AdminFormItem
-              labelText={'Потрібна реєстрація'}
-              type={'checkbox'}
-              id={'registration'}
-              name={'registration'}
-              register={register}
-              defaultChecked={true}
-              stylesField={'mb-[2px]'}
-            />
+            <div className="grid grid-cols-2">
+              <AdminFormItem
+                labelText={'Потрібна реєстрація'}
+                type={'checkbox'}
+                id={'registration'}
+                name={'registration'}
+                register={register}
+                defaultChecked={true}
+                stylesField={'mb-[2px]'}
+              />
+              <Dropdown
+                onChange={option =>
+                  setValue('dropdownValue', option?.value ?? '')
+                }
+              />
+            </div>
           </div>
         </div>
 
@@ -191,7 +197,7 @@ export default function CreateEvent() {
           <Button
             type={'submit'}
             styles={
-              'px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white'
+              'px-4 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white'
             }
           >
             Опублікувати

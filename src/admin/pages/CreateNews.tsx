@@ -8,13 +8,47 @@ interface EventFormData {
   title: string;
   description: string;
   date: string;
-  imageUrl?: string;
-  file?: FileList;
+  file?: File | null;
 }
+
+type FormDataObject = {
+  [key: string]: string | string[];
+};
+
+const createFormDataObject = (
+  data: EventFormData,
+  file: File | null
+): FormDataObject => {
+  const formData = new FormData();
+
+  formData.append('title', data.title);
+  formData.append('description', data.description);
+  formData.append('date', data.date);
+
+  if (file) {
+    formData.append('file', file);
+  }
+
+  const obj: FormDataObject = {};
+  formData.forEach((value, key) => {
+    if (obj[key]) {
+      if (Array.isArray(obj[key])) {
+        (obj[key] as string[]).push(value as string);
+      } else {
+        obj[key] = [obj[key] as string, value as string];
+      }
+    } else {
+      obj[key] = value as string;
+    }
+  });
+
+  return obj;
+};
 
 export default function CreateNews() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const {
     register,
@@ -41,29 +75,32 @@ export default function CreateNews() {
       return;
     }
 
-    setFileError(null);
-
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreviewImg(reader.result as string);
     };
     reader.readAsDataURL(file);
 
-    console.log(file);
+    setFileError(null);
+    setSelectedFile(file);
   };
 
   const handleChangeImg = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
     const file = event.target.files ? event.target.files[0] : null;
-    filePreparation(file);
+    if (file) {
+      filePreparation(file);
+    }
   };
 
   const onSubmit: SubmitHandler<EventFormData> = data => {
-    if (fileError) {
+    if (fileError || !selectedFile) {
       return;
     }
-    console.log(data);
+
+    const dataObject = createFormDataObject(data, selectedFile);
+    console.log(dataObject);
   };
 
   useEffect(() => {

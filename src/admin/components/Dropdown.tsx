@@ -50,9 +50,8 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
         classNames={{
           control: state =>
             classNames(
-              'flex border-2 rounded p-1',
-              state.isFocused ? 'border-gray-500' : 'border-gray-300',
-              'hover:border-gray-500'
+              'input !cursor-pointer',
+              state.isFocused && 'border-opacity-100'
             ),
           menu: () =>
             twMerge(
@@ -69,7 +68,7 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
           singleValue: state => {
             const colorClasses = tagColors[state.data.value];
             return classNames(
-              'flex items-center px-2 py-1 rounded',
+              'flex items-center rounded',
               colorClasses?.bgClass,
               colorClasses?.textClass
             );

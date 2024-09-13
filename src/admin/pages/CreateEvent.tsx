@@ -16,13 +16,56 @@ interface EventFormData {
   registration: boolean;
   date: string;
   imageUrl?: string;
-  file?: FileList;
-  dropdownValue?: string; // Добавьте это поле
+  file?: File | null;
+  dropdownValue?: string;
 }
+
+type FormDataObject = {
+  [key: string]: string | string[];
+};
+
+const createFormDataObject = (
+  data: EventFormData,
+  file: File | null
+): FormDataObject => {
+  const formData = new FormData();
+
+  formData.append('title', data.title);
+  formData.append('description', data.description);
+  formData.append('date', data.date);
+  formData.append('eventDate[date]', data.eventDate.date);
+  formData.append('eventDate[time]', data.eventDate.time);
+  formData.append('eventDate[location]', data.eventDate.location);
+  formData.append('registration', data.registration.toString());
+
+  if (data.dropdownValue) {
+    formData.append('dropdownValue', data.dropdownValue);
+  }
+
+  if (file) {
+    formData.append('file', file);
+  }
+
+  const obj: FormDataObject = {};
+  formData.forEach((value, key) => {
+    if (obj[key]) {
+      if (Array.isArray(obj[key])) {
+        (obj[key] as string[]).push(value as string);
+      } else {
+        obj[key] = [obj[key] as string, value as string];
+      }
+    } else {
+      obj[key] = value as string;
+    }
+  });
+
+  return obj;
+};
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const {
     register,
@@ -41,13 +84,14 @@ export default function CreateEvent() {
       },
       registration: true,
       date: '',
-      dropdownValue: '', // Изначально пустое значение
+      dropdownValue: '',
     },
   });
 
   const filePreparation = (file: File | null) => {
     if (!file) {
       setPreviewImg(null);
+      setSelectedFile(null);
       return;
     }
 
@@ -57,53 +101,56 @@ export default function CreateEvent() {
       return;
     }
 
-    setFileError(null);
-
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setPreviewImg(reader.result as string);
     };
+
+    setFileError(null);
+    setSelectedFile(file);
   };
 
   const handleChangeImg = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
     const file = event.target.files ? event.target.files[0] : null;
-    filePreparation(file);
+    if (file) {
+      filePreparation(file);
+    }
   };
 
   const onSubmit: SubmitHandler<EventFormData> = data => {
-    if (fileError) {
+    if (fileError || !selectedFile) {
       return;
     }
-    console.log(data);
+
+    const dataObject = createFormDataObject(data, selectedFile);
+
+    console.log(dataObject);
   };
 
   useEffect(() => {
     if (isSubmitSuccessful) {
       setPreviewImg(null);
+      setSelectedFile(null);
       reset();
     }
   }, [isSubmitSuccessful, reset]);
 
   return (
     <>
-      <PageTitle
-        styles={
-          'font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300'
-        }
-      >
+      <PageTitle styles="font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300">
         Створити подію
       </PageTitle>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
           <AdminFormItem
-            labelText={'Назва події'}
-            type={'text'}
-            id={'title'}
-            name={'title'}
+            labelText="Назва події"
+            type="text"
+            id="title"
+            name="title"
             register={register}
             error={errors.title}
             validation={{ required: 'Поле обов’язкове для заповнення' }}
@@ -136,53 +183,53 @@ export default function CreateEvent() {
 
           <div className="flex flex-col gap-3">
             <AdminFormItem
-              labelText={'Дата проведення'}
-              type={'date'}
-              id={'date'}
-              name={'date'}
+              labelText="Дата проведення"
+              type="date"
+              id="date"
+              name="date"
               register={register}
               error={errors.date}
               validation={{ required: 'Поле обов’язкове для заповнення' }}
             />
             <AdminFormItem
-              labelText={'Опис події'}
-              type={'textarea'}
-              id={'description'}
-              name={'description'}
+              labelText="Опис події"
+              type="textarea"
+              id="description"
+              name="description"
               register={register}
               error={errors.description}
               validation={{ required: 'Поле обов’язкове для заповнення' }}
             />
             <AdminFormItem
-              labelText={'Дата події'}
-              type={'text'}
-              id={'eventDateDate'}
-              name={'eventDate.date'}
+              labelText="Дата події"
+              type="text"
+              id="eventDateDate"
+              name="eventDate.date"
               register={register}
             />
             <AdminFormItem
-              labelText={'Час події'}
-              type={'text'}
-              id={'eventDateTime'}
-              name={'eventDate.time'}
+              labelText="Час події"
+              type="text"
+              id="eventDateTime"
+              name="eventDate.time"
               register={register}
             />
             <AdminFormItem
-              labelText={'Локація події'}
-              type={'text'}
-              id={'eventDateLocation'}
-              name={'eventDate.location'}
+              labelText="Локація події"
+              type="text"
+              id="eventDateLocation"
+              name="eventDate.location"
               register={register}
             />
             <div className="grid grid-cols-2">
               <AdminFormItem
-                labelText={'Потрібна реєстрація'}
-                type={'checkbox'}
-                id={'registration'}
-                name={'registration'}
+                labelText="Потрібна реєстрація"
+                type="checkbox"
+                id="registration"
+                name="registration"
                 register={register}
                 defaultChecked={true}
-                stylesField={'mb-[2px]'}
+                stylesField="mb-[2px]"
               />
               <Dropdown
                 onChange={option =>
@@ -195,10 +242,8 @@ export default function CreateEvent() {
 
         <div className="flex justify-end">
           <Button
-            type={'submit'}
-            styles={
-              'px-4 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white'
-            }
+            type="submit"
+            styles="px-4 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
           >
             Опублікувати
           </Button>

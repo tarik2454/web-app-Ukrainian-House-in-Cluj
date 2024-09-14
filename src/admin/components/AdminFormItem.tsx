@@ -34,7 +34,13 @@ export default function AdminFormItem<T extends FieldValues>({
   stylesField,
 }: FormItemProps<T>) {
   return (
-    <div className={`${type === 'checkbox' ? 'flex items-center gap-3' : ''}`}>
+    <div
+      className={`${
+        type === 'checkbox'
+          ? 'flex flex-wrap-reverse items-center gap-3 justify-end'
+          : ''
+      }`}
+    >
       {labelText && (
         <label htmlFor={id} className={twMerge('block mb-1', stylesLabel)}>
           {labelText}

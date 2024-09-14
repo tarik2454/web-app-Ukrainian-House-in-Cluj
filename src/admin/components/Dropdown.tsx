@@ -25,11 +25,20 @@ interface Option {
 }
 
 interface DropdownProps {
+  id?: string;
   onChange: (selectedOption: SingleValue<Option>) => void;
+  labelText?: string;
+  stylesLabel?: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  onChange,
+  labelText,
+  id,
+  stylesLabel,
+}) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const options: Option[] = Object.keys(tagColors).map(tag => ({
     value: tag,
@@ -41,17 +50,34 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     onChange(newValue);
   };
 
+  const handleLabelClick = () => {
+    setMenuIsOpen(prev => !prev);
+  };
+
   return (
     <div className="w-full">
+      {labelText && (
+        <label
+          htmlFor={id}
+          className={twMerge('block mb-1 cursor-pointer', stylesLabel)}
+          onClick={handleLabelClick}
+        >
+          {labelText}
+        </label>
+      )}
+
       <Select
         value={selectedOption}
         onChange={handleChange}
         options={options}
+        onMenuOpen={() => setMenuIsOpen(true)}
+        onMenuClose={() => setMenuIsOpen(false)}
+        menuIsOpen={menuIsOpen}
         classNames={{
           control: state =>
             classNames(
-              'input !cursor-pointer',
-              state.isFocused && 'border-opacity-100'
+              'input !min-h-0 !cursor-pointer',
+              state.isFocused && '!border-opacity-100'
             ),
           menu: () =>
             twMerge(
@@ -60,19 +86,21 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
           option: state => {
             const colorClasses = tagColors[state.data.value];
             return classNames(
-              'px-4 py-2 cursor-pointer',
+              'px-4 py-2 !cursor-pointer',
               colorClasses?.bgClass,
-              colorClasses?.textClass
+              colorClasses?.textClass,
+              state.isSelected && ''
             );
           },
           singleValue: state => {
             const colorClasses = tagColors[state.data.value];
             return classNames(
-              'flex items-center rounded',
+              'flex items-center rounded pl-2',
               colorClasses?.bgClass,
               colorClasses?.textClass
             );
           },
+          placeholder: () => classNames('text-red-700', 'font-semibold'),
         }}
         unstyled={true}
         menuPlacement={'auto'}

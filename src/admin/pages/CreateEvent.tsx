@@ -4,6 +4,7 @@ import PageTitle from '../../shared/components/PageTitle';
 import Button from '../../shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
 import Dropdown from '../components/Dropdown';
+import createFormDataObject from '../../shared/helpers/form-data-object';
 
 interface EventFormData {
   title: string;
@@ -19,48 +20,6 @@ interface EventFormData {
   file?: File | null;
   dropdownValue?: string;
 }
-
-type FormDataObject = {
-  [key: string]: string | string[];
-};
-
-const createFormDataObject = (
-  data: EventFormData,
-  file: File | null
-): FormDataObject => {
-  const formData = new FormData();
-
-  formData.append('title', data.title);
-  formData.append('description', data.description);
-  formData.append('date', data.date);
-  formData.append('eventDate[date]', data.eventDate.date);
-  formData.append('eventDate[time]', data.eventDate.time);
-  formData.append('eventDate[location]', data.eventDate.location);
-  formData.append('registration', data.registration.toString());
-
-  if (data.dropdownValue) {
-    formData.append('dropdownValue', data.dropdownValue);
-  }
-
-  if (file) {
-    formData.append('file', file);
-  }
-
-  const obj: FormDataObject = {};
-  formData.forEach((value, key) => {
-    if (obj[key]) {
-      if (Array.isArray(obj[key])) {
-        (obj[key] as string[]).push(value as string);
-      } else {
-        obj[key] = [obj[key] as string, value as string];
-      }
-    } else {
-      obj[key] = value as string;
-    }
-  });
-
-  return obj;
-};
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -121,12 +80,28 @@ export default function CreateEvent() {
   };
 
   const onSubmit: SubmitHandler<EventFormData> = data => {
-    if (fileError || !selectedFile) {
+    if (fileError) {
       return;
     }
 
-    const dataObject = createFormDataObject(data, selectedFile);
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('description', data.description);
+    formData.append('date', data.date);
+    formData.append('eventDate[date]', data.eventDate.date);
+    formData.append('eventDate[time]', data.eventDate.time);
+    formData.append('eventDate[location]', data.eventDate.location);
+    formData.append('registration', data.registration.toString());
 
+    if (data.dropdownValue) {
+      formData.append('dropdownValue', data.dropdownValue);
+    }
+
+    if (selectedFile) {
+      formData.append('file', selectedFile);
+    }
+
+    const dataObject = createFormDataObject(formData);
     console.log(dataObject);
   };
 
@@ -221,7 +196,14 @@ export default function CreateEvent() {
               name="eventDate.location"
               register={register}
             />
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 gap-3">
+              <Dropdown
+                labelText="Виберіть тег події"
+                onChange={option =>
+                  setValue('dropdownValue', option?.value ?? '')
+                }
+                id="tag"
+              />
               <AdminFormItem
                 labelText="Потрібна реєстрація"
                 type="checkbox"
@@ -230,11 +212,6 @@ export default function CreateEvent() {
                 register={register}
                 defaultChecked={true}
                 stylesField="mb-[2px]"
-              />
-              <Dropdown
-                onChange={option =>
-                  setValue('dropdownValue', option?.value ?? '')
-                }
               />
             </div>
           </div>

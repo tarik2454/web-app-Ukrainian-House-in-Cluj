@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import PageTitle from '../../shared/components/PageTitle';
 import Button from '../../shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
+import createFormDataObject from '../../shared/helpers/form-data-object';
 
 interface EventFormData {
   title: string;
@@ -10,40 +11,6 @@ interface EventFormData {
   date: string;
   file?: File | null;
 }
-
-type FormDataObject = {
-  [key: string]: string | string[];
-};
-
-const createFormDataObject = (
-  data: EventFormData,
-  file: File | null
-): FormDataObject => {
-  const formData = new FormData();
-
-  formData.append('title', data.title);
-  formData.append('description', data.description);
-  formData.append('date', data.date);
-
-  if (file) {
-    formData.append('file', file);
-  }
-
-  const obj: FormDataObject = {};
-  formData.forEach((value, key) => {
-    if (obj[key]) {
-      if (Array.isArray(obj[key])) {
-        (obj[key] as string[]).push(value as string);
-      } else {
-        obj[key] = [obj[key] as string, value as string];
-      }
-    } else {
-      obj[key] = value as string;
-    }
-  });
-
-  return obj;
-};
 
 export default function CreateNews() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -95,12 +62,31 @@ export default function CreateNews() {
   };
 
   const onSubmit: SubmitHandler<EventFormData> = data => {
-    if (fileError || !selectedFile) {
+    if (fileError) {
       return;
     }
 
-    const dataObject = createFormDataObject(data, selectedFile);
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('description', data.description);
+    formData.append('date', data.date);
+
+    if (selectedFile) {
+      formData.append('file', selectedFile);
+    }
+
+    const dataObject = createFormDataObject(formData);
     console.log(dataObject);
+
+    // Тут вы можете отправить `dataObject` на сервер
+    // Например, через fetch или axios
+    // fetch('/api/upload', {
+    //   method: 'POST',
+    //   body: JSON.stringify(dataObject),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
   };
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import {
   FieldValues,
   Path,
   FieldError,
+  RegisterOptions,
 } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,7 +15,7 @@ interface FormItemProps<T extends FieldValues> {
   placeholder?: string;
   register: UseFormRegister<T>;
   error?: FieldError;
-  validation?: any;
+  validation?: RegisterOptions<T, Path<T>>;
   defaultChecked?: boolean;
   stylesLabel?: string;
   stylesField?: string;

@@ -6,7 +6,7 @@ import AdminFormItem from '../components/AdminFormItem';
 import Dropdown from '../components/Dropdown';
 import createFormDataObject from '../../shared/helpers/form-data-object';
 
-interface EventFormData {
+export interface EventFormData {
   title: string;
   description: string;
   eventDate: {
@@ -30,8 +30,9 @@ export default function CreateEvent() {
     register,
     handleSubmit,
     reset,
-    setValue,
     formState: { isSubmitSuccessful, errors },
+    control,
+    setValue,
   } = useForm<EventFormData>({
     defaultValues: {
       title: '',
@@ -198,11 +199,14 @@ export default function CreateEvent() {
             />
             <div className="grid grid-cols-2 gap-3">
               <Dropdown
-                labelText="Виберіть тег події"
+                name="dropdownValue"
+                labelText="Тег події"
+                control={control}
                 onChange={option =>
                   setValue('dropdownValue', option?.value ?? '')
                 }
-                id="tag"
+                errors={errors}
+                validation={{ required: 'Поле обов’язкове для заповнення' }}
               />
               <AdminFormItem
                 labelText="Потрібна реєстрація"

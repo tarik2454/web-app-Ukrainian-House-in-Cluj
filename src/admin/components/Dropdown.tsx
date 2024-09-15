@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
+import { Controller, FieldErrors, Control } from 'react-hook-form';
+import { EventFormData } from '../pages/CreateEvent';
 
 const tagColors: {
   [key: string]: { bgClass: string; textClass: string };
@@ -26,18 +28,27 @@ interface Option {
 
 interface DropdownProps {
   id?: string;
-  onChange: (selectedOption: SingleValue<Option>) => void;
+  name: keyof EventFormData;
   labelText?: string;
   stylesLabel?: string;
+  control: Control<EventFormData>;
+  errors: FieldErrors<EventFormData>;
+  validation?: object;
+  onChange?: (value: SingleValue<Option>) => void;
+  placeholderText?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
-  onChange,
   labelText,
   id,
+  name,
   stylesLabel,
+  control,
+  errors,
+  validation,
+  onChange,
+  placeholderText = '...',
 }) => {
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const options: Option[] = Object.keys(tagColors).map(tag => ({
@@ -45,67 +56,79 @@ const Dropdown: React.FC<DropdownProps> = ({
     label: tag,
   }));
 
-  const handleChange = (newValue: SingleValue<Option>) => {
-    setSelectedOption(newValue);
-    onChange(newValue);
-  };
-
-  const handleLabelClick = () => {
-    setMenuIsOpen(prev => !prev);
-  };
-
   return (
     <div className="w-full">
       {labelText && (
         <label
           htmlFor={id}
           className={twMerge('block mb-1 cursor-pointer', stylesLabel)}
-          onClick={handleLabelClick}
+          onClick={() => setMenuIsOpen(prev => !prev)}
         >
           {labelText}
         </label>
       )}
 
-      <Select
-        value={selectedOption}
-        onChange={handleChange}
-        options={options}
-        onMenuOpen={() => setMenuIsOpen(true)}
-        onMenuClose={() => setMenuIsOpen(false)}
-        menuIsOpen={menuIsOpen}
-        classNames={{
-          control: state =>
-            classNames(
-              'input !min-h-0 !cursor-pointer',
-              state.isFocused && '!border-opacity-100'
-            ),
-          menu: () =>
-            twMerge(
-              'w-full my-[14px] border-[1px] border-slate-300 rounded-default overflow-hidden absolute'
-            ),
-          option: state => {
-            const colorClasses = tagColors[state.data.value];
-            return classNames(
-              'px-4 py-2 !cursor-pointer',
-              colorClasses?.bgClass,
-              colorClasses?.textClass,
-              state.isSelected && ''
-            );
-          },
-          singleValue: state => {
-            const colorClasses = tagColors[state.data.value];
-            return classNames(
-              'flex items-center rounded pl-2',
-              colorClasses?.bgClass,
-              colorClasses?.textClass
-            );
-          },
-          placeholder: () => classNames('text-red-700', 'font-semibold'),
-        }}
-        unstyled={true}
-        menuPlacement={'auto'}
-        maxMenuHeight={450}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <Select
+            {...field}
+            value={
+              field.value
+                ? options.find(option => option.value === field.value)
+                : null
+            }
+            onChange={option => {
+              field.onChange(option?.value ?? '');
+              if (onChange) onChange(option);
+            }}
+            options={options}
+            onMenuOpen={() => setMenuIsOpen(true)}
+            onMenuClose={() => setMenuIsOpen(false)}
+            menuIsOpen={menuIsOpen}
+            placeholder={placeholderText}
+            classNames={{
+              control: state =>
+                classNames(
+                  'input !min-h-0 !cursor-pointer',
+                  state.isFocused && '!border-opacity-100'
+                ),
+              menu: () =>
+                twMerge(
+                  'w-full my-2 border-[1px] border-slate-300 rounded-default overflow-hidden absolute'
+                ),
+              option: state => {
+                const colorClasses = tagColors[state.data.value];
+                return classNames(
+                  'px-4 py-2 border-b-[1px] border-slate-300 !cursor-pointer last:border-b-0',
+                  colorClasses?.bgClass,
+                  colorClasses?.textClass,
+                  state.isSelected && ''
+                );
+              },
+              singleValue: state => {
+                const colorClasses = tagColors[state.data.value];
+                return classNames(
+                  'flex items-center rounded pl-2',
+                  colorClasses?.bgClass,
+                  colorClasses?.textClass
+                );
+              },
+
+              placeholder: () => classNames('text-inherit'),
+            }}
+            unstyled={true}
+            menuPlacement={'auto'}
+            maxMenuHeight={450}
+          />
+        )}
+        rules={validation}
       />
+
+      {errors[name]?.message && (
+        <span className="error">{errors[name]?.message}</span>
+      )}
     </div>
   );
 };

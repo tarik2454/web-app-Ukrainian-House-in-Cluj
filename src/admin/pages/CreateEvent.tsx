@@ -5,21 +5,7 @@ import Button from '../../shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
 import Dropdown from '../components/Dropdown';
 import createFormDataObject from '../../shared/helpers/form-data-object';
-
-export interface EventFormData {
-  title: string;
-  description: string;
-  eventDate: {
-    date: string;
-    time: string;
-    location: string;
-  };
-  registration: boolean;
-  date: string;
-  imageUrl?: string;
-  file?: File | null;
-  dropdownValue?: string;
-}
+import EventFormData from '../../types/event-form-data';
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);

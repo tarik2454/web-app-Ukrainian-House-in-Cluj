@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-
-import tagColors from '../../../shared/helpers/tag-colors';
 import { routes } from '../../../constants/routes';
+import tagColors from '../../../constants/tag-colors';
 
 export interface CommonCardProps {
   product?: {
@@ -29,46 +26,30 @@ export default function EventsCard({
 
   const eventUrl = id ? routes.EVENT_ID.path.replace(':eventId', id) : '#';
 
+  const imgClass =
+    singleEvent || detailsPage ? 'w-full h-full mb-5' : 'w-full h-full';
+  const titleClass = singleEvent ? 'mb-3' : 'mb-2 text-lg';
+
   return (
     <div
-      className={`
-          ${
-            singleEvent || detailsPage
-              ? 'block'
-              : 'grid grid-cols-[38%_1fr] gap-5'
-          } 
-          ${!mainPage && !detailsPage ? '!flex !flex-col' : ''}
-        `}
+      className={` ${
+        singleEvent || detailsPage ? 'block' : 'grid grid-cols-[38%_1fr] gap-5'
+      } ${!mainPage && !detailsPage ? '!flex !flex-col' : ''}`}
     >
       <Link to={eventUrl}>
         {img ? (
-          <img
-            className={`${
-              singleEvent || detailsPage
-                ? 'w-full h-full mb-5'
-                : 'w-full h-full'
-            }`}
-            src={img}
-            alt={title}
-          />
+          <img className={imgClass} src={img} alt={title} />
         ) : (
-          <Skeleton
-            className={`${
-              singleEvent || detailsPage
-                ? 'w-full h-full mb-5'
-                : 'w-full h-full'
-            }`}
-            height={singleEvent || detailsPage ? 300 : 150}
-          />
+          <div
+            className={imgClass + ' bg-gray-300'}
+            style={{ height: '150px' }}
+          ></div>
         )}
       </Link>
 
       <div className="flex flex-col grow">
-        <p
-          className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 
-        dark:text-dark-date"
-        >
-          {date || <Skeleton width={100} />}
+        <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 dark:text-dark-date">
+          {date || 'Date not available'}
         </p>
 
         <Link
@@ -76,11 +57,9 @@ export default function EventsCard({
           to={eventUrl}
         >
           <h3
-            className={`font-inter-600 text-2xl font-semibold text-black-200 dark:text-dark-title ${
-              singleEvent ? 'mb-3' : 'mb-2 text-lg'
-            }`}
+            className={`font-inter-600 text-2xl font-semibold text-black-200 dark:text-dark-title ${titleClass}`}
           >
-            {title || <Skeleton width={200} />}
+            {title || 'Title not available'}
           </h3>
         </Link>
 
@@ -89,23 +68,29 @@ export default function EventsCard({
             className="hover:underline hover:underline-offset-4"
             to={eventUrl}
           >
-            <p className="mb-6">{description || <Skeleton count={3} />}</p>
+            <p className="mb-6">{description || 'Description not available'}</p>
           </Link>
 
           <ul className="flex gap-2">
-            {tags && tags.length > 0 ? (
-              tags.map((tag, index) => (
-                <li
-                  key={index}
-                  className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm text-white ${
-                    tagColors[tag] || 'bg-gray-500'
-                  }`}
-                >
-                  {tag}
-                </li>
-              ))
+            {Array.isArray(tags) && tags.length > 0 ? (
+              tags.map((tag, index) => {
+                const { bgClass, textClass } = tagColors[tag] || {
+                  bgClass: 'bg-gray-500',
+                  textClass: 'text-white',
+                };
+                return (
+                  <li
+                    key={index}
+                    className={`px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm ${textClass} ${bgClass}`}
+                  >
+                    {tag}
+                  </li>
+                );
+              })
             ) : (
-              <Skeleton width={80} height={30} count={3} />
+              <li className="px-[10px] py-[2px] rounded-md font-inter-500 font-medium text-sm bg-gray-500 text-white">
+                No tags available
+              </li>
             )}
           </ul>
         </div>

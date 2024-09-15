@@ -54,7 +54,7 @@ export default function Modal({
       <>
         <div
           className={twMerge(
-            'flex items-center justify-center bg-black-100 bg-opacity-50 fixed inset-0 z-50 invisible opacity-0 pointer-events-none transition-all duration-250 overflow-y-auto',
+            'flex items-center justify-center bg-black-100 bg-opacity-50 invisible opacity-0 pointer-events-none transition-all duration-250 overflow-y-auto fixed inset-0 z-50',
             isOpen ? 'opacity-100 visible pointer-events-auto' : '',
             stylesBackdrop
           )}

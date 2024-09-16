@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { routes } from '../../../constants/routes';
 import tagColors from '../../../constants/tag-colors';
+import { twMerge } from 'tailwind-merge';
 
 export interface CommonCardProps {
   product?: {
@@ -68,7 +69,14 @@ export default function EventsCard({
             className="hover:underline hover:underline-offset-4"
             to={eventUrl}
           >
-            <p className="mb-6">{description || 'Description not available'}</p>
+            <p
+              className={twMerge(
+                'mb-6',
+                singleEvent ? 'line-clamp-3' : 'line-clamp-2'
+              )}
+            >
+              {description || 'Description not available'}
+            </p>
           </Link>
 
           <ul className="flex gap-2">

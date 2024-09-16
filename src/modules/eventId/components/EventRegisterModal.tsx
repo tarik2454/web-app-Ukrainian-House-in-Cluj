@@ -92,6 +92,9 @@ export default function EventRegisterModal() {
         register={register}
         error={errors.textarea}
         control={control}
+        style={{
+          maxHeight: 'calc(1.5em * 8)',
+        }}
       />
 
       <div className="flex justify-center mt-4">

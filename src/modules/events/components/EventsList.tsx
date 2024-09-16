@@ -3,15 +3,16 @@ import eventsData from '../../../shared/data/events-data';
 import EventsCard from './EventsCard';
 
 import { EventsDataProps } from '../types/eventProps';
+import { twMerge } from 'tailwind-merge';
 
 interface EventsProps {
   mainPage?: boolean;
   detailsPage?: boolean;
-  selectedTag?: string; // Пропс для выбранного тега
+  selectedTag?: string;
 }
 
 export default function EventsList({
-  mainPage,
+  mainPage = false,
   detailsPage,
   selectedTag,
 }: EventsProps) {
@@ -38,44 +39,52 @@ export default function EventsList({
     </li>
   );
 
-  return (
-    <div className="flex flex-row gap-8">
-      {mainPage && (
-        <ul>
-          {sliceEventsData.slice(0, 1).map((product, index) => (
-            <li key={index}>
-              <EventsCard
-                product={product}
-                mainPage={mainPage}
-                singleEvent={true}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
+  console.log(mainPage);
 
-      {(mainPage || detailsPage) && (
-        <ul className="flex flex-col gap-8">
-          {sliceEventsData.map((product, index) => (
-            <li key={index}>
-              <EventsCard
-                product={product}
-                mainPage={mainPage}
-                detailsPage={detailsPage}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
+  return (
+    <>
+      <div
+        className={twMerge(
+          mainPage ? 'grid grid-cols-[1.6fr_2fr] gap-8' : 'flex flex-col'
+        )}
+      >
+        {mainPage && (
+          <ul>
+            {sliceEventsData.slice(0, 1).map((product, index) => (
+              <li key={index}>
+                <EventsCard
+                  product={product}
+                  mainPage={mainPage}
+                  singleEvent={true}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {(mainPage || detailsPage) && (
+          <ul className="flex flex-col gap-8">
+            {sliceEventsData.map((product, index) => (
+              <li key={index}>
+                <EventsCard
+                  product={product}
+                  mainPage={mainPage}
+                  detailsPage={detailsPage}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
       {!mainPage && !detailsPage && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          array={filteredEventsData} // Передаём отфильтрованные данные
+          array={filteredEventsData}
           stylesUl={'flex flex-col gap-8 grid grid-cols-3'}
           renderItemLi={renderItemLi}
         />
       )}
-    </div>
+    </>
   );
 }

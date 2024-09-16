@@ -20,6 +20,7 @@ interface FormItemProps<T extends FieldValues> {
   register: UseFormRegister<T>;
   error?: FieldError;
   control: Control<T>;
+  style?: React.CSSProperties;
 }
 
 export default function FormItem<T extends FieldValues>({
@@ -31,6 +32,7 @@ export default function FormItem<T extends FieldValues>({
   register,
   error,
   control,
+  style,
 }: FormItemProps<T>) {
   return (
     <div>
@@ -81,9 +83,10 @@ export default function FormItem<T extends FieldValues>({
       {type === 'textarea' && (
         <textarea
           id={id}
-          className="textarea"
+          className="textarea resize-y"
           placeholder={placeholder}
           {...register(name)}
+          style={style}
         />
       )}
 

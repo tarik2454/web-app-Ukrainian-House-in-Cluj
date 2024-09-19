@@ -39,8 +39,6 @@ export default function EventsList({
     </li>
   );
 
-  console.log(mainPage);
-
   return (
     <>
       <div

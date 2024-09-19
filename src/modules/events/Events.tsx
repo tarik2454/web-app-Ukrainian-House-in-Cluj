@@ -20,6 +20,11 @@ export default function Events({ mainPage }: EventsSectionProps) {
     scrollSmooth();
   };
 
+  const handleResetFilter = () => {
+    setSelectedTag(undefined);
+    scrollSmooth();
+  };
+
   return (
     <Section>
       <Container>
@@ -29,7 +34,10 @@ export default function Events({ mainPage }: EventsSectionProps) {
           <EventsList mainPage={mainPage} />
         ) : (
           <>
-            <EventsTagsFilter handleFilterTags={handleFilterTags} />
+            <EventsTagsFilter
+              handleFilterTags={handleFilterTags}
+              handleResetFilter={handleResetFilter}
+            />
             <EventsList selectedTag={selectedTag} />
           </>
         )}

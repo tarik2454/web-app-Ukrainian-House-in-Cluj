@@ -28,7 +28,7 @@ export default function CreateEvent() {
         time: '',
         location: '',
       },
-      registration: true,
+      registration: false,
       date: '',
       dropdownValue: '',
     },
@@ -200,7 +200,7 @@ export default function CreateEvent() {
                 id="registration"
                 name="registration"
                 register={register}
-                defaultChecked={true}
+                defaultChecked={false}
                 stylesField="mb-[2px]"
               />
             </div>

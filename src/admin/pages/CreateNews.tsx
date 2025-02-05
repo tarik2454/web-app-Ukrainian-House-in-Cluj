@@ -77,16 +77,6 @@ export default function CreateNews() {
 
     const dataObject = createFormDataObject(formData);
     console.log(dataObject);
-
-    // Тут вы можете отправить `dataObject` на сервер
-    // Например, через fetch или axios
-    // fetch('/api/upload', {
-    //   method: 'POST',
-    //   body: JSON.stringify(dataObject),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // });
   };
 
   useEffect(() => {

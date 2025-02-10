@@ -1,13 +1,20 @@
-export interface EventsDataProps {
+export interface EventDataProps {
   id: string;
+  publicationDate: string;
   title: string;
-  img: string;
+  img?: string;
   description: string;
-  tags: Array<string>;
-  date: string;
+  eventDate: {
+    date?: string;
+    time?: string;
+    location?: string;
+  };
+  registration: boolean;
+  tags: string[];
+  favorite?: boolean;
 }
 
 export interface EventsListProps {
-  eventsData?: EventsDataProps[];
+  eventsData?: EventDataProps[];
   mainPage?: boolean;
 }

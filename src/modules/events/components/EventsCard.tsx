@@ -2,16 +2,10 @@ import { Link } from 'react-router-dom';
 import { routes } from '../../../constants/routes';
 import tagColors from '../../../constants/tag-colors';
 import { twMerge } from 'tailwind-merge';
+import { EventDataProps } from '../types/eventProps';
 
 export interface CommonCardProps {
-  product?: {
-    id: string;
-    title: string;
-    img: string;
-    description: string;
-    tags: Array<string>;
-    date: string;
-  };
+  product?: EventDataProps;
   singleEvent?: boolean;
   detailsPage?: boolean;
   mainPage?: boolean;
@@ -23,7 +17,7 @@ export default function EventsCard({
   detailsPage = false,
   mainPage = false,
 }: CommonCardProps) {
-  const { id, title, img, description, tags, date } = product || {};
+  const { id, title, img, description, tags, publicationDate } = product || {};
 
   const eventUrl = id ? routes.EVENT_ID.path.replace(':eventId', id) : '#';
 
@@ -50,7 +44,7 @@ export default function EventsCard({
 
       <div className="flex flex-col grow">
         <p className="mb-3 font-inter-600 text-sm font-semibold text-violet-300 dark:text-dark-date">
-          {date || 'Date not available'}
+          {publicationDate || 'Date not available'}
         </p>
 
         <Link

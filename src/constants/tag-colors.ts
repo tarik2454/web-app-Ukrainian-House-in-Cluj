@@ -4,7 +4,6 @@ const tagColors: {
   виставка: { bgClass: 'bg-fuchsia-50', textClass: '!text-fuchsia-700' },
   мистецтво: { bgClass: 'bg-stone-100', textClass: '!text-stone-700' },
   'майстер-клас': { bgClass: 'bg-blue-100', textClass: '!text-blue-700' },
-  // малювання: { bgClass: 'bg-teal-100', textClass: '!text-teal-700' },
   освіта: { bgClass: 'bg-orange-100', textClass: '!text-orange-700' },
   спорт: { bgClass: 'bg-gray-100', textClass: '!text-gray-700' },
   малювання: { bgClass: 'bg-violet-100', textClass: '!text-violet-700' },

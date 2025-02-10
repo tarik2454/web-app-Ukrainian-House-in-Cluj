@@ -1,9 +1,9 @@
-import Pagination from '../../../shared/components/Pagination';
-import eventsData from '../../../shared/data/events-data';
-import EventsCard from './EventsCard';
-
-import { EventsDataProps } from '../types/eventProps';
 import { twMerge } from 'tailwind-merge';
+
+import Pagination from '../../../shared/components/Pagination';
+import EventsCard from './EventsCard';
+import { EventDataProps } from '../types/eventProps';
+import { useEvents } from '../../../hooks/useEvent';
 
 interface EventsProps {
   mainPage?: boolean;
@@ -16,25 +16,29 @@ export default function EventsList({
   detailsPage,
   selectedTag,
 }: EventsProps) {
-  // Фильтруем события по выбранному тегу, если тег выбран
-  const filteredEventsData = selectedTag
-    ? eventsData.filter(event => event.tags.includes(selectedTag))
-    : eventsData;
+  const { data: events, isLoading, isError } = useEvents();
 
-  // Устанавливаем элементы, которые будут отображены в зависимости от страницы
+  console.log(events);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error loading events</p>;
+
+  const filteredEvents = selectedTag
+    ? events.filter((event: EventDataProps) => event.tags.includes(selectedTag))
+    : events;
+
   const itemsPerPage = 12;
   const startIndex = detailsPage ? 0 : 1;
-  const endIndex = mainPage ? 4 : detailsPage ? 3 : filteredEventsData.length;
+  const endIndex = mainPage ? 4 : detailsPage ? 3 : filteredEvents.length;
 
-  // Вырезаем данные после фильтрации
-  const sliceEventsData = filteredEventsData.slice(startIndex, endIndex);
+  const slicedEvents = filteredEvents.slice(startIndex, endIndex);
 
-  const renderItemLi = (item: EventsDataProps) => (
+  const renderItemLi = (item: EventDataProps) => (
     <li key={item.id} className="flex">
       <EventsCard
         product={item}
-        mainPage={mainPage ?? false}
-        detailsPage={detailsPage ?? false}
+        mainPage={mainPage}
+        detailsPage={detailsPage}
       />
     </li>
   );
@@ -48,13 +52,9 @@ export default function EventsList({
       >
         {mainPage && (
           <ul>
-            {sliceEventsData.slice(0, 1).map((product, index) => (
-              <li key={index}>
-                <EventsCard
-                  product={product}
-                  mainPage={mainPage}
-                  singleEvent={true}
-                />
+            {slicedEvents.slice(0, 1).map((product: EventDataProps) => (
+              <li key={product.id}>
+                <EventsCard product={product} mainPage singleEvent />
               </li>
             ))}
           </ul>
@@ -62,8 +62,8 @@ export default function EventsList({
 
         {(mainPage || detailsPage) && (
           <ul className="flex flex-col gap-8">
-            {sliceEventsData.map((product, index) => (
-              <li key={index}>
+            {slicedEvents.map((product: EventDataProps) => (
+              <li key={product.id}>
                 <EventsCard
                   product={product}
                   mainPage={mainPage}
@@ -78,8 +78,8 @@ export default function EventsList({
       {!mainPage && !detailsPage && (
         <Pagination
           itemsPerPage={itemsPerPage}
-          array={filteredEventsData}
-          stylesUl={'flex flex-col gap-8 grid grid-cols-3'}
+          array={filteredEvents}
+          stylesUl="flex flex-col gap-8 grid grid-cols-3"
           renderItemLi={renderItemLi}
         />
       )}

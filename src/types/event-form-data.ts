@@ -1,16 +1,19 @@
 interface EventFormData {
+  publicationDate: string;
   title: string;
-  description: string;
-  eventDate: {
-    date: string;
-    time: string;
-    location: string;
-  };
-  registration: boolean;
-  date: string;
-  imageUrl?: string;
+  img?: string;
   file?: File | null;
-  dropdownValue?: string;
+  description: string;
+  eventDate?:
+    | {
+        date: string;
+        time: string;
+        location: string;
+      }
+    | undefined;
+  registration: boolean;
+  tags: string;
+  favorite?: boolean;
 }
 
 export default EventFormData;

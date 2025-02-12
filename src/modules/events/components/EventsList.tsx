@@ -1,9 +1,11 @@
 import { twMerge } from 'tailwind-merge';
 
+import { useEvents } from '../../../hooks/useEvent';
+
 import Pagination from '../../../shared/components/Pagination';
 import EventsCard from './EventsCard';
+
 import { EventDataProps } from '../types/eventProps';
-import { useEvents } from '../../../hooks/useEvent';
 
 interface EventsProps {
   mainPage?: boolean;
@@ -17,8 +19,6 @@ export default function EventsList({
   selectedTag,
 }: EventsProps) {
   const { data: events, isLoading, isError } = useEvents();
-
-  console.log(events);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading events</p>;

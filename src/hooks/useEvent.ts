@@ -12,7 +12,7 @@ export const useEvent = (id: number) => {
   return useQuery({
     queryKey: ['user', id],
     queryFn: () => fetchEventById(id),
-    enabled: !!id, // Запрос выполняется только если id существует
+    enabled: !!id,
   });
 };
 
@@ -22,7 +22,7 @@ export const useCreateEvent = () => {
   return useMutation({
     mutationFn: createEvent,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['events'] }); // Обновляем кэш
+      queryClient.invalidateQueries({ queryKey: ['events'] });
     },
   });
 };

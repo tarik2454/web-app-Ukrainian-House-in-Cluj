@@ -10,10 +10,7 @@ export const fetchEventById = async (id: number) => {
   return data;
 };
 
-export const createEvent = async (eventData: {
-  name: string;
-  email: string;
-}) => {
-  const { data } = await apiClient.post('/events', eventData);
+export const createEvent = async (formData: FormData) => {
+  const { data } = await apiClient.post('/events', formData);
   return data;
 };

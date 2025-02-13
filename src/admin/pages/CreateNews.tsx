@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import PageTitle from '../../shared/components/PageTitle';
-import Button from '../../shared/components/Button';
-import AdminFormItem from '../components/AdminFormItem';
-import createFormDataObject from '../../shared/helpers/form-data-object';
 
-interface EventFormData {
-  title: string;
-  description: string;
-  date: string;
-  file?: File | null;
-}
+import PageTitle from '@/shared/components/PageTitle';
+import Button from '@/shared/components/Button';
+import AdminFormItem from '../components/AdminFormItem';
+import createFormDataObject from '@/shared/helpers/form-data-object';
+
+import { NewsDataProps } from '@/types/newsProps';
 
 export default function CreateNews() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -22,7 +18,7 @@ export default function CreateNews() {
     handleSubmit,
     reset,
     formState: { isSubmitSuccessful, errors },
-  } = useForm<EventFormData>({
+  } = useForm<NewsDataProps>({
     defaultValues: {
       title: '',
       description: '',
@@ -61,7 +57,7 @@ export default function CreateNews() {
     }
   };
 
-  const onSubmit: SubmitHandler<EventFormData> = data => {
+  const onSubmit: SubmitHandler<NewsDataProps> = data => {
     if (fileError) {
       return;
     }

@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import { Controller, FieldErrors, Control } from 'react-hook-form';
 
 import tagColors from '../../constants/tag-colors';
-import EventFormData from '../../types/event-form-data';
+import { EventDataProps } from '@/types/eventProps';
 
 interface Option {
   value: string;
@@ -14,11 +14,11 @@ interface Option {
 
 interface DropdownProps {
   id?: string;
-  name: keyof EventFormData;
+  name: keyof EventDataProps;
   labelText?: string;
   stylesLabel?: string;
-  control: Control<EventFormData>;
-  errors: FieldErrors<EventFormData>;
+  control: Control<EventDataProps>;
+  errors: FieldErrors<EventDataProps>;
   validation?: object;
   onChange?: (value: SingleValue<Option>) => void;
   placeholderText?: string;

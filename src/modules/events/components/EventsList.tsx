@@ -5,7 +5,7 @@ import { useEvents } from '../../../hooks/useEvent';
 import Pagination from '../../../shared/components/Pagination';
 import EventsCard from './EventsCard';
 
-import { EventDataProps } from '../types/eventProps';
+import { EventDataProps } from '../../../types/eventProps';
 
 interface EventsProps {
   mainPage?: boolean;

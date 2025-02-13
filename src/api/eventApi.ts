@@ -1,16 +1,17 @@
-import apiClient from './index';
+import { API } from './index';
 
 export const fetchEvents = async () => {
-  const { data } = await apiClient.get('/events');
+  const { data } = await API.get('/events');
   return data;
 };
 
 export const fetchEventById = async (id: number) => {
-  const { data } = await apiClient.get(`/events/${id}`);
+  const { data } = await API.get(`/events/${id}`);
   return data;
 };
 
 export const createEvent = async (formData: FormData) => {
-  const { data } = await apiClient.post('/events', formData);
+  const { data } = await API.post('/events', formData);
+  console.log(data);
   return data;
 };

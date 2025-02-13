@@ -1,8 +1,8 @@
 export interface EventDataProps {
-  id: string;
   publicationDate: string;
   title: string;
   img?: string;
+  file?: File | null;
   description: string;
   eventDate: {
     date?: string;
@@ -10,7 +10,7 @@ export interface EventDataProps {
     location?: string;
   };
   registration: boolean;
-  tags: string[];
+  tags: string;
   favorite?: boolean;
 }
 

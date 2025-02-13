@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { useCreateEvent } from '../../hooks/useEvent';
+import { useCreateEvent } from '@/hooks/useEvent';
 
-import PageTitle from '../../shared/components/PageTitle';
-import Button from '../../shared/components/Button';
+import PageTitle from '@/shared/components/PageTitle';
+import Button from '@/shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
 import Dropdown from '../components/Dropdown';
 
-import EventFormData from '../../types/event-form-data';
+import { EventDataProps } from '@/types/eventProps';
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -22,7 +22,7 @@ export default function CreateEvent() {
     formState: { isSubmitSuccessful, errors },
     control,
     setValue,
-  } = useForm<EventFormData>({
+  } = useForm<EventDataProps>({
     defaultValues: {
       publicationDate: '',
       title: '',
@@ -71,24 +71,27 @@ export default function CreateEvent() {
     }
   };
 
-  const onSubmit: SubmitHandler<EventFormData> = data => {
+  const onSubmit: SubmitHandler<EventDataProps> = data => {
     if (fileError) return;
 
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('description', data.description);
-    formData.append('date', data.publicationDate);
+    formData.append('publicationDate', data.publicationDate);
     formData.append('eventDate[date]', data.eventDate?.date ?? '');
     formData.append('eventDate[time]', data.eventDate?.time ?? '');
     formData.append('eventDate[location]', data.eventDate?.location ?? '');
     formData.append('registration', data.registration.toString());
 
     if (data.tags) {
-      formData.append('tags', data.tags);
+      const tagsArray = data.tags.split(',').map(tag => tag.trim());
+      tagsArray.forEach(tag => {
+        formData.append('tags[]', tag);
+      });
     }
 
     if (selectedFile) {
-      formData.append('file', selectedFile);
+      formData.append('img', selectedFile);
     }
 
     mutate(formData);
@@ -135,7 +138,7 @@ export default function CreateEvent() {
                     className="w-full h-full opacity-0 cursor-pointer absolute inset-0 z-20"
                     accept="image/png, image/jpeg, image/jpg"
                     {...register('file', {
-                      required: 'Файл обов’язковий',
+                      // required: 'Файл обов’язковий',
                       onChange: handleChangeImg,
                     })}
                   />
@@ -171,7 +174,7 @@ export default function CreateEvent() {
                 />
                 <AdminFormItem
                   labelText="Дата події"
-                  type="text"
+                  type="date"
                   id="eventDateDate"
                   name="eventDate.date"
                   register={register}

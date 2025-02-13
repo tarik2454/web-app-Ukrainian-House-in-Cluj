@@ -1,4 +1,5 @@
 export interface EventDataProps {
+  id?: string;
   publicationDate: string;
   title: string;
   img?: string;

@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import useScrollToTop from '../hooks/useScrollToTop';
 
 interface PaginationItemProps {
-  id: string;
+  id?: string;
 }
 
 interface PaginationProps<T> {

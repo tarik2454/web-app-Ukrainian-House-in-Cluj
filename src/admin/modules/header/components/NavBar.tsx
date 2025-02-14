@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import useRoutesByKey from '../../../shared/hooks/useRoutesByKey';
+
+import useRoutesByKey from '@/shared/hooks/useRoutesByKey';
 
 export default function NavBar() {
   const { routes, activePath, handleClickLink } = useRoutesByKey([

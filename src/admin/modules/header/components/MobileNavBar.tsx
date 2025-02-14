@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import useRoutesByKey from '../../../shared/hooks/useRoutesByKey';
+import useRoutesByKey from '@/shared/hooks/useRoutesByKey';
 import MobileProfile from './MobileProfile';
 
 export default function MobileNavBar({

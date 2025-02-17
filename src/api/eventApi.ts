@@ -1,5 +1,7 @@
 import { API } from './index';
 
+import { EventDataProps } from '@/types/eventProps';
+
 export const fetchEvents = async () => {
   const { data } = await API.get('/events');
   return data;
@@ -12,6 +14,13 @@ export const fetchEventById = async (id: number) => {
 
 export const createEvent = async (formData: FormData) => {
   const { data } = await API.post('/events', formData);
-  console.log(data);
   return data;
+};
+
+export const updateEvent = async (
+  id: number,
+  data: Partial<EventDataProps>
+) => {
+  const { data: response } = await API.put(`/events/${id}`, data);
+  return response;
 };

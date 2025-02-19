@@ -1,6 +1,6 @@
 import { API } from './index';
 
-import { EventDataProps } from '@/types/eventProps';
+import { EventDataProps } from '@/types/eventsProps';
 
 export const fetchEvents = async () => {
   const { data } = await API.get('/events');
@@ -23,4 +23,16 @@ export const updateEvent = async (
 ) => {
   const { data: response } = await API.put(`/events/${id}`, data);
   return response;
+};
+
+export const updateFavoriteEvent = async (
+  id: number,
+  data: Partial<EventDataProps>
+) => {
+  const { data: response } = await API.patch(`/events/${id}/favorite`, data);
+  return response;
+};
+
+export const deleteEvent = async (id: number) => {
+  await API.delete(`/events/${id}`);
 };

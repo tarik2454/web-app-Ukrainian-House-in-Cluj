@@ -7,7 +7,7 @@ import {
   updateEvent,
 } from '@/api/eventApi';
 
-import { EventDataProps } from '@/types/eventProps';
+import { EventDataProps } from '@/types/eventsProps';
 
 export const useEvents = () => {
   return useQuery({

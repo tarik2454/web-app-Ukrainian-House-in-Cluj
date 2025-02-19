@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { routes } from '@/constants/routes';
 import tagColors from '@/constants/tag-colors';
 import { twMerge } from 'tailwind-merge';
-import { EventDataProps } from '@/types/eventProps';
+import { EventDataProps } from '@/types/eventsProps';
 
 export interface CommonCardProps {
   product?: EventDataProps;

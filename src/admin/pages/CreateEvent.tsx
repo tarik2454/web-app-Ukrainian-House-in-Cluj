@@ -8,7 +8,7 @@ import Button from '@/shared/components/Button';
 import AdminFormItem from '../components/AdminFormItem';
 import Dropdown from '../components/Dropdown';
 
-import { EventDataProps } from '@/types/eventProps';
+import { EventDataProps } from '@/types/eventsProps';
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);

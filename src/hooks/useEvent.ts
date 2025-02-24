@@ -2,9 +2,11 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 import {
   createEvent,
+  deleteEvent,
   fetchEventById,
   fetchEvents,
   updateEvent,
+  updateFavoriteEvent,
 } from '@/api/eventApi';
 
 import { EventDataProps } from '@/types/eventsProps';
@@ -44,6 +46,31 @@ export const useUpdateEvent = () => {
     onSuccess: (_, { id }) => {
       queryClient.invalidateQueries({ queryKey: ['event', id] });
       queryClient.invalidateQueries({ queryKey: ['events'] });
+    },
+  });
+};
+
+export const useUpdateFavoriteEvent = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ id, data }: { id: number; data: Partial<EventDataProps> }) =>
+      updateFavoriteEvent(id, data),
+    onSuccess: (_, { id }) => {
+      queryClient.invalidateQueries({ queryKey: ['event', id] });
+      queryClient.invalidateQueries({ queryKey: ['events'] });
+    },
+  });
+};
+
+export const useDeleteEvent = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (id: number) => deleteEvent(id),
+    onSuccess: (_, id) => {
+      queryClient.invalidateQueries({ queryKey: ['events'] });
+      queryClient.invalidateQueries({ queryKey: ['event', id] });
     },
   });
 };

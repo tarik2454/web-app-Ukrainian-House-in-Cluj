@@ -15,6 +15,8 @@ export default function CreateEvent() {
   const [fileError, setFileError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
+  const { mutate, isPending, isError } = useCreateEvent();
+
   const {
     register,
     handleSubmit,
@@ -36,8 +38,6 @@ export default function CreateEvent() {
       tags: '',
     },
   });
-
-  const { mutate, isPending, isError } = useCreateEvent();
 
   const filePreparation = (file: File | null) => {
     if (!file) {

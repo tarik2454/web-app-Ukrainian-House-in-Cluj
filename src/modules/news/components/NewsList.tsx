@@ -1,10 +1,17 @@
-import newsData from '../../../shared/data/news-data';
+import { useNews } from '@/hooks/useNewsItem';
+
+// import newsData from '@/shared/data/news-data';
 import NewsCard from './NewsCard';
 import NewsProps from '../types/newsProps';
-import Pagination from '../../../shared/components/Pagination';
+import Pagination from '@/shared/components/Pagination';
 
 export default function NewsList({ mainPage }: { mainPage?: boolean }) {
-  const displayedNews = mainPage ? newsData.slice(0, 6) : newsData;
+  const { data: news, isLoading, isError } = useNews();
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error loading news</p>;
+
+  const displayedNews = mainPage ? news.slice(0, 6) : news;
 
   const itemsPerPage = 10;
 

@@ -20,18 +20,3 @@ export default function useScreenSize() {
 
   return { isOnMobile, isOnTablet, isOnDesktop };
 }
-
-// вызывать в компонентах для использования размеров дисплея вот так:
-// const { isOnMobile, isOnTablet, isOnDesktop } = useScreenSize();
-
-// для перебора условий для размеров экранов пользуйтесь тернарником а не условными операторами
-// типо так:
-// {
-//   isOnMobile ? (
-//     <Logo logo="logoHeaderMobile" />
-//   ) : isOnTablet ? (
-//     <Logo logo="logoTablet" />
-//   ) : (
-//     <Logo logo="logoHeaderDesktop" />
-//   );
-// }

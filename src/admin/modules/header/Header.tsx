@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import MobileNavBar from './components/MobileNavBar';
-import Notifications from './components/Notifications';
-import ProfileDropdown from './components/Profile';
-import NavBar from './components/NavBar';
-import MobileMenuButton from './components/MobileMenuButton';
-import Logo from '@/shared/components/Logo';
+import MobileNavBar from "./components/MobileNavBar";
+import Notifications from "./components/Notifications";
+import ProfileDropdown from "./components/Profile";
+import NavBar from "./components/NavBar";
+import MobileMenuButton from "./components/MobileMenuButton";
+import Logo from "@/shared/components/Logo";
 
 export default function Header() {
-  const [navBarDisplay, setNavBarDisplay] = useState('hidden');
+  const [navBarDisplay, setNavBarDisplay] = useState("hidden");
 
   const handleToggleMenu = () => {
-    setNavBarDisplay(navBarDisplay === 'hidden' ? 'block' : 'hidden');
+    setNavBarDisplay(navBarDisplay === "hidden" ? "block" : "hidden");
   };
 
   return (
     <header className="bg-gray-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <div className="w-[32px]">
             <Logo admin={true} />

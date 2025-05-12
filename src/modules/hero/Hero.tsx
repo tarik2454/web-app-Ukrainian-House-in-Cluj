@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import Section from '../../shared/components/Section';
-import Container from '../../shared/components/Container';
+import { useEffect, useRef } from "react";
+import Section from "../../shared/components/Section";
+import Container from "../../shared/components/Container";
 
 export default function Hero() {
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -18,7 +18,7 @@ export default function Hero() {
     >
       <Section>
         <Container>
-          <h1 className="text-ukraine-gradient animate-waving-flag font-inter-700 text-[170px] font-bold text-center">
+          <h1 className="text-ukraine-gradient animate-waving-flag text-center font-inter-700 text-[170px] font-bold">
             Ukraine House
           </h1>
         </Container>

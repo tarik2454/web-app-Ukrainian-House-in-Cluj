@@ -1,10 +1,10 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect } from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 
-import validationSchema from '../helpers/validation-schema';
-import FormItem from '../../../shared/components/FormItem';
-import Button from '../../../shared/components/Button';
+import validationSchema from "../helpers/validation-schema";
+import FormItem from "../../../shared/components/FormItem";
+import Button from "../../../shared/components/Button";
 
 interface FormData {
   fullName: string;
@@ -26,7 +26,7 @@ export default function EventRegisterModal() {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = data => {
+  const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
   };
 
@@ -93,11 +93,11 @@ export default function EventRegisterModal() {
         error={errors.textarea}
         control={control}
         style={{
-          maxHeight: 'calc(1.5em * 8)',
+          maxHeight: "calc(1.5em * 8)",
         }}
       />
 
-      <div className="flex justify-center mt-4">
+      <div className="mt-4 flex justify-center">
         <Button type="submit">Відправити</Button>
       </div>
     </form>

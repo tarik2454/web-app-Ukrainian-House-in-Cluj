@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useCreateNewsItem } from '@/hooks/useNewsItem';
+import { useCreateNewsItem } from "@/hooks/useNewsItem";
 
-import PageTitle from '@/shared/components/PageTitle';
-import Button from '@/shared/components/Button';
-import AdminFormItem from '../components/AdminFormItem';
+import PageTitle from "@/shared/components/PageTitle";
+import Button from "@/shared/components/Button";
+import AdminFormItem from "../components/AdminFormItem";
 // import createFormDataObject from '@/shared/helpers/form-data-object';
 
-import { NewsDataProps } from '@/types/newsProps';
+import { NewsDataProps } from "@/types/newsProps";
 
 export default function CreateNews() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -24,9 +24,9 @@ export default function CreateNews() {
     formState: { isSubmitSuccessful, errors },
   } = useForm<NewsDataProps>({
     defaultValues: {
-      title: '',
-      description: '',
-      date: '',
+      title: "",
+      description: "",
+      date: "",
     },
   });
 
@@ -38,7 +38,7 @@ export default function CreateNews() {
 
     if (file.size > 2 * 1024 * 1024) {
       setPreviewImg(null);
-      setFileError('Розмір файлу повинен бути не більше 2 МБ');
+      setFileError("Розмір файлу повинен бути не більше 2 МБ");
       return;
     }
 
@@ -53,7 +53,7 @@ export default function CreateNews() {
   };
 
   const handleChangeImg = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
@@ -61,18 +61,18 @@ export default function CreateNews() {
     }
   };
 
-  const onSubmit: SubmitHandler<NewsDataProps> = data => {
+  const onSubmit: SubmitHandler<NewsDataProps> = (data) => {
     if (fileError) {
       return;
     }
 
     const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('description', data.description);
-    formData.append('date', data.date);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("date", data.date);
 
     if (selectedFile) {
-      formData.append('file', selectedFile);
+      formData.append("file", selectedFile);
     }
 
     // const dataObject = createFormDataObject(formData);
@@ -94,10 +94,10 @@ export default function CreateNews() {
 
       {!isPending && !isError && (
         <>
-          {' '}
+          {" "}
           <PageTitle
             styles={
-              'font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300'
+              "font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300"
             }
           >
             Створити новину
@@ -105,29 +105,29 @@ export default function CreateNews() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-8">
               <AdminFormItem
-                labelText={'Назва новини'}
-                type={'text'}
-                id={'title'}
-                name={'title'}
+                labelText={"Назва новини"}
+                type={"text"}
+                id={"title"}
+                name={"title"}
                 register={register}
                 error={errors.title}
-                validation={{ required: 'Поле обов’язкове для заповнення' }}
+                validation={{ required: "Поле обов’язкове для заповнення" }}
               />
             </div>
 
             <div className="grid grid-cols-[_1fr,_2fr] gap-8">
               <div>
-                <div className="flex justify-center items-center w-full h-[280px] bg-black-100 bg-cover bg-center overflow-hidden relative">
+                <div className="relative flex h-[280px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
                   <input
                     type="file"
                     id="file"
-                    className="w-full h-full opacity-0 cursor-pointer absolute inset-0 z-20"
+                    className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
                     accept="image/png, image/jpeg, image/jpg"
-                    {...register('file', {
+                    {...register("file", {
                       onChange: handleChangeImg,
                     })}
                   />
-                  <span className="text-white absolute z-10">
+                  <span className="absolute z-10 text-white">
                     Виберіть зображення
                   </span>
                   {previewImg && <img src={previewImg} alt="Preview" />}
@@ -140,30 +140,30 @@ export default function CreateNews() {
 
               <div className="flex flex-col gap-3">
                 <AdminFormItem
-                  labelText={'Дата створення'}
-                  type={'date'}
-                  id={'date'}
-                  name={'date'}
+                  labelText={"Дата створення"}
+                  type={"date"}
+                  id={"date"}
+                  name={"date"}
                   register={register}
                   error={errors.date}
-                  validation={{ required: 'Поле обов’язкове для заповнення' }}
+                  validation={{ required: "Поле обов’язкове для заповнення" }}
                 />
 
                 <AdminFormItem
-                  labelText={'Опис новини'}
-                  type={'textarea'}
-                  id={'description'}
-                  name={'description'}
+                  labelText={"Опис новини"}
+                  type={"textarea"}
+                  id={"description"}
+                  name={"description"}
                   register={register}
                   error={errors.description}
-                  validation={{ required: 'Поле обов’язкове для заповнення' }}
+                  validation={{ required: "Поле обов’язкове для заповнення" }}
                 />
 
-                <div className="flex justify-end mt-8">
+                <div className="mt-8 flex justify-end">
                   <Button
-                    type={'submit'}
+                    type={"submit"}
                     styles={
-                      'px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white'
+                      "px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
                     }
                   >
                     Опублікувати

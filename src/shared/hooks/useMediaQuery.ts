@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function useScreenSize() {
-  const isMobileScreen = useMediaQuery({ query: '(max-width: 767.9px)' });
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 767.9px)" });
   const isTabletScreen = useMediaQuery({
-    query: '(min-width: 768px) and (max-width: 1439.9px)',
+    query: "(min-width: 768px) and (max-width: 1439.9px)",
   });
-  const isDesktopScreen = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isDesktopScreen = useMediaQuery({ query: "(min-width: 1440px)" });
 
   const [isOnMobile, setIsOnMobile] = useState(false);
   const [isOnTablet, setIsOnTablet] = useState(false);

@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-import { routes } from '../../constants/routes';
-import Container from '../../shared/components/Container';
-import Logo from '../../shared/components/Logo';
-import NavBar from '../../shared/components/NavBar';
-import ThemeToggle from './components/ThemeToggle';
+import { routes } from "../../constants/routes";
+import Container from "../../shared/components/Container";
+import Logo from "../../shared/components/Logo";
+import NavBar from "../../shared/components/NavBar";
+import ThemeToggle from "./components/ThemeToggle";
 
 export default function Header() {
-  const [position, setPosition] = useState('absolute');
+  const [position, setPosition] = useState("absolute");
 
   const headerRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
@@ -26,26 +26,26 @@ export default function Header() {
           ? window.scrollY > 427
           : window.scrollY > 111
       ) {
-        setPosition('fixed');
+        setPosition("fixed");
       } else {
-        setPosition('absolute');
+        setPosition("absolute");
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
 
   return (
     <header
       ref={headerRef}
-      className={`w-full py-[30px] border-b-[1px] border-gray-300 bg-background ${position} top-0 left-0 z-50 transition-all dark:border-dark-border dark:bg-dark-background`}
+      className={`w-full border-b-[1px] border-gray-300 bg-background py-[30px] ${position} left-0 top-0 z-50 transition-all dark:border-dark-border dark:bg-dark-background`}
     >
       <Container>
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Logo />
           <NavBar />
           <ThemeToggle />

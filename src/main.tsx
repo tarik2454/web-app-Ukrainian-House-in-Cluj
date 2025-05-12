@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { QueryProvider } from './providers/QueryProvider';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { QueryProvider } from "./providers/QueryProvider";
 
-import { App } from './App';
+import { App } from "./App";
 
-import './index.scss';
+import "./index.scss";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </QueryProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

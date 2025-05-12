@@ -1,21 +1,21 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
   Pagination,
   A11y,
   Autoplay,
   HashNavigation,
-} from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-import 'swiper/css/hash-navigation';
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/hash-navigation";
 
-import { SpriteSVG } from '../../assets/images/SpriteSVG';
-import { useRef, useEffect } from 'react';
-import type { Swiper as SwiperClass } from 'swiper/types';
-import TeamCard from '../../modules/ourTeams/components/TeamCard';
+import { SpriteSVG } from "../../assets/images/SpriteSVG";
+import { useRef, useEffect } from "react";
+import type { Swiper as SwiperClass } from "swiper/types";
+import TeamCard from "../../modules/ourTeams/components/TeamCard";
 
 interface DataTypeProps {
   name: string;
@@ -39,14 +39,14 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
     };
 
     if (swiperInstance?.el) {
-      swiperInstance.el.addEventListener('mouseenter', handleMouseEnter);
-      swiperInstance.el.addEventListener('mouseleave', handleMouseLeave);
+      swiperInstance.el.addEventListener("mouseenter", handleMouseEnter);
+      swiperInstance.el.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (swiperInstance?.el) {
-        swiperInstance.el.removeEventListener('mouseenter', handleMouseEnter);
-        swiperInstance.el.removeEventListener('mouseleave', handleMouseLeave);
+        swiperInstance.el.removeEventListener("mouseenter", handleMouseEnter);
+        swiperInstance.el.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
   }, []);
@@ -54,12 +54,12 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
   return (
     <>
       <Swiper
-        onSwiper={swiper => {
+        onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
         modules={[Navigation, Pagination, A11y, Autoplay, HashNavigation]}
-        navigation={{ nextEl: '.mySwiper-next', prevEl: '.mySwiper-prev' }}
-        pagination={{ el: '.swiper-pagination' }}
+        navigation={{ nextEl: ".mySwiper-next", prevEl: ".mySwiper-prev" }}
+        pagination={{ el: ".swiper-pagination" }}
         autoplay={{ delay: 2000 }}
         loop={true}
         className="mySwiper"
@@ -96,7 +96,7 @@ export default function Slider({ data }: { data: DataTypeProps[] }) {
         </div>
       </Swiper>
 
-      <div className="flex justify-between w-full">
+      <div className="flex w-full justify-between">
         <button className="mySwiper-prev">
           <SpriteSVG name="arrow-left" />
           Сюди

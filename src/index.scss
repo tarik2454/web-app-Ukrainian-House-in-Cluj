@@ -4,47 +4,47 @@
 
 @layer base {
   @font-face {
-    font-family: 'Inter-400';
+    font-family: "Inter-400";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/src/assets/fonts/Inter_400-Regular.ttf') format('truetype');
+    src: url("/src/assets/fonts/Inter_400-Regular.ttf") format("truetype");
   }
 
   @font-face {
-    font-family: 'Inter-500';
+    font-family: "Inter-500";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('/src/assets/fonts/Inter_500-Medium.ttf') format('truetype');
+    src: url("/src/assets/fonts/Inter_500-Medium.ttf") format("truetype");
   }
 
   @font-face {
-    font-family: 'Inter-600';
+    font-family: "Inter-600";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url('/src/assets/fonts/Inter_600-SemiBold.ttf') format('truetype');
+    src: url("/src/assets/fonts/Inter_600-SemiBold.ttf") format("truetype");
   }
 
   @font-face {
-    font-family: 'Inter-700';
+    font-family: "Inter-700";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/src/assets/fonts/Inter_700-Bold.ttf') format('truetype');
+    src: url("/src/assets/fonts/Inter_700-Bold.ttf") format("truetype");
   }
 }
 
 @layer base {
   body {
-    font-family: 'Inter-400', sans-serif;
+    font-family: "Inter-400", sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
 
-    color: theme('colors.black.100');
-    background-color: theme('colors.background');
+    color: theme("colors.black.100");
+    background-color: theme("colors.background");
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -52,8 +52,8 @@
   }
 
   .dark body {
-    color: theme('colors.dark.text');
-    background-color: theme('colors.dark.background');
+    color: theme("colors.dark.text");
+    background-color: theme("colors.dark.background");
   }
 
   img {
@@ -65,7 +65,7 @@
   .input,
   .textarea,
   .PhoneInputInput {
-    @apply block w-full py-2 px-2 text-black-200 border-[1px] border-violet-200 border-opacity-40 outline-none transition-all duration-250;
+    @apply block w-full border-[1px] border-violet-200 border-opacity-40 px-2 py-2 text-black-200 outline-none transition-all duration-250;
     @apply placeholder:text-black-100;
     @apply focus:border-opacity-100;
   }
@@ -89,7 +89,7 @@
 
 @layer components {
   .error {
-    @apply mt-[2px] text-red-700 text-sm dark:text-red-500;
+    @apply mt-[2px] text-sm text-red-700 dark:text-red-500;
   }
 }
 
@@ -98,9 +98,9 @@
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
       to right,
-      theme('colors.ukraniane.start') 40%,
-      theme('colors.ukraniane.via') 60%,
-      theme('colors.ukraniane.end') 90%
+      theme("colors.ukraniane.start") 40%,
+      theme("colors.ukraniane.via") 60%,
+      theme("colors.ukraniane.end") 90%
     );
   }
 }
@@ -183,13 +183,13 @@
   height: 48px;
   border-radius: 50%;
   display: inline-block;
-  border-top: 4px solid theme('colors.ukraniane.via');
+  border-top: 4px solid theme("colors.ukraniane.via");
   border-right: 4px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: '';
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -197,7 +197,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border-bottom: 4px solid theme('colors.ukraniane.end');
+  border-bottom: 4px solid theme("colors.ukraniane.end");
   border-left: 4px solid transparent;
 }
 @keyframes rotation {

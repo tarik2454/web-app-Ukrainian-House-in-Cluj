@@ -1,8 +1,8 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
 interface PropsButton {
   styles?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   children: React.ReactNode;
   onClick?: (...args: unknown[]) => unknown;
   disabled?: boolean;
@@ -10,7 +10,7 @@ interface PropsButton {
 
 export default function Button({
   styles,
-  type = 'button',
+  type = "button",
   children,
   onClick,
   disabled = false,
@@ -19,9 +19,9 @@ export default function Button({
     <button
       type={type}
       className={twMerge(
-        `w-fit px-4 py-2 text-white rounded-lg transition-all duration-250`,
-        disabled ? 'bg-gray-400' : ' bg-ukraniane-via hover:bg-ukraniane-end',
-        styles
+        `w-fit rounded-lg px-4 py-2 text-white transition-all duration-250`,
+        disabled ? "bg-gray-400" : "bg-ukraniane-via hover:bg-ukraniane-end",
+        styles,
       )}
       onClick={onClick}
       disabled={disabled}

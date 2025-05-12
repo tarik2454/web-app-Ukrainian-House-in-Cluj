@@ -18,7 +18,7 @@ export default function Footer() {
     <>
       <footer
         ref={footerRef}
-        className="py-[30px] border-t-[1px] border-b-[1px] border-gray-300 dark:border-dark-border"
+        className="border-b-[1px] border-t-[1px] border-gray-300 py-[30px] dark:border-dark-border"
       >
         <Container>
           <div className="">

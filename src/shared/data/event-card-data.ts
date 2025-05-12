@@ -1,7 +1,7 @@
 const eventCardData = {
-  id: '3',
-  title: 'Велопробіг містом',
-  img: 'https://via.placeholder.com/150x100?text=City+Bike+Race',
+  id: "3",
+  title: "Велопробіг містом",
+  img: "https://via.placeholder.com/150x100?text=City+Bike+Race",
   description: `
 8 серпня — потужна дата, в цей день дуже добре ставити ціли та прописувати бажання! Запрошуємо долучитися до заняття, на вас чекають арттерапевтичні та коучингові техніки, метафоричні карти та дружнє спілкування у надихаючому колі жінок.
 
@@ -14,8 +14,8 @@ const eventCardData = {
 Для запису необхідно заповнити анкету:
 https://forms.gle/GXtxqWPzM4kJtAFY7
   `,
-  tags: ['спорт', 'велопробіг'],
-  date: '03.02.2024',
+  tags: ["спорт", "велопробіг"],
+  date: "03.02.2024",
 };
 
 export default eventCardData;

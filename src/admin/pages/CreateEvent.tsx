@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useCreateEvent } from '@/hooks/useEvent';
+import { useCreateEvent } from "@/hooks/useEvent";
 
-import PageTitle from '@/shared/components/PageTitle';
-import Button from '@/shared/components/Button';
-import AdminFormItem from '../components/AdminFormItem';
-import Dropdown from '../components/Dropdown';
+import PageTitle from "@/shared/components/PageTitle";
+import Button from "@/shared/components/Button";
+import AdminFormItem from "../components/AdminFormItem";
+import Dropdown from "../components/Dropdown";
 
-import { EventDataProps } from '@/types/eventsProps';
+import { EventDataProps } from "@/types/eventsProps";
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
@@ -26,16 +26,16 @@ export default function CreateEvent() {
     setValue,
   } = useForm<EventDataProps>({
     defaultValues: {
-      publicationDate: '',
-      title: '',
-      description: '',
+      publicationDate: "",
+      title: "",
+      description: "",
       eventDate: {
-        date: '',
-        time: '',
-        location: '',
+        date: "",
+        time: "",
+        location: "",
       },
       registration: false,
-      tags: '',
+      tags: "",
     },
   });
 
@@ -48,7 +48,7 @@ export default function CreateEvent() {
 
     if (file.size > 2 * 1024 * 1024) {
       setPreviewImg(null);
-      setFileError('Розмір файлу повинен бути не більше 2 МБ');
+      setFileError("Розмір файлу повинен бути не більше 2 МБ");
       return;
     }
 
@@ -63,7 +63,7 @@ export default function CreateEvent() {
   };
 
   const handleChangeImg = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
@@ -71,27 +71,27 @@ export default function CreateEvent() {
     }
   };
 
-  const onSubmit: SubmitHandler<EventDataProps> = data => {
+  const onSubmit: SubmitHandler<EventDataProps> = (data) => {
     if (fileError) return;
 
     const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('description', data.description);
-    formData.append('publicationDate', data.publicationDate);
-    formData.append('eventDate[date]', data.eventDate?.date ?? '');
-    formData.append('eventDate[time]', data.eventDate?.time ?? '');
-    formData.append('eventDate[location]', data.eventDate?.location ?? '');
-    formData.append('registration', data.registration.toString());
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("publicationDate", data.publicationDate);
+    formData.append("eventDate[date]", data.eventDate?.date ?? "");
+    formData.append("eventDate[time]", data.eventDate?.time ?? "");
+    formData.append("eventDate[location]", data.eventDate?.location ?? "");
+    formData.append("registration", data.registration.toString());
 
     if (data.tags) {
-      const tagsArray = data.tags.split(',').map(tag => tag.trim());
-      tagsArray.forEach(tag => {
-        formData.append('tags[]', tag);
+      const tagsArray = data.tags.split(",").map((tag) => tag.trim());
+      tagsArray.forEach((tag) => {
+        formData.append("tags[]", tag);
       });
     }
 
     if (selectedFile) {
-      formData.append('img', selectedFile);
+      formData.append("img", selectedFile);
     }
 
     mutate(formData);
@@ -125,24 +125,24 @@ export default function CreateEvent() {
                 name="title"
                 register={register}
                 error={errors.title}
-                validation={{ required: 'Поле обов’язкове для заповнення' }}
+                validation={{ required: "Поле обов’язкове для заповнення" }}
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-8 mb-8">
+            <div className="mb-8 grid grid-cols-2 gap-8">
               <div>
-                <div className="flex justify-center items-center w-full h-[380px] bg-black-100 bg-cover bg-center overflow-hidden relative">
+                <div className="relative flex h-[380px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
                   <input
                     type="file"
                     id="file"
-                    className="w-full h-full opacity-0 cursor-pointer absolute inset-0 z-20"
+                    className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
                     accept="image/png, image/jpeg, image/jpg"
-                    {...register('file', {
+                    {...register("file", {
                       // required: 'Файл обов’язковий',
                       onChange: handleChangeImg,
                     })}
                   />
-                  <span className="text-white absolute z-10">
+                  <span className="absolute z-10 text-white">
                     Виберіть зображення
                   </span>
                   {previewImg && <img src={previewImg} alt="Preview" />}
@@ -161,7 +161,7 @@ export default function CreateEvent() {
                   name="publicationDate"
                   register={register}
                   error={errors.publicationDate}
-                  validation={{ required: 'Поле обов’язкове для заповнення' }}
+                  validation={{ required: "Поле обов’язкове для заповнення" }}
                 />
                 <AdminFormItem
                   labelText="Опис події"
@@ -170,7 +170,7 @@ export default function CreateEvent() {
                   name="description"
                   register={register}
                   error={errors.description}
-                  validation={{ required: 'Поле обов’язкове для заповнення' }}
+                  validation={{ required: "Поле обов’язкове для заповнення" }}
                 />
                 <AdminFormItem
                   labelText="Дата події"
@@ -198,9 +198,9 @@ export default function CreateEvent() {
                     name="tags"
                     labelText="Тег події"
                     control={control}
-                    onChange={option => setValue('tags', option?.value ?? '')}
+                    onChange={(option) => setValue("tags", option?.value ?? "")}
                     errors={errors}
-                    validation={{ required: 'Поле обов’язкове для заповнення' }}
+                    validation={{ required: "Поле обов’язкове для заповнення" }}
                   />
                   <AdminFormItem
                     labelText="Потрібна реєстрація"

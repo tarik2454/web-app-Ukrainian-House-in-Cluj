@@ -1,6 +1,6 @@
-import Container from '../../shared/components/Container';
-import Section from '../../shared/components/Section';
-import SectionTitle from '../../shared/components/SectionTitle';
+import Container from "../../shared/components/Container";
+import Section from "../../shared/components/Section";
+import SectionTitle from "../../shared/components/SectionTitle";
 
 export default function About() {
   return (
@@ -43,7 +43,7 @@ export default function About() {
           </p>
 
           <div>
-            <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
+            <h3 className="mb-3 font-inter-600 text-lg font-semibold text-black-200 dark:text-dark-title">
               Нашi послуги
             </h3>
             <ul className="list-disc pl-5">

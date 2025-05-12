@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import useScrollToTop from '../../shared/hooks/useScrollToTop';
+import useScrollToTop from "../../shared/hooks/useScrollToTop";
 
-import Section from '../../shared/components/Section';
-import Container from '../../shared/components/Container';
-import SectionTitle from '../../shared/components/SectionTitle';
-import EventsTagsFilter from './components/EventsTagsFilter';
-import EventsList from './components/EventsList';
+import Section from "../../shared/components/Section";
+import Container from "../../shared/components/Container";
+import SectionTitle from "../../shared/components/SectionTitle";
+import EventsTagsFilter from "./components/EventsTagsFilter";
+import EventsList from "./components/EventsList";
 
 interface EventsSectionProps {
   mainPage?: boolean;
@@ -30,7 +30,7 @@ export default function Events({ mainPage }: EventsSectionProps) {
   return (
     <Section>
       <Container>
-        <SectionTitle>{mainPage ? 'Останні події' : 'Події'}</SectionTitle>
+        <SectionTitle>{mainPage ? "Останні події" : "Події"}</SectionTitle>
 
         {mainPage ? (
           <EventsList mainPage={mainPage} />

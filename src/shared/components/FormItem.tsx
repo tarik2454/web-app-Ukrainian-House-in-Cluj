@@ -5,15 +5,15 @@ import {
   FieldError,
   Controller,
   Control,
-} from 'react-hook-form';
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
-import flags from 'react-phone-number-input/flags';
-import ua from 'react-phone-number-input/locale/ua';
+} from "react-hook-form";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import flags from "react-phone-number-input/flags";
+import ua from "react-phone-number-input/locale/ua";
 
 interface FormItemProps<T extends FieldValues> {
   id?: string;
-  type?: 'text' | 'email' | 'textarea' | 'tel' | 'date';
+  type?: "text" | "email" | "textarea" | "tel" | "date";
   labelText?: string;
   name: Path<T>;
   placeholder?: string;
@@ -36,10 +36,10 @@ export default function FormItem<T extends FieldValues>({
 }: FormItemProps<T>) {
   return (
     <div>
-      <label htmlFor={id} className="block mb-1">
+      <label htmlFor={id} className="mb-1 block">
         {labelText}
       </label>
-      {type === 'text' && (
+      {type === "text" && (
         <input
           type="text"
           id={id}
@@ -48,7 +48,7 @@ export default function FormItem<T extends FieldValues>({
           {...register(name)}
         />
       )}
-      {type === 'email' && (
+      {type === "email" && (
         <input
           type="email"
           id={id}
@@ -57,7 +57,7 @@ export default function FormItem<T extends FieldValues>({
           {...register(name)}
         />
       )}
-      {type === 'tel' && (
+      {type === "tel" && (
         <Controller
           control={control}
           name={name}
@@ -71,16 +71,16 @@ export default function FormItem<T extends FieldValues>({
               flags={flags}
               labels={ua}
               value={field.value}
-              onChange={value => field.onChange(value)}
+              onChange={(value) => field.onChange(value)}
               placeholder={placeholder}
             />
           )}
         />
       )}
-      {type === 'date' && (
+      {type === "date" && (
         <input type="date" id={id} className="input" {...register(name)} />
       )}
-      {type === 'textarea' && (
+      {type === "textarea" && (
         <textarea
           id={id}
           className="textarea resize-y"

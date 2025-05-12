@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import Select, { SingleValue } from 'react-select';
-import classNames from 'classnames';
-import { twMerge } from 'tailwind-merge';
-import { Controller, FieldErrors, Control } from 'react-hook-form';
+import { useState } from "react";
+import Select, { SingleValue } from "react-select";
+import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
+import { Controller, FieldErrors, Control } from "react-hook-form";
 
-import tagColors from '../../constants/tag-colors';
-import { EventDataProps } from '@/types/eventsProps';
+import tagColors from "../../constants/tag-colors";
+import { EventDataProps } from "@/types/eventsProps";
 
 interface Option {
   value: string;
@@ -33,11 +33,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   errors,
   validation,
   onChange,
-  placeholderText = '...',
+  placeholderText = "...",
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-  const options: Option[] = Object.keys(tagColors).map(tag => ({
+  const options: Option[] = Object.keys(tagColors).map((tag) => ({
     value: tag,
     label: tag,
   }));
@@ -47,8 +47,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       {labelText && (
         <label
           htmlFor={id}
-          className={twMerge('block mb-1 cursor-pointer', stylesLabel)}
-          onClick={() => setMenuIsOpen(prev => !prev)}
+          className={twMerge("mb-1 block cursor-pointer", stylesLabel)}
+          onClick={() => setMenuIsOpen((prev) => !prev)}
         >
           {labelText}
         </label>
@@ -62,11 +62,11 @@ const Dropdown: React.FC<DropdownProps> = ({
             {...field}
             value={
               field.value
-                ? options.find(option => option.value === field.value)
+                ? options.find((option) => option.value === field.value)
                 : null
             }
-            onChange={option => {
-              field.onChange(option?.value ?? '');
+            onChange={(option) => {
+              field.onChange(option?.value ?? "");
               if (onChange) onChange(option);
             }}
             options={options}
@@ -75,37 +75,37 @@ const Dropdown: React.FC<DropdownProps> = ({
             menuIsOpen={menuIsOpen}
             placeholder={placeholderText}
             classNames={{
-              control: state =>
+              control: (state) =>
                 classNames(
-                  'input !min-h-0 !cursor-pointer',
-                  state.isFocused && '!border-opacity-100'
+                  "input !min-h-0 !cursor-pointer",
+                  state.isFocused && "!border-opacity-100",
                 ),
               menu: () =>
                 twMerge(
-                  'w-full my-2 border-[1px] border-slate-300 rounded-default overflow-hidden absolute'
+                  "w-full my-2 border-[1px] border-slate-300 rounded-default overflow-hidden absolute",
                 ),
-              option: state => {
+              option: (state) => {
                 const colorClasses = tagColors[state.data.value];
                 return classNames(
-                  'px-4 py-2 border-b-[1px] border-slate-300 !cursor-pointer last:border-b-0',
+                  "px-4 py-2 border-b-[1px] border-slate-300 !cursor-pointer last:border-b-0",
                   colorClasses?.bgClass,
                   colorClasses?.textClass,
-                  state.isSelected && ''
+                  state.isSelected && "",
                 );
               },
-              singleValue: state => {
+              singleValue: (state) => {
                 const colorClasses = tagColors[state.data.value];
                 return classNames(
-                  'flex items-center rounded pl-2',
+                  "flex items-center rounded pl-2",
                   colorClasses?.bgClass,
-                  colorClasses?.textClass
+                  colorClasses?.textClass,
                 );
               },
 
-              placeholder: () => classNames('text-inherit'),
+              placeholder: () => classNames("text-inherit"),
             }}
             unstyled={true}
-            menuPlacement={'auto'}
+            menuPlacement={"auto"}
             maxMenuHeight={450}
           />
         )}

@@ -16,11 +16,11 @@ export default function TeamCard({
       <img
         className="mb-5"
         src={img}
-        width={'100%'}
-        height={'100%'}
+        width={"100%"}
+        height={"100%"}
         alt={name}
       />
-      <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
+      <h3 className="mb-3 font-inter-600 text-lg font-semibold text-black-200 dark:text-dark-title">
         {name}
       </h3>
       <p className="mb-3">{position}</p>

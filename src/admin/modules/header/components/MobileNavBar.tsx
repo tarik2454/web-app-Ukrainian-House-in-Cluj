@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import useRoutesByKey from '@/shared/hooks/useRoutesByKey';
-import MobileProfile from './MobileProfile';
+import useRoutesByKey from "@/shared/hooks/useRoutesByKey";
+import MobileProfile from "./MobileProfile";
 
 export default function MobileNavBar({
   navBarDisplay,
@@ -9,10 +9,10 @@ export default function MobileNavBar({
   navBarDisplay: string;
 }) {
   const { routes, activePath, handleClickLink } = useRoutesByKey([
-    'ADMIN_MAIN',
-    'CREATE_NEWS',
-    'CREATE_SCHEDULE',
-    'CREATE_EVENT',
+    "ADMIN_MAIN",
+    "CREATE_NEWS",
+    "CREATE_SCHEDULE",
+    "CREATE_EVENT",
   ]);
 
   return (
@@ -23,10 +23,9 @@ export default function MobileNavBar({
             <Link
               to={path}
               onClick={() => handleClickLink(path)}
-              className={`block rounded-md px-3 py-2 text-base font-medium text-gray-300 
-                hover:bg-gray-700 hover:text-white ${
-                  activePath === path ? 'bg-gray-700 text-white' : ''
-                }`}
+              className={`block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                activePath === path ? "bg-gray-700 text-white" : ""
+              }`}
             >
               {name}
             </Link>

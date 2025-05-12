@@ -1,8 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
 
-import { routes } from './constants/routes';
-import Layout from './layout/Layout';
+import { routes } from "./constants/routes";
+import Layout from "./layout/Layout";
 import {
   Home,
   News,
@@ -10,14 +10,14 @@ import {
   AboutUs,
   WorkSchedule,
   EventDetails,
-} from './pages';
-import Loader from './shared/components/Loader';
+} from "./pages";
+import Loader from "./shared/components/Loader";
 
-import CreateNews from './admin/pages/CreateNews';
-import AdminLayout from './admin/layout/AdminLayout';
-import MainAdmin from './admin/pages/MainAdminPage';
-import CreateEvent from './admin/pages/CreateEvent';
-import CreateWorkSchedule from './admin/pages/CreateWorkSchedule';
+import CreateNews from "./admin/pages/CreateNews";
+import AdminLayout from "./admin/layout/AdminLayout";
+import MainAdmin from "./admin/pages/MainAdminPage";
+import CreateEvent from "./admin/pages/CreateEvent";
+import CreateWorkSchedule from "./admin/pages/CreateWorkSchedule";
 
 export function App() {
   return (

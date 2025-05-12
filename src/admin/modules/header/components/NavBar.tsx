@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import useRoutesByKey from '@/shared/hooks/useRoutesByKey';
+import useRoutesByKey from "@/shared/hooks/useRoutesByKey";
 
 export default function NavBar() {
   const { routes, activePath, handleClickLink } = useRoutesByKey([
-    'ADMIN_MAIN',
-    'CREATE_NEWS',
-    'CREATE_SCHEDULE',
-    'CREATE_EVENT',
+    "ADMIN_MAIN",
+    "CREATE_NEWS",
+    "CREATE_SCHEDULE",
+    "CREATE_EVENT",
   ]);
 
   return (
@@ -18,9 +18,8 @@ export default function NavBar() {
             <Link
               to={path}
               onClick={() => handleClickLink(path)}
-              className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 
-              hover:bg-gray-700 hover:text-white ${
-                activePath === path ? 'bg-gray-700' : ''
+              className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                activePath === path ? "bg-gray-700" : ""
               }`}
             >
               {name}

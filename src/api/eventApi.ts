@@ -1,9 +1,9 @@
-import { API } from './index';
+import { API } from "./index";
 
-import { EventDataProps } from '@/types/eventsProps';
+import { EventDataProps } from "@/types/eventsProps";
 
 export const fetchEvents = async () => {
-  const { data } = await API.get('/events');
+  const { data } = await API.get("/events");
   return data;
 };
 
@@ -13,13 +13,13 @@ export const fetchEventById = async (id: number) => {
 };
 
 export const createEvent = async (formData: FormData) => {
-  const { data } = await API.post('/events', formData);
+  const { data } = await API.post("/events", formData);
   return data;
 };
 
 export const updateEvent = async (
   id: number,
-  data: Partial<EventDataProps>
+  data: Partial<EventDataProps>,
 ) => {
   const { data: response } = await API.put(`/events/${id}`, data);
   return response;
@@ -27,7 +27,7 @@ export const updateEvent = async (
 
 export const updateFavoriteEvent = async (
   id: number,
-  data: Partial<EventDataProps>
+  data: Partial<EventDataProps>,
 ) => {
   const { data: response } = await API.patch(`/events/${id}/favorite`, data);
   return response;

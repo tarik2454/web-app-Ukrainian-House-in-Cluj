@@ -10,7 +10,7 @@ export const SpriteSVG = ({
   height?: string;
 }) => {
   switch (name) {
-    case 'sun':
+    case "sun":
       return (
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <g fill="currentColor">
@@ -19,14 +19,14 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'moon':
+    case "moon":
       return (
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <rect width="24" height="24" fill="currentColor" rx="12" />
         </svg>
       );
 
-    case 'arrow-right':
+    case "arrow-right":
       return (
         <svg width="20" height="21" fill="none" viewBox="0 0 20 21">
           <path
@@ -39,7 +39,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'arrow-left':
+    case "arrow-left":
       return (
         <svg width="20" height="21" fill="none" viewBox="0 0 20 21">
           <path
@@ -52,7 +52,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'facebook':
+    case "facebook":
       return (
         <svg width="50" height="50" fill="none" viewBox="0 0 512 512">
           <path
@@ -64,7 +64,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'telegram':
+    case "telegram":
       return (
         <svg width="46" height="46" fill="none" viewBox="0 0 512 512">
           <path
@@ -77,7 +77,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'instagram':
+    case "instagram":
       return (
         <svg width="44" height="44" fill="none" viewBox="0 0 512 512">
           <path
@@ -89,7 +89,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'close':
+    case "close":
       return (
         <svg width="40" height="40" fill="none" viewBox="0 0 24 24">
           <path
@@ -101,7 +101,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'alarm':
+    case "alarm":
       return (
         <svg width={width} height={height} viewBox="0 0 256 256">
           <path
@@ -131,7 +131,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'clock':
+    case "clock":
       return (
         <svg
           aria-hidden="true"
@@ -162,7 +162,7 @@ export const SpriteSVG = ({
         </svg>
       );
 
-    case 'location':
+    case "location":
       return (
         <svg
           className={className}
@@ -187,6 +187,6 @@ export const SpriteSVG = ({
       );
 
     default:
-      return 'SVG not found';
+      return "SVG not found";
   }
 };

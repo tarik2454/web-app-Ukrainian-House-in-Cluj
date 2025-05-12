@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
-import { SpriteSVG } from '../../../assets/images/SpriteSVG';
+import { useEffect, useState } from "react";
+import { SpriteSVG } from "../../../assets/images/SpriteSVG";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [theme]);
 
   const handleThemeLight = () => {
-    setTheme(' light');
+    setTheme(" light");
   };
 
   const handleThemeBlack = () => {
-    setTheme('dark');
+    setTheme("dark");
   };
 
   return (
-    <div className="flex gap-3 px-3 py-2 text-white bg-black-300 rounded-lg dark:bg-white dark:text-black-300">
+    <div className="flex gap-3 rounded-lg bg-black-300 px-3 py-2 text-white dark:bg-white dark:text-black-300">
       <button onClick={handleThemeLight}>
         <SpriteSVG name="sun" />
       </button>

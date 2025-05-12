@@ -4,12 +4,12 @@ import {
   Path,
   FieldError,
   RegisterOptions,
-} from 'react-hook-form';
-import { twMerge } from 'tailwind-merge';
+} from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 
 interface FormItemProps<T extends FieldValues> {
   id?: string;
-  type?: 'text' | 'email' | 'textarea' | 'date' | 'checkbox' | 'radio';
+  type?: "text" | "email" | "textarea" | "date" | "checkbox" | "radio";
   labelText?: string;
   name: Path<T>;
   placeholder?: string;
@@ -37,52 +37,52 @@ export default function AdminFormItem<T extends FieldValues>({
   return (
     <div
       className={`${
-        type === 'checkbox'
-          ? 'flex flex-wrap-reverse items-center gap-3 justify-end'
-          : ''
+        type === "checkbox"
+          ? "flex flex-wrap-reverse items-center justify-end gap-3"
+          : ""
       }`}
     >
       {labelText && (
-        <label htmlFor={id} className={twMerge('block mb-1', stylesLabel)}>
+        <label htmlFor={id} className={twMerge("mb-1 block", stylesLabel)}>
           {labelText}
         </label>
       )}
-      {type === 'text' && (
+      {type === "text" && (
         <input
           type="text"
           id={id}
           placeholder={placeholder}
           {...register(name, validation)}
-          className={twMerge('input', stylesField)}
+          className={twMerge("input", stylesField)}
         />
       )}
-      {type === 'email' && (
+      {type === "email" && (
         <input
           type="email"
           id={id}
           placeholder={placeholder}
           {...register(name, validation)}
-          className={twMerge('input', stylesField)}
+          className={twMerge("input", stylesField)}
         />
       )}
-      {type === 'date' && (
+      {type === "date" && (
         <input
           type="date"
           id={id}
           {...register(name, validation)}
-          className={twMerge('input', stylesField)}
+          className={twMerge("input", stylesField)}
         />
       )}
-      {type === 'textarea' && (
+      {type === "textarea" && (
         <textarea
           id={id}
           placeholder={placeholder}
           {...register(name, validation)}
-          className={twMerge('textarea', stylesField)}
+          className={twMerge("textarea", stylesField)}
           rows={1}
         />
       )}
-      {type === 'checkbox' && (
+      {type === "checkbox" && (
         <input
           type="checkbox"
           id={id}
@@ -91,7 +91,7 @@ export default function AdminFormItem<T extends FieldValues>({
           className={stylesField}
         />
       )}
-      {type === 'radio' && (
+      {type === "radio" && (
         <input
           type="radio"
           id={id}

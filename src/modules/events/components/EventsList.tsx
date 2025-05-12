@@ -1,11 +1,11 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
-import { useEvents } from '@/hooks/useEvent';
+import { useEvents } from "@/hooks/useEvent";
 
-import Pagination from '@/shared/components/Pagination';
-import EventsCard from './EventsCard';
+import Pagination from "@/shared/components/Pagination";
+import EventsCard from "./EventsCard";
 
-import { EventDataProps } from '@/types/eventsProps';
+import { EventDataProps } from "@/types/eventsProps";
 
 interface EventsProps {
   mainPage?: boolean;
@@ -47,7 +47,7 @@ export default function EventsList({
     <>
       <div
         className={twMerge(
-          mainPage ? 'grid grid-cols-[1.6fr_2fr] gap-8' : 'flex flex-col'
+          mainPage ? "grid grid-cols-[1.6fr_2fr] gap-8" : "flex flex-col",
         )}
       >
         {mainPage && (

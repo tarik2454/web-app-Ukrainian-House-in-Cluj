@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function PageTitle({
   children,
@@ -12,7 +12,7 @@ export default function PageTitle({
     <h1
       className={twMerge(
         `mb-8 font-inter-600 text-2xl font-semibold text-black-200`,
-        styles
+        styles,
       )}
     >
       {children}

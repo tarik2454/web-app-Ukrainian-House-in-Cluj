@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 import {
   createNewsItem,
@@ -6,20 +6,20 @@ import {
   fetchNews,
   fetchNewsItemById,
   updateNewsItem,
-} from '@/api/newsItemApi';
+} from "@/api/newsItemApi";
 
-import { NewsDataProps } from '@/types/newsProps';
+import { NewsDataProps } from "@/types/newsProps";
 
 export const useNews = () => {
   return useQuery({
-    queryKey: ['news'],
+    queryKey: ["news"],
     queryFn: fetchNews,
   });
 };
 
 export const useNewsItem = (id: number) => {
   return useQuery({
-    queryKey: ['newsItem', id],
+    queryKey: ["newsItem", id],
     queryFn: () => fetchNewsItemById(id),
     enabled: !!id,
   });
@@ -32,7 +32,7 @@ export const useCreateNewsItem = () => {
   return useMutation({
     mutationFn: createNewsItem,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['news'] });
+      queryClient.invalidateQueries({ queryKey: ["news"] });
     },
   });
 };
@@ -44,8 +44,8 @@ export const useUpdateNewsItem = () => {
     mutationFn: ({ id, data }: { id: number; data: Partial<NewsDataProps> }) =>
       updateNewsItem(id, data),
     onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['newsItem', id] }); // ✅ сбрасываем кеш новости
-      queryClient.invalidateQueries({ queryKey: ['news'] });
+      queryClient.invalidateQueries({ queryKey: ["newsItem", id] }); // ✅ сбрасываем кеш новости
+      queryClient.invalidateQueries({ queryKey: ["news"] });
     },
   });
 };
@@ -56,8 +56,8 @@ export const useDeleteNewsItem = () => {
   return useMutation({
     mutationFn: (id: number) => deleteNewsItem(id),
     onSuccess: (_, id) => {
-      queryClient.invalidateQueries({ queryKey: ['news'] });
-      queryClient.invalidateQueries({ queryKey: ['newsItem', id] });
+      queryClient.invalidateQueries({ queryKey: ["news"] });
+      queryClient.invalidateQueries({ queryKey: ["newsItem", id] });
     },
   });
 };

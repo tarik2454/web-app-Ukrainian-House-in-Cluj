@@ -1,8 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
 export default function useScrollToTop() {
   const scrollSmooth = useCallback(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   const scrollRough = useCallback(() => {

@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface PageWrapperProps {
   children: ReactNode;
@@ -8,6 +8,6 @@ interface PageWrapperProps {
 
 export default function PageWrapper({ children, styles }: PageWrapperProps) {
   return (
-    <div className={twMerge('pt-[110px] pb-[30px]', styles)}>{children}</div>
+    <div className={twMerge("pb-[30px] pt-[110px]", styles)}>{children}</div>
   );
 }

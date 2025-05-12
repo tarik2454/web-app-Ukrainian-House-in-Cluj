@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function Section({
   children,
@@ -9,7 +9,7 @@ export default function Section({
   styles?: string;
 }) {
   return (
-    <section className={twMerge(`pt-[30px] pb-[30px]`, styles)}>
+    <section className={twMerge(`pb-[30px] pt-[30px]`, styles)}>
       {children}
     </section>
   );

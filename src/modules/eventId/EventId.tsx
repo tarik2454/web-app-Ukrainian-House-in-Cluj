@@ -1,13 +1,13 @@
 // import { useParams } from 'react-router-dom';
 
-import useModal from '../../shared/hooks/useModal';
-import eventPostId from '../../shared/data/event-post-id';
+import useModal from "../../shared/hooks/useModal";
+import eventPostId from "../../shared/data/event-post-id";
 
-import { SpriteSVG } from '../../assets/images/SpriteSVG';
-import Section from '../../shared/components/Section';
-import SectionTitle from '../../shared/components/SectionTitle';
-import Modal from '../../shared/components/Modal';
-import EventRegisterModal from './components/EventRegisterModal';
+import { SpriteSVG } from "../../assets/images/SpriteSVG";
+import Section from "../../shared/components/Section";
+import SectionTitle from "../../shared/components/SectionTitle";
+import Modal from "../../shared/components/Modal";
+import EventRegisterModal from "./components/EventRegisterModal";
 
 export default function EventId() {
   // const { eventId } = useParams();
@@ -20,16 +20,13 @@ export default function EventId() {
   return (
     <div>
       <Section>
-        <p
-          className="mb-8 font-inter-600 font-semibold text-sm text-violet-300
-          dark:text-dark-date"
-        >
+        <p className="mb-8 font-inter-600 text-sm font-semibold text-violet-300 dark:text-dark-date">
           {date}
         </p>
-        <SectionTitle styles={'font-inter-700 font-bold text-4xl'}>
+        <SectionTitle styles={"font-inter-700 font-bold text-4xl"}>
           {title}
         </SectionTitle>
-        <img className="w-full h-full mb-5" src={imageUrl} alt={title} />
+        <img className="mb-5 h-full w-full" src={imageUrl} alt={title} />
 
         <div className="text-lg">
           <p
@@ -39,26 +36,25 @@ export default function EventId() {
 
           <div className="mb-6">
             <div className="flex items-center gap-[7px]">
-              <SpriteSVG name={'alarm'} width={'22'} height={'22'} />
+              <SpriteSVG name={"alarm"} width={"22"} height={"22"} />
               <p>{eventDate.date}</p>
             </div>
             <div className="flex items-center gap-[9px]">
-              <SpriteSVG name={'clock'} width={'20'} height={'20'} />
+              <SpriteSVG name={"clock"} width={"20"} height={"20"} />
               <p>{eventDate.time}</p>
             </div>
-            <div className="flex items-center gap-[8px] -ml-[1px]">
-              <SpriteSVG name={'location'} width={'23'} height={'22'} />
+            <div className="-ml-[1px] flex items-center gap-[8px]">
+              <SpriteSVG name={"location"} width={"23"} height={"22"} />
               <p>{eventDate.location}</p>
             </div>
           </div>
 
           {registration ? (
             <>
-              <div className="flex gap-2 mb-3">
+              <div className="mb-3 flex gap-2">
                 <p>Для запису необхідно зареєструватись: </p>
                 <button
-                  className="font-inter-600 font-semibold text-violet-300
-                  dark:text-dark-date"
+                  className="font-inter-600 font-semibold text-violet-300 dark:text-dark-date"
                   onClick={handleOpenModal}
                 >
                   Реєстрація
@@ -71,7 +67,7 @@ export default function EventId() {
       </Section>
 
       <Modal
-        modalTitle={'Форма реєстрації'}
+        modalTitle={"Форма реєстрації"}
         isOpen={isOpenModal}
         onClose={handleCloseModal}
       >

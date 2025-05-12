@@ -1,8 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
-import { SpriteSVG } from '../../assets/images/SpriteSVG';
-import { twMerge } from 'tailwind-merge';
-import useScrollToTop from '../hooks/useScrollToTop';
+import { ReactNode, useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { SpriteSVG } from "../../assets/images/SpriteSVG";
+import { twMerge } from "tailwind-merge";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 interface PaginationItemProps {
   id?: string;
@@ -31,7 +31,7 @@ export default function Pagination<T extends PaginationItemProps>({
 
   const currentItems = array.slice(
     currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
+    (currentPage + 1) * itemsPerPage,
   );
 
   const handlePageClick = (selectedPage: { selected: number }) => {
@@ -43,8 +43,8 @@ export default function Pagination<T extends PaginationItemProps>({
     <div>
       <ul
         className={twMerge(
-          array.length > itemsPerPage ? 'mb-[50px]' : '',
-          stylesUl
+          array.length > itemsPerPage ? "mb-[50px]" : "",
+          stylesUl,
         )}
       >
         {currentItems.map(renderItemLi)}
@@ -52,19 +52,19 @@ export default function Pagination<T extends PaginationItemProps>({
 
       {array.length > itemsPerPage && (
         <ReactPaginate
-          className="flex justify-center items-center gap-[2px] relative"
+          className="relative flex items-center justify-center gap-[2px]"
           pageClassName="flex justify-center items-center w-[40px] h-[40px]"
           pageLinkClassName="flex justify-center items-center w-[40px] h-[40px] font-inter-500 font-medium text-sm rounded-sm cursor-pointer"
           activeLinkClassName="text-violet-200 bg-violet-100"
           breakLabel="..."
           previousLabel={
-            <div className="flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2">
+            <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center gap-2">
               <SpriteSVG name="arrow-left" />
               <span>Сюди</span>
             </div>
           }
           nextLabel={
-            <div className="flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2">
+            <div className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-2">
               <span>Туди</span>
               <SpriteSVG name="arrow-right" />
             </div>

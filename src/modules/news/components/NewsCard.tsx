@@ -1,6 +1,6 @@
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
-import NewsProps from '../types/newsProps';
+import NewsProps from "../types/newsProps";
 
 export default function NewsCard({
   product,
@@ -14,21 +14,18 @@ export default function NewsCard({
   return (
     <div>
       {!mainPage && (
-        <p
-          className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
-         dark:text-dark-date"
-        >
+        <p className="mb-2 font-inter-600 text-sm font-semibold text-violet-300 dark:text-dark-date">
           {date}
         </p>
       )}
-      <h3 className="mb-3 font-inter-600 font-semibold text-lg text-black-200 dark:text-dark-title">
+      <h3 className="mb-3 font-inter-600 text-lg font-semibold text-black-200 dark:text-dark-title">
         {title}
       </h3>
       <div>
         {image && (
           <img
             className={`float-left mr-6 ${
-              mainPage ? 'w-[200px] h-[120px]' : 'w-[320px] h-[200px]'
+              mainPage ? "h-[120px] w-[200px]" : "h-[200px] w-[320px]"
             }`}
             src={image}
             alt={title}
@@ -37,10 +34,7 @@ export default function NewsCard({
 
         <div>
           {mainPage && (
-            <p
-              className="mb-2 font-inter-600 text-sm font-semibold text-violet-300
-             dark:text-dark-date"
-            >
+            <p className="dark:text-dark-datetext-sm mb-2 font-inter-600 font-semibold text-violet-300">
               {date}
             </p>
           )}

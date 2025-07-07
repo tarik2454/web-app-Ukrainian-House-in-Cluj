@@ -5,11 +5,11 @@ export interface EventDataProps {
   img?: string;
   file?: File | null;
   description: string;
-  // eventDate: {
-  //   date: string;
-  //   time: string;
-  //   location: string;
-  // };
+  eventDate?: {
+    date?: string;
+    time?: string;
+    location?: string;
+  };
   registration?: boolean;
   tags: string[];
   favorite?: boolean;

@@ -1,11 +1,8 @@
 import { twMerge } from "tailwind-merge";
 
-import { useEvents } from "@/hooks/useEvent";
-
-import Pagination from "@/shared/components/Pagination";
+import eventsData from "../../../shared/data/events-data";
+import Pagination from "../../../shared/components/Pagination";
 import EventsCard from "./EventsCard";
-
-import { EventDataProps } from "@/types/eventsProps";
 
 interface EventsProps {
   mainPage?: boolean;
@@ -13,19 +10,16 @@ interface EventsProps {
   selectedTag?: string;
 }
 
+console.log(eventsData);
+
 export default function EventsList({
   mainPage = false,
   detailsPage,
   selectedTag,
 }: EventsProps) {
-  const { data: events, isLoading, isError } = useEvents();
-
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading events</p>;
-
   const filteredEvents = selectedTag
-    ? events.filter((event: EventDataProps) => event.tags.includes(selectedTag))
-    : events;
+    ? eventsData.filter((event) => event.tags.includes(selectedTag))
+    : eventsData;
 
   const itemsPerPage = 12;
   const startIndex = detailsPage ? 0 : 1;
@@ -33,7 +27,7 @@ export default function EventsList({
 
   const slicedEvents = filteredEvents.slice(startIndex, endIndex);
 
-  const renderItemLi = (item: EventDataProps) => (
+  const renderItemLi = (item: (typeof eventsData)[number]) => (
     <li key={item.id} className="flex">
       <EventsCard
         product={item}
@@ -52,7 +46,7 @@ export default function EventsList({
       >
         {mainPage && (
           <ul>
-            {slicedEvents.slice(0, 1).map((product: EventDataProps) => (
+            {slicedEvents.slice(0, 1).map((product) => (
               <li key={product.id}>
                 <EventsCard product={product} mainPage singleEvent />
               </li>
@@ -62,7 +56,7 @@ export default function EventsList({
 
         {(mainPage || detailsPage) && (
           <ul className="flex flex-col gap-8">
-            {slicedEvents.map((product: EventDataProps) => (
+            {slicedEvents.map((product) => (
               <li key={product.id}>
                 <EventsCard
                   product={product}

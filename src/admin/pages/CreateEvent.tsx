@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useCreateEvent } from "@/hooks/useEvent";
-
-import PageTitle from "@/shared/components/PageTitle";
-import Button from "@/shared/components/Button";
 import AdminFormItem from "../components/AdminFormItem";
 import Dropdown from "../components/Dropdown";
-
-import { EventDataProps } from "@/types/eventsProps";
+import { EventDataProps } from "../../types/eventsProps";
+import PageTitle from "../../shared/components/PageTitle";
+import Button from "../../shared/components/Button";
 
 export default function CreateEvent() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const { mutate, isPending, isError } = useCreateEvent();
 
   const {
     register,
@@ -94,7 +89,7 @@ export default function CreateEvent() {
       formData.append("img", selectedFile);
     }
 
-    mutate(formData);
+    console.log(formData);
   };
 
   useEffect(() => {
@@ -107,125 +102,117 @@ export default function CreateEvent() {
 
   return (
     <>
-      {isPending && <p>Loading...</p>}
-      {isError && <p>Error loading events</p>}
+      <PageTitle styles="font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300">
+        Створити подію
+      </PageTitle>
 
-      {!isPending && !isError && (
-        <>
-          <PageTitle styles="font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300">
-            Створити подію
-          </PageTitle>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-8">
+          <AdminFormItem
+            labelText="Назва події"
+            type="text"
+            id="title"
+            name="title"
+            register={register}
+            error={errors.title}
+            validation={{ required: "Поле обов’язкове для заповнення" }}
+          />
+        </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-8">
-              <AdminFormItem
-                labelText="Назва події"
-                type="text"
-                id="title"
-                name="title"
-                register={register}
-                error={errors.title}
+        <div className="mb-8 grid grid-cols-2 gap-8">
+          <div>
+            <div className="relative flex h-[380px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
+              <input
+                type="file"
+                id="file"
+                className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
+                accept="image/png, image/jpeg, image/jpg"
+                {...register("file", {
+                  onChange: handleChangeImg,
+                })}
+              />
+              <span className="absolute z-10 text-white">
+                Виберіть зображення
+              </span>
+              {previewImg && <img src={previewImg} alt="Preview" />}
+            </div>
+            {errors.file && !fileError && (
+              <span className="error">{errors.file.message}</span>
+            )}
+            {fileError && <span className="error">{fileError}</span>}
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <AdminFormItem
+              labelText="Дата проведення"
+              type="date"
+              id="publicationDate"
+              name="publicationDate"
+              register={register}
+              error={errors.publicationDate}
+              validation={{ required: "Поле обов’язкове для заповнення" }}
+            />
+            <AdminFormItem
+              labelText="Опис події"
+              type="textarea"
+              id="description"
+              name="description"
+              register={register}
+              error={errors.description}
+              validation={{ required: "Поле обов’язкове для заповнення" }}
+            />
+            <AdminFormItem
+              labelText="Дата події"
+              type="date"
+              id="eventDateDate"
+              name="eventDate.date"
+              register={register}
+            />
+            <AdminFormItem
+              labelText="Час події"
+              type="text"
+              id="eventDateTime"
+              name="eventDate.time"
+              register={register}
+            />
+            <AdminFormItem
+              labelText="Локація події"
+              type="text"
+              id="eventDateLocation"
+              name="eventDate.location"
+              register={register}
+            />
+            <div className="grid grid-cols-2 gap-3">
+              <Dropdown
+                name="tags"
+                labelText="Тег події"
+                control={control}
+                onChange={(option) => setValue("tags", option?.value ?? "")}
+                errors={errors}
                 validation={{ required: "Поле обов’язкове для заповнення" }}
               />
+              <AdminFormItem
+                labelText="Потрібна реєстрація"
+                type="checkbox"
+                id="registration"
+                name="registration"
+                register={register}
+                defaultChecked={false}
+                stylesField="mb-[2px]"
+              />
             </div>
+          </div>
+        </div>
 
-            <div className="mb-8 grid grid-cols-2 gap-8">
-              <div>
-                <div className="relative flex h-[380px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
-                  <input
-                    type="file"
-                    id="file"
-                    className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
-                    accept="image/png, image/jpeg, image/jpg"
-                    {...register("file", {
-                      // required: 'Файл обов’язковий',
-                      onChange: handleChangeImg,
-                    })}
-                  />
-                  <span className="absolute z-10 text-white">
-                    Виберіть зображення
-                  </span>
-                  {previewImg && <img src={previewImg} alt="Preview" />}
-                </div>
-                {errors.file && !fileError && (
-                  <span className="error">{errors.file.message}</span>
-                )}
-                {fileError && <span className="error">{fileError}</span>}
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <AdminFormItem
-                  labelText="Дата проведення"
-                  type="date"
-                  id="publicationDate"
-                  name="publicationDate"
-                  register={register}
-                  error={errors.publicationDate}
-                  validation={{ required: "Поле обов’язкове для заповнення" }}
-                />
-                <AdminFormItem
-                  labelText="Опис події"
-                  type="textarea"
-                  id="description"
-                  name="description"
-                  register={register}
-                  error={errors.description}
-                  validation={{ required: "Поле обов’язкове для заповнення" }}
-                />
-                <AdminFormItem
-                  labelText="Дата події"
-                  type="date"
-                  id="eventDateDate"
-                  name="eventDate.date"
-                  register={register}
-                />
-                <AdminFormItem
-                  labelText="Час події"
-                  type="text"
-                  id="eventDateTime"
-                  name="eventDate.time"
-                  register={register}
-                />
-                <AdminFormItem
-                  labelText="Локація події"
-                  type="text"
-                  id="eventDateLocation"
-                  name="eventDate.location"
-                  register={register}
-                />
-                <div className="grid grid-cols-2 gap-3">
-                  <Dropdown
-                    name="tags"
-                    labelText="Тег події"
-                    control={control}
-                    onChange={(option) => setValue("tags", option?.value ?? "")}
-                    errors={errors}
-                    validation={{ required: "Поле обов’язкове для заповнення" }}
-                  />
-                  <AdminFormItem
-                    labelText="Потрібна реєстрація"
-                    type="checkbox"
-                    id="registration"
-                    name="registration"
-                    register={register}
-                    defaultChecked={false}
-                    stylesField="mb-[2px]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-end">
-              <Button
-                type="submit"
-                styles="px-4 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
-              >
-                Опублікувати
-              </Button>
-            </div>
-          </form>
-        </>
-      )}
+        <div className="flex justify-end">
+          <Button
+            type="submit"
+            styles="px-4 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
+          >
+            Опублікувати
+          </Button>
+        </div>
+      </form>
     </>
   );
 }

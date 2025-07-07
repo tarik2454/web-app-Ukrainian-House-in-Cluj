@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { Controller, FieldErrors, Control } from "react-hook-form";
 
 import tagColors from "../../constants/tag-colors";
-import { EventDataProps } from "@/types/eventsProps";
+import { EventDataProps } from "../../types/eventsProps";
 
 interface Option {
   value: string;

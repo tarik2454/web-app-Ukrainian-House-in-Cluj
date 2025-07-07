@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-import { useCreateNewsItem } from "@/hooks/useNewsItem";
-
-import PageTitle from "@/shared/components/PageTitle";
-import Button from "@/shared/components/Button";
+import { NewsDataProps } from "../../types/newsProps";
+import PageTitle from "../../shared/components/PageTitle";
 import AdminFormItem from "../components/AdminFormItem";
-// import createFormDataObject from '@/shared/helpers/form-data-object';
-
-import { NewsDataProps } from "@/types/newsProps";
+import Button from "../../shared/components/Button";
 
 export default function CreateNews() {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const { mutate, isPending, isError } = useCreateNewsItem();
 
   const {
     register,
@@ -75,9 +68,7 @@ export default function CreateNews() {
       formData.append("file", selectedFile);
     }
 
-    // const dataObject = createFormDataObject(formData);
-
-    mutate(formData);
+    console.log(formData);
   };
 
   useEffect(() => {
@@ -89,91 +80,83 @@ export default function CreateNews() {
 
   return (
     <>
-      {isPending && <p>Loading...</p>}
-      {isError && <p>Error loading events</p>}
+      <PageTitle
+        styles={
+          "font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300"
+        }
+      >
+        Створити новину
+      </PageTitle>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-8">
+          <AdminFormItem
+            labelText={"Назва новини"}
+            type={"text"}
+            id={"title"}
+            name={"title"}
+            register={register}
+            error={errors.title}
+            validation={{ required: "Поле обов’язкове для заповнення" }}
+          />
+        </div>
 
-      {!isPending && !isError && (
-        <>
-          {" "}
-          <PageTitle
-            styles={
-              "font-inherit text-normal font-normal tracking-tight text-gray-900 pb-2 border-b-[1px] border-gray-300"
-            }
-          >
-            Створити новину
-          </PageTitle>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-8">
-              <AdminFormItem
-                labelText={"Назва новини"}
-                type={"text"}
-                id={"title"}
-                name={"title"}
-                register={register}
-                error={errors.title}
-                validation={{ required: "Поле обов’язкове для заповнення" }}
+        <div className="grid grid-cols-[_1fr,_2fr] gap-8">
+          <div>
+            <div className="relative flex h-[280px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
+              <input
+                type="file"
+                id="file"
+                className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
+                accept="image/png, image/jpeg, image/jpg"
+                {...register("file", {
+                  onChange: handleChangeImg,
+                })}
               />
+              <span className="absolute z-10 text-white">
+                Виберіть зображення
+              </span>
+              {previewImg && <img src={previewImg} alt="Preview" />}
             </div>
+            {errors.file && !fileError && (
+              <span className="error">{errors.file.message}</span>
+            )}
+            {fileError && <span className="error">{fileError}</span>}
+          </div>
 
-            <div className="grid grid-cols-[_1fr,_2fr] gap-8">
-              <div>
-                <div className="relative flex h-[280px] w-full items-center justify-center overflow-hidden bg-black-100 bg-cover bg-center">
-                  <input
-                    type="file"
-                    id="file"
-                    className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
-                    accept="image/png, image/jpeg, image/jpg"
-                    {...register("file", {
-                      onChange: handleChangeImg,
-                    })}
-                  />
-                  <span className="absolute z-10 text-white">
-                    Виберіть зображення
-                  </span>
-                  {previewImg && <img src={previewImg} alt="Preview" />}
-                </div>
-                {errors.file && !fileError && (
-                  <span className="error">{errors.file.message}</span>
-                )}
-                {fileError && <span className="error">{fileError}</span>}
-              </div>
+          <div className="flex flex-col gap-3">
+            <AdminFormItem
+              labelText={"Дата створення"}
+              type={"date"}
+              id={"date"}
+              name={"date"}
+              register={register}
+              error={errors.date}
+              validation={{ required: "Поле обов’язкове для заповнення" }}
+            />
 
-              <div className="flex flex-col gap-3">
-                <AdminFormItem
-                  labelText={"Дата створення"}
-                  type={"date"}
-                  id={"date"}
-                  name={"date"}
-                  register={register}
-                  error={errors.date}
-                  validation={{ required: "Поле обов’язкове для заповнення" }}
-                />
+            <AdminFormItem
+              labelText={"Опис новини"}
+              type={"textarea"}
+              id={"description"}
+              name={"description"}
+              register={register}
+              error={errors.description}
+              validation={{ required: "Поле обов’язкове для заповнення" }}
+            />
 
-                <AdminFormItem
-                  labelText={"Опис новини"}
-                  type={"textarea"}
-                  id={"description"}
-                  name={"description"}
-                  register={register}
-                  error={errors.description}
-                  validation={{ required: "Поле обов’язкове для заповнення" }}
-                />
-
-                <div className="mt-8 flex justify-end">
-                  <Button
-                    type={"submit"}
-                    styles={
-                      "px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
-                    }
-                  >
-                    Опублікувати
-                  </Button>
-                </div>
-              </div>
+            <div className="mt-8 flex justify-end">
+              <Button
+                type={"submit"}
+                styles={
+                  "px-4 py-2 bg-gray-800  text-gray-300 rounded hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
+                }
+              >
+                Опублікувати
+              </Button>
             </div>
-          </form>
-        </>
-      )}
+          </div>
+        </div>
+      </form>
     </>
   );
 }

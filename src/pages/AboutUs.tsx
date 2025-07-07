@@ -4,9 +4,9 @@ import useScrollToTop from "../shared/hooks/useScrollToTop";
 import Breadcrumbs from "../shared/components/Breadcrumbs";
 import PageTitle from "../shared/components/PageTitle";
 import PageWrapper from "../shared/components/PageWrapper";
-import Section from "src/shared/components/Section";
-import Container from "src/shared/components/Container";
-import SectionTitle from "src/shared/components/SectionTitle";
+import Section from "../shared/components/Section";
+import Container from "../shared/components/Container";
+import SectionTitle from "../shared/components/SectionTitle";
 
 export default function AboutUs() {
   const { scrollRough } = useScrollToTop();

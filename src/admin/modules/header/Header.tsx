@@ -5,7 +5,7 @@ import Notifications from "./components/Notifications";
 import ProfileDropdown from "./components/Profile";
 import NavBar from "./components/NavBar";
 import MobileMenuButton from "./components/MobileMenuButton";
-import Logo from "@/shared/components/Logo";
+import Logo from "../../../shared/components/Logo";
 
 export default function Header() {
   const [navBarDisplay, setNavBarDisplay] = useState("hidden");

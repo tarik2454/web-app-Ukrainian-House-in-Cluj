@@ -1,17 +1,17 @@
 export interface EventDataProps {
-  id?: string;
-  publicationDate: string;
+  id: string;
+  publicationDate?: string;
   title: string;
   img?: string;
   file?: File | null;
   description: string;
-  eventDate: {
-    date?: string;
-    time?: string;
-    location?: string;
-  };
-  registration: boolean;
-  tags: string;
+  // eventDate: {
+  //   date: string;
+  //   time: string;
+  //   location: string;
+  // };
+  registration?: boolean;
+  tags: string[];
   favorite?: boolean;
 }
 

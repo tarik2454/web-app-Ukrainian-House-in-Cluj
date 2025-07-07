@@ -10,8 +10,6 @@ interface EventsProps {
   selectedTag?: string;
 }
 
-console.log(eventsData);
-
 export default function EventsList({
   mainPage = false,
   detailsPage,
